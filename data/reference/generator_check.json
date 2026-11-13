@@ -1,0 +1,26 @@
+{
+  "what": "emoswitch.generate of this repository re-rendered two released runs on the GPU node with the same checkpoint; the wav hashes were compared with sha256_wav_source in data/manifest.jsonl",
+  "date": "2026-11-11",
+  "checkpoint_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+  "runs": {
+    "inline_p2a_s43": {
+      "clips": 24,
+      "byte_identical": 24,
+      "released_clips_rendered_by": "probe_inline.py of the source project, 2026-11-11"
+    },
+    "stitch_p2a_s43": {
+      "clips": 24,
+      "byte_identical": 24,
+      "released_clips_rendered_by": "probe_segcont.py of the source project, 2026-09-04"
+    }
+  },
+  "runs_rendered_by_this_generator_and_released": {
+    "runs": [
+      "stitch_heldout_s43",
+      "stitch_heldout_s44"
+    ],
+    "date": "2026-11-11",
+    "checkpoint_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+    "note": "date and checkpoint are stated by the author; the node kept no run record for them"
+  }
+}

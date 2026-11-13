@@ -1,0 +1,108 @@
+# Baseline experiment: single-pass natural-language instruction on the fine-tuned AR model R.
+# Every constant that was chosen for this experiment lives here and is read from here.
+name: baseline
+
+speaker: esd0016
+
+sets:
+  p2a: configs/phrases/p2a.json          # dev: detector constants were calibrated here
+  heldout: configs/phrases/heldout.json  # val: the number to quote
+
+# Commanded transitions (emotion of sentence 1 -> emotion of sentence 2).
+pairs:
+  - [happy, sad]
+  - [sad, happy]
+  - [sad, angry]
+  - [angry, sad]
+
+# Wording of the instruction channel the model was fine-tuned on.
+adverbs: {angry: angrily, happy: cheerfully, sad: sadly}
+
+# Nominal arousal of each emotion. Only the ORDER is used: it fixes the expected sign of the step.
+anchor_arousal: {angry: 0.64, happy: 0.57, sad: 0.29}
+
+# Word stems that mean "the model read its instruction aloud".
+leak_stems:
+  angry: [angry, angri, anger]
+  happy: [happy, happi, cheerful]
+  sad: [sad, sadly]
+
+systems:
+  nl_instruct:
+    role: baseline
+    instruct: "Say the first sentence {adv1} and the second sentence {adv2}"
+  stitch:
+    role: reference
+    instruct: "Say this {adv}"   # each sentence rendered on its own, then joined
+    crossfade_ms: 20
+  control:
+    role: "null"
+    instruct: "Say this {adv}"   # whole phrase, one emotion
+  plain:
+    role: "null"
+    instruct: null
+
+# Every released run: [kind, set, seed]. `inline` holds the baseline with its no-switch rows,
+# `stitch` the reference with its no-switch rows. On the dev set the reference has two seeds.
+runs:
+  - [inline, p2a, 42]
+  - [inline, heldout, 42]
+  - [inline, p2a, 43]
+  - [inline, heldout, 43]
+  - [inline, p2a, 44]
+  - [inline, heldout, 44]
+  - [stitch, p2a, 42]
+  - [stitch, p2a, 43]
+  - [stitch, heldout, 42]
+  - [stitch, heldout, 43]
+  - [stitch, heldout, 44]
+
+# Decoding. The first codebook is decoded greedily; the residual codebooks are sampled by the model's
+# sub-talker, so the seed changes the audio. The sub-talker values are the ones stored in the
+# checkpoint's own generation config and are passed explicitly.
+generation:
+  language: Auto
+  do_sample: false
+  repetition_penalty: 1.05
+  max_new_tokens: 400
+  subtalker_dosample: true
+  subtalker_temperature: 0.9
+  subtalker_top_k: 50
+  subtalker_top_p: 1.0
+
+judge:
+  model: audeering/wav2vec2-large-robust-12-ft-emotion-msp-dim
+  revision: 6eba34a2485ea31cb03600241787c3a5edab8626
+  sample_rate: 16000
+  lufs: -23.0
+  window_s: 1.0
+  hop_s: 0.25
+
+# Word timing comes from forced alignment of the known text (torchaudio MMS_FA, weights fetched by
+# torchaudio); it has no constants to set.
+
+asr:
+  model: large-v3   # Systran/faster-whisper-large-v3
+  revision: edaa852ec7e145841d8ffdb056a99866b5f0a478
+  language: en
+  compute_type: int8
+  beam_size: 5
+  temperature: 0.0
+  cpu_threads: 4
+  num_workers: 1
+  seed: 0
+
+detector:
+  min_abs_delta: 0.15          # |mean arousal after - before| at the switch word
+  max_changepoint_err_s: 0.75  # best split of the profile must sit this close to the switch word
+  min_seg_windows: 3           # windows required on each side of a candidate split
+  switch_search_from_frac: 0.25
+
+gates:
+  max_mean_wer: 0.10
+  loop_threshold_s: 15.0
+
+stats:
+  ci: 0.95
+  n_boot: 10000
+  seed: 0

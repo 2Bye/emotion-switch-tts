@@ -1,0 +1,10 @@
+{
+  "set": "p2a",
+  "role": "dev",
+  "note": "Development set. The detector threshold (0.15) and the change-point tolerance (0.75 s) were calibrated on control renders of these three phrases, so numbers on this set are not a clean estimate.",
+  "phrases": [
+    {"id": "p0", "s1": "We took the early train to the city.", "s2": "Later we walked to the old museum.", "switch_word": "later"},
+    {"id": "p1", "s1": "The documents are on the second shelf.", "s2": "Tomorrow the office opens at nine.", "switch_word": "tomorrow"},
+    {"id": "p2", "s1": "The meeting was moved to the next room.", "s2": "Afterwards everyone went back to work.", "switch_word": "afterwards"}
+  ]
+}

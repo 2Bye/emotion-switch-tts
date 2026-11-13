@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.egg-info/
+build/
+dist/
+# model caches and raw exports never go into git
+.cache/
+data/raw_export/
+*.safetensors
+*.pt
+*.pth
+data/audio_rendered/
+*.wav
