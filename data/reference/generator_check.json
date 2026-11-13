@@ -22,5 +22,26 @@
     "date": "2026-11-11",
     "checkpoint_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
     "note": "date and checkpoint are stated by the author; the node kept no run record for them"
+  },
+  "published_checkpoint_check": {
+    "what": "a fresh clone of this repository rendered one released run on the GPU node with the checkpoint downloaded from the Hugging Face Hub; the wav hashes were compared with sha256_wav_source in data/manifest.jsonl",
+    "date": "2026-11-13",
+    "repository_commit": "9d31961",
+    "checkpoint": "byebye9/qwen3-tts-emotion-instruct",
+    "checkpoint_revision": "47f851a9c8f32fb8a720c479e5a3509aa18cbd4b",
+    "checkpoint_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+    "environment": {
+      "gpu": "NVIDIA L40S",
+      "torch": "2.8.0+cu128",
+      "qwen-tts": "0.1.1",
+      "dtype": "bfloat16"
+    },
+    "runs": {
+      "inline_heldout_s42": {
+        "clips": 32,
+        "byte_identical": 32,
+        "released_clips_rendered_by": "probe_inline.py of the source project"
+      }
+    }
   }
 }

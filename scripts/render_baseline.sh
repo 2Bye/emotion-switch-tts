@@ -4,7 +4,7 @@
 #
 #   scripts/render_baseline.sh <merged checkpoint dir> [audio root]
 #
-# The checkpoint is not distributed with this repository (see README, "Воспроизводимость").
+# The checkpoint is published separately: https://huggingface.co/byebye9/qwen3-tts-emotion-instruct
 # Writes <audio root>/<run>/*.wav and a manifest.jsonl per run; concatenate those into
 # data/manifest.jsonl to evaluate the new audio.
 set -euo pipefail
