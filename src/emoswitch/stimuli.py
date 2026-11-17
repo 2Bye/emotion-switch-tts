@@ -2,13 +2,14 @@
 
 A row is one utterance to synthesise. Its `condition` is one of the four systems of the
 config: `nl_instruct` (baseline), `stitch` (reference), `control` and `plain` (null rows).
+`stitch_null` is the null row of the reference: two segments of the same emotion, joined.
 """
 
 from __future__ import annotations
 
 from emoswitch.config import load_phrases
 
-RUN_KINDS = ("inline", "stitch")
+RUN_KINDS = ("inline", "stitch", "stitchnull")
 NULL_CONDITIONS = ("control", "plain")
 
 
@@ -37,6 +38,22 @@ def build_rows(cfg: dict, set_name: str, kind: str, seed: int) -> list[dict]:
     for phrase in load_phrases(cfg, set_name):
         pid, text = phrase["id"], phrase_text(phrase)
         common = {"set": set_name, "seed": seed, "phrase_id": pid, "text": text, "switch_word": phrase["switch_word"]}
+        if kind == "stitchnull":
+            seg = systems["stitch"]["instruct"]
+            for e in emotions(cfg):
+                rows.append(
+                    {
+                        **common,
+                        "id": f"segcont-null-{e}-{pid}",
+                        "condition": "stitch_null",
+                        "emotion": e,
+                        "emotion2": e,
+                        "instruct": f"seg1: {seg.format(adv=adv[e])} | seg2: {seg.format(adv=adv[e])}",
+                        "leak_stems": list(stems[e]),
+                        "expect_sign": 0,
+                    }
+                )
+            continue
         rows.append(
             {
                 **common,

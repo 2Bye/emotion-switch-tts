@@ -17,12 +17,16 @@ def load_config(path: str | Path) -> dict:
     return cfg
 
 
+def phrase_file(cfg: dict, set_name: str) -> str:
+    """Path of a set's phrase file; a set whose audio is not released yet is under `planned_sets`."""
+    return {**cfg.get("planned_sets", {}), **cfg["sets"]}[set_name]
+
+
 def load_phrases(cfg: dict, set_name: str) -> list[dict]:
     """Phrases of one evaluation set, each with id, s1, s2 and switch_word."""
-    raw = json.loads((ROOT / cfg["sets"][set_name]).read_text(encoding="utf-8"))
-    return raw["phrases"]
+    return json.loads((ROOT / phrase_file(cfg, set_name)).read_text(encoding="utf-8"))["phrases"]
 
 
 def set_role(cfg: dict, set_name: str) -> str:
-    """'dev' or 'val', as declared in the phrase file itself."""
-    return json.loads((ROOT / cfg["sets"][set_name]).read_text(encoding="utf-8"))["role"]
+    """'dev', 'val' or 'test', as declared in the phrase file itself."""
+    return json.loads((ROOT / phrase_file(cfg, set_name)).read_text(encoding="utf-8"))["role"]

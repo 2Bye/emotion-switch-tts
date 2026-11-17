@@ -43,7 +43,7 @@ def main() -> None:
     ap.add_argument("--config", default="configs/baseline.yaml")
     ap.add_argument("--checkpoint", help="directory of the merged fine-tuned model")
     ap.add_argument("--set", required=True, dest="set_name")
-    ap.add_argument("--kind", required=True, choices=["inline", "stitch"])
+    ap.add_argument("--kind", required=True, choices=["inline", "stitch", "stitchnull"])
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--out", default="data/audio_rendered", help="audio root; the run gets its own subdirectory")
     ap.add_argument("--device", default="cuda", choices=["cuda", "cpu"])
@@ -51,8 +51,9 @@ def main() -> None:
     args = ap.parse_args()
 
     cfg = load_config(args.config)
-    if args.set_name not in cfg["sets"]:
-        raise SystemExit(f"[generate] unknown set {args.set_name!r}; the config has {list(cfg['sets'])}")
+    known = [*cfg["sets"], *cfg.get("planned_sets", {})]
+    if args.set_name not in known:
+        raise SystemExit(f"[generate] unknown set {args.set_name!r}; the config has {known}")
     gen = cfg["generation"]
     run = run_name(args.kind, args.set_name, args.seed)
     rows = build_rows(cfg, args.set_name, args.kind, args.seed)
@@ -99,7 +100,7 @@ def main() -> None:
     manifest = []
     for row in rows:
         switch_time = None
-        if row["condition"] == "stitch":
+        if row["condition"] in ("stitch", "stitch_null"):
             p, adv = phrases[row["phrase_id"]], cfg["adverbs"]
             first, sr = synth(p["s1"], stitch["instruct"].format(adv=adv[row["emotion"]]))
             second, _ = synth(p["s2"], stitch["instruct"].format(adv=adv[row["emotion2"]]))
