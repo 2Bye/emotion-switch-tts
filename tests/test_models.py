@@ -11,7 +11,6 @@ from emoswitch.evaluate import measure, read_jsonl
 
 pytestmark = pytest.mark.models
 CFG = load_config("configs/baseline.yaml")
-MEASURED = ("duration_s", "profile_centres_s", "profile_arousal", "words", "hyp", "wer", "leak", "step")
 
 
 def test_remeasuring_released_clips_reproduces_the_committed_rows():
@@ -24,9 +23,10 @@ def test_remeasuring_released_clips_reproduces_the_committed_rows():
         assert np.allclose(row["profile_arousal"], old["profile_arousal"], atol=0.01)
         assert row["step"]["switch_time_s"] == pytest.approx(old["step"]["switch_time_s"], abs=0.05)
         assert row["step"]["delta"] == pytest.approx(old["step"]["delta"], abs=0.005)
-        assert {k: row[k] for k in MEASURED if k not in ("profile_arousal", "step", "words", "hyp", "wer")} == {
-            k: old[k] for k in MEASURED if k not in ("profile_arousal", "step", "words", "hyp", "wer")
-        }
+        assert (row["duration_s"], row["profile_centres_s"]) == (old["duration_s"], old["profile_centres_s"])
+        if "step_aligned" in old:  # stitched: the second boundary, from the alignment-only pass
+            assert row["step_aligned"]["switch_time_s"] == pytest.approx(old["step_aligned"]["switch_time_s"], abs=0.05)
+            assert row["step_aligned"]["delta"] == pytest.approx(old["step_aligned"]["delta"], abs=0.005)
 
 
 def test_the_judge_does_not_read_playback_level():

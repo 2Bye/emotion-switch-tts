@@ -1,8 +1,8 @@
 """What is asked of the model: the rows of one render run, built from the config alone.
 
-A row is one utterance to synthesise. Its `condition` is one of the four systems of the
-config: `nl_instruct` (baseline), `stitch` (reference), `control` and `plain` (null rows).
-`stitch_null` is the null row of the reference: two segments of the same emotion, joined.
+A row is one utterance to synthesise. Its `condition` is `nl_instruct` (baseline), `stitch`
+(reference), or one of the no-switch conditions: `control` and `plain` (single pass) and
+`stitch_null`, the null row of the reference: two segments of the same emotion, joined.
 """
 
 from __future__ import annotations
@@ -10,7 +10,7 @@ from __future__ import annotations
 from emoswitch.config import load_phrases
 
 RUN_KINDS = ("inline", "stitch", "stitchnull")
-NULL_CONDITIONS = ("control", "plain")
+NULL_CONDITIONS = ("control", "plain", "stitch_null")
 
 
 def phrase_text(phrase: dict) -> str:

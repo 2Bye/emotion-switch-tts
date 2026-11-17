@@ -20,13 +20,22 @@ matplotlib.use("Agg")  # same pixels on every platform, no display needed
 import numpy as np  # noqa: E402
 
 from emoswitch.config import ROOT, load_config  # noqa: E402
-from emoswitch.evaluate import SWITCH_CONDITIONS, read_jsonl, run_kind  # noqa: E402
-from emoswitch.stimuli import NULL_CONDITIONS  # noqa: E402
+from emoswitch.evaluate import (  # noqa: E402
+    SWITCH_CONDITIONS,
+    analysis_group,
+    primary_step,
+    read_jsonl,
+)
+from emoswitch.stimuli import NULL_CONDITIONS, emotions  # noqa: E402
 
 LABEL = {"nl_instruct": "baseline: one pass, instruction", "stitch": "reference: stitched segments"}
-COLOR = {"nl_instruct": "#2a78d6", "stitch": "#eb6834", "null": "#898781"}
+# conditions as counted once per clip (`evaluate.analysis_group`)
+GROUP_LABEL = {"nl_instruct": "baseline", "stitch": "reference", "control": "control (inline runs)",
+               "plain": "plain (inline runs)", "stitch_null": "stitch_null"}  # fmt: skip
+COLOR = {"nl_instruct": "#2a78d6", "stitch": "#eb6834", "null": "#898781", "stitch_null": "#b8a46a"}
 SURFACE, GRID, AXIS, INK, INK2 = "#fcfcfb", "#e1e0d9", "#c3c2b7", "#0b0b0b", "#52514e"
-OUTCOMES = ("detected", "flat", "wrong_sign", "misplaced", "no_step")
+OUTCOMES = ("detected", "invalid", "flat", "wrong_sign", "no_changepoint", "misplaced", "no_step")
+RULES = (("construction", "stitched boundary by construction"), ("forced_alignment", "by forced alignment"))
 
 
 def fmt(x, digits: int = 3) -> str:
@@ -35,6 +44,21 @@ def fmt(x, digits: int = 3) -> str:
 
 def ci(pair) -> str:
     return f"[{pair[0]:.2f}, {pair[1]:.2f}]"
+
+
+def frac(k: int, n: int) -> str:
+    return f"{k}/{n}"
+
+
+def null_label(name: str) -> str:
+    """`control/inline` -> `control, inline runs`; the stitch_null rows have a run kind of their own."""
+    cond, kind = name.split("/")
+    return cond if cond == "stitch_null" else f"{cond}, {kind} runs"
+
+
+def rule_label(rule: dict) -> str:
+    boundary = "construction" if rule["boundary"] == "construction" else "forced alignment"
+    return boundary + (" + validity" if rule["validity_gate"] else "")
 
 
 def table(header: list[str], rows: list[list[str]]) -> str:
@@ -103,6 +127,39 @@ def seed_table(metrics: dict) -> str:
     return table(["system", "set", "detected per seed", "mean of seed rates", "SD over seeds"], rows)
 
 
+def rule_table(metrics: dict) -> str:
+    """docs/prereg_test.md, rules 1 and 2: every boundary rule with and without the validity gate."""
+    rows = []
+    for cond, system in metrics["systems"].items():
+        for set_name, m in system["by_set"].items():
+            d = m["detected_by_rule"]
+            cells = [frac(d[f"{b}{g}"], m["n"]) for b, _ in RULES for g in ("", "+valid")]
+            rows.append([LABEL[cond], set_label(metrics, set_name), *cells, str(m["n_invalid"]),
+                         rule_label(metrics["primary_rule"][set_name])])  # fmt: skip
+    header = ["system", "set", "stitched boundary by construction", "+ validity gate", "by forced alignment",
+              "+ validity gate", "invalid clips", "primary rule"]  # fmt: skip
+    note = ("\n\nA single-pass clip has one boundary, the forced-aligned switch word, under both rules. "
+            "With the validity gate an invalid clip counts as not detected.")  # fmt: skip
+    return table(header, rows) + note
+
+
+def agreement_table(metrics: dict) -> str:
+    """Does the primary decision on a (phrase, commanded pair) repeat across seeds?"""
+    rows = []
+    agreement = metrics["seed_agreement"]
+    for key in [f"{g}/{s}" for s in metrics["set_roles"] for g in GROUP_LABEL if f"{g}/{s}" in agreement]:
+        a, (group, set_name) = agreement[key], key.split("/")
+        pairs = ", ".join(f"{name}: {k}/{n}" for name, (k, n) in a["seed_pairs"].items()) or "n/a"
+        rows.append([GROUP_LABEL[group], set_label(metrics, set_name), str(a["n_cells"]),
+                     str(a["n_cells_multi_seed"]), frac(a["unanimous"], a["n_cells_multi_seed"]),
+                     str(a["unanimous_positive"]), pairs])  # fmt: skip
+    header = ["condition", "set", "cells (phrase x pair)", "cells with 2+ seeds", "same decision on every seed",
+              "of which positive on every seed", "same decision, per pair of seeds"]  # fmt: skip
+    note = ("\n\nThe decision is `detected` for switch rows and `would pass the detector` for no-switch rows, "
+            "under the primary rule of the set.")  # fmt: skip
+    return table(header, rows) + note
+
+
 def gates_table(metrics: dict) -> str:
     rows = []
     for cond, system in metrics["systems"].items():
@@ -126,11 +183,12 @@ def gates_table(metrics: dict) -> str:
 
 def null_table(metrics: dict) -> str:
     rows = []
-    for kind, null in metrics["null"].items():
+    for name, null in metrics["null"].items():
         for set_name, m in null["by_set"].items():
+            by_b = m["exceed_by_boundary"]
             rows.append(
                 [
-                    f"{kind} runs",
+                    null_label(name),
                     set_label(metrics, set_name),
                     str(m["n"]),
                     fmt(m["abs_delta_mean"]),
@@ -138,24 +196,88 @@ def null_table(metrics: dict) -> str:
                     fmt(m["abs_delta_max"]),
                     f"{m['exceed']}/{m['n']} = {fmt(m['exceed_rate'])}",
                     ci(m["exceed_ci_wilson"]),
+                    frac(by_b["construction"], m["n"]),
+                    frac(by_b["forced_alignment"], m["n"]),
                     fmt(m["profile_sd_mean"]),
                 ]
             )
-    header = ["no-switch rows of", "set", "n", "mean abs step", "p95 abs step", "max abs step",
-              "would pass the detector (either sign)", "95% CI (Wilson)", "profile SD"]  # fmt: skip
-    return table(header, rows)
+    header = ["no-switch rows", "set", "n", "mean abs step", "p95 abs step", "max abs step",
+              "would pass the detector (either sign), primary rule", "95% CI (Wilson)",
+              "pass, stitched boundary by construction", "pass, by forced alignment", "profile SD"]  # fmt: skip
+    note = ("\n\nOnly `stitch_null` rows have two boundaries; for the single-pass rows both columns are the same "
+            "count. The validity gate is not applied to no-switch rows: it could only lower their rate.")  # fmt: skip
+    return table(header, rows) + note
 
 
-def sensitivity_table(metrics: dict) -> str:
-    cells = [f"{group}/{s}" for group in ("nl_instruct", "stitch", "null") for s in metrics["set_roles"]]
-    cells = [c for c in cells if any(c in v["counts"] for v in metrics["sensitivity"])]
-    names = {"nl_instruct": "baseline", "stitch": "reference", "null": "no-switch rows"}
-    header = ["detector variant"] + [f"{names[c.split('/')[0]]}, {c.split('/')[1]}" for c in cells]
+def sensitivity_table(metrics: dict, cfg: dict) -> str:
+    groups = [g for g in GROUP_LABEL if any(k.startswith(f"{g}/") for v in metrics["sensitivity"] for k in v["counts"])]
+    dc = cfg["detector"]
     rows = []
-    for v in metrics["sensitivity"]:
-        rows.append([v["variant"]] + [f"{v['counts'][c][0]}/{v['counts'][c][1]}" if c in v["counts"] else "n/a"
-                                      for c in cells])  # fmt: skip
-    return table(header, rows)
+    for set_name in metrics["set_roles"]:
+        for v in metrics["sensitivity"]:
+            cells = [v["counts"].get(f"{g}/{set_name}") for g in groups]
+            if not any(cells):
+                continue
+            tol = v["max_changepoint_err_s"]
+            frozen = v["min_abs_delta"] == dc["min_abs_delta"] and tol == dc["max_changepoint_err_s"]
+            label = "weighted estimator" if v["weighted_split"] else ("frozen" if frozen else "")
+            rows.append([set_label(metrics, set_name), f"{v['min_abs_delta']:.2f}", "none" if tol is None else f"{tol}",
+                         label] + [frac(*c) if c else "n/a" for c in cells])  # fmt: skip
+    header = ["set", "threshold", "change-point tolerance, s", "variant"] + [GROUP_LABEL[g] for g in groups]
+    note = ("\n\nSwitch rows: detected; no-switch rows: would pass the detector. Primary rule of each set. "
+            "`weighted estimator`: the change-point split scaled by sqrt(n1*n2/n), at the frozen constants.")
+    return table(header, rows) + note
+
+
+def validity_table(rows: list[dict], cfg: dict) -> str:
+    """docs/prereg_test.md, rule 2, per condition and set; each clip counted once."""
+    gc, out = cfg["gates"], []
+    for group in GROUP_LABEL:
+        for set_name in dict.fromkeys(r["set"] for r in rows):
+            sub = [r for r in rows if analysis_group(r) == group and r["set"] == set_name]
+            if sub:
+                out.append([GROUP_LABEL[group], set_name, str(len(sub)), str(sum(not r["valid"] for r in sub)),
+                            str(sum(r["wer"] > gc["max_clip_wer"] for r in sub)), str(sum(r["leak"] for r in sub)),
+                            str(sum(r["looped"] for r in sub))])  # fmt: skip
+    header = ["condition", "set", "clips", "invalid", f"WER > {gc['max_clip_wer']}", "instruction spoken",
+              f"longer than {gc['loop_threshold_s']:g} s"]  # fmt: skip
+    return table(header, out)
+
+
+def side_means(row: dict, t: float) -> tuple[float | None, float | None]:
+    """Mean arousal of the windows centred before and at or after `t`."""
+    a, c = np.asarray(row["profile_arousal"], dtype=float), np.asarray(row["profile_centres_s"], dtype=float)
+    before, after = a[c < t], a[c >= t]
+    return (float(before.mean()) if len(before) else None, float(after.mean()) if len(after) else None)
+
+
+def length_table(rows: list[dict], cfg: dict) -> str:
+    """The baseline speaks a two-sentence text, each reference segment a one-sentence text. Levels of the
+    same emotion in both: whole-phrase controls against the segments of the stitched clips."""
+    out = []
+    for set_name in dict.fromkeys(r["set"] for r in rows):
+        for e in emotions(cfg):
+            ctrl = [r for r in rows if r["set"] == set_name and analysis_group(r) == "control" and r["emotion"] == e]
+            stitched = [r for r in rows if r["set"] == set_name and r["condition"] == "stitch" and r["step"]]
+            seg1 = [side_means(r, r["step"]["switch_time_s"])[0] for r in stitched if r["emotion"] == e]
+            seg2 = [side_means(r, r["step"]["switch_time_s"])[1] for r in stitched if r["emotion2"] == e]
+            if not ctrl and not seg1 and not seg2:
+                continue
+            c_sides = [side_means(r, r["step"]["switch_time_s"]) for r in ctrl if r["step"]]
+
+            def mean(xs: list) -> str:
+                xs = [x for x in xs if x is not None]
+                return fmt(float(np.mean(xs))) if xs else "n/a"
+
+            out.append([set_name, e, str(len(ctrl)), mean([float(np.mean(r["profile_arousal"])) for r in ctrl]),
+                        mean([s[0] for s in c_sides]), mean([s[1] for s in c_sides]),
+                        str(len(seg1)), mean(seg1), str(len(seg2)), mean(seg2)])  # fmt: skip
+    header = ["set", "emotion", "control clips", "control, whole clip", "control, sentence 1", "control, sentence 2",
+              "stitched clips with it as segment 1", "segment 1", "with it as segment 2", "segment 2"]  # fmt: skip
+    note = ("\n\nMean judge arousal. Control: whole phrase in one emotion, one pass (\"Say this ...\", inline runs); "
+            "its sentences split at the forced-aligned switch word. Segments: the windows on each side of the "
+            "construction boundary of the `stitch` clips.")  # fmt: skip
+    return table(header, out) + note
 
 
 def outcome_table(rows: list[dict]) -> str:
@@ -186,22 +308,43 @@ def paired_table(metrics: dict) -> str:
     if not paired:
         return "The two systems share no rows."
     rows = []
-    for scope, p in paired.items():
-        label = "all sets" if scope == "all_sets" else set_label(metrics, scope)
-        rows.append([label, str(p["n_pairs"]), str(p["reference_only"]), str(p["baseline_only"]),
-                     f"{p['mcnemar_p']:.2g}", str(p["n_phrases"]), str(p["phrases_reference_ahead"]),
-                     str(p["phrases_baseline_ahead"]), f"{p['phrase_sign_test_p']:.2g}"])  # fmt: skip
+    for set_name in metrics["set_roles"]:
+        p = paired.get(set_name)
+        if p:
+            rows.append([set_label(metrics, set_name), str(p["n_pairs"]), str(p["reference_only"]),
+                         str(p["baseline_only"]), f"{p['mcnemar_p']:.3g}", str(p["n_phrases"]),
+                         str(p["phrases_reference_ahead"]), str(p["phrases_baseline_ahead"]),
+                         f"{p['phrase_sign_test_p']:.3g}"])  # fmt: skip
     header = ["rows of", "paired rows", "detected by reference only", "by baseline only", "McNemar p (rows)",
               "phrases", "phrases where reference is ahead", "where baseline is ahead",
               "sign test p (phrases)"]  # fmt: skip
-    return table(header, rows)
+    note = ("\n\nPrimary rule of each set. A phrase is ahead for the system with the higher detection rate over "
+            "all its rows of that phrase (pairs x seeds). Sets are not pooled: the dev set was used to calibrate "
+            "the detector.")  # fmt: skip
+    return table(header, rows) + note
 
 
-def pick_examples(rows: list[dict], cfg: dict) -> list[dict]:
+def phrase_table(metrics: dict) -> str:
+    """Per-phrase detection rate of each system, the unit of the sign test."""
+    systems = metrics["systems"]
+    rows = []
+    for set_name in metrics["set_roles"]:
+        per = {c: s["by_set"][set_name]["per_phrase"] for c, s in systems.items() if set_name in s["by_set"]}
+        for key in sorted({k for d in per.values() for k in d}):
+            cells = [f"{per[c][key][0]}/{per[c][key][1]}" if key in per.get(c, {}) else "n/a" for c in systems]
+            rows.append([set_label(metrics, set_name), key.split("/", 1)[1], *cells])
+    boot = [f"{LABEL[c].split(':')[0]} {s}: {ci(m['det_ci_phrase_bootstrap'])}" for c, sy in systems.items()
+            for s, m in sy["by_set"].items()]  # fmt: skip
+    note = "\n\n95% bootstrap interval over phrases of the detection rate: " + "; ".join(boot) + "."
+    return table(["set", "phrase", *[LABEL[c].split(":")[0] for c in systems]], rows) + (note if boot else "")
+
+
+def pick_examples(rows: list[dict], metrics: dict) -> list[dict]:
     """Three typical baseline misses (largest shortfall, distinct switches) and one reference hit.
-    Validation rows first; the choice depends on the rows only, so it is reproducible."""
-    order = {s: -i for i, s in enumerate(cfg["sets"])}  # the last set of the config is the validation set
-    usable = [r for r in rows if r["step"] and r.get("ideal_step") is not None]
+    Test rows first, then validation rows; the choice depends on the rows only, so it is reproducible."""
+    preference = {"test": 0, "val": 1, "dev": 2}
+    order = {s: preference[role] for s, role in metrics["set_roles"].items()}
+    usable = [r for r in rows if primary_step(r) and r.get("ideal_step") is not None]
     misses = [r for r in usable if r["condition"] == "nl_instruct" and not r["detected"]]
     misses.sort(key=lambda r: (order[r["set"]], r["seed"], -(r["ideal_step"] - r["commanded_step"]), r["id"]))
     picked, seen = [], set()
@@ -227,7 +370,7 @@ def example_table(examples: list[dict]) -> str:
                 r["outcome"],
                 fmt(r["commanded_step"]),
                 fmt(r["ideal_step"]),
-                fmt(r["step"]["changepoint_err_s"], 2),
+                fmt(primary_step(r)["changepoint_err_s"], 2),
                 r["nearest_level"] or "n/a",
                 fmt(r["wer"], 2),
             ]
@@ -253,19 +396,22 @@ def fig_steps(rows: list[dict], metrics: dict, cfg: dict, path: Path) -> None:
     import matplotlib.pyplot as plt
 
     thr = cfg["detector"]["min_abs_delta"]
-    sets = [s for s in cfg["sets"] if any(r["set"] == s for r in rows)]
+    sets = [s for s in metrics["set_roles"] if any(r["set"] == s for r in rows)]
     fig, axes = plt.subplots(1, len(sets), figsize=(4.6 * len(sets), 4.2), sharey=True, squeeze=False)
     fig.patch.set_facecolor(SURFACE)
     rng = np.random.default_rng(0)
     groups = [("null", "no switch asked"), ("nl_instruct", "baseline"), ("stitch", "reference")]
+    if any(r["condition"] == "stitch_null" for r in rows):
+        groups.insert(1, ("stitch_null", "stitched, one emotion"))
     for ax, set_name in zip(axes[0], sets, strict=True):
         _style(ax)
         ax.axhspan(-thr, thr, color=GRID, alpha=0.6, linewidth=0)
         for x, (key, _) in enumerate(groups):
-            in_set = [r for r in rows if r["set"] == set_name and r["step"]]
-            if key == "null":  # inline runs only: the stitch runs repeat the same clips
-                sub = [r for r in in_set if r["condition"] in NULL_CONDITIONS and run_kind(r) == "inline"]
-                ys, filled = [r["step"]["delta"] for r in sub], [False] * len(sub)
+            in_set = [r for r in rows if r["set"] == set_name and primary_step(r)]
+            if key in ("null", "stitch_null"):  # inline runs only: the stitch runs repeat the same clips
+                sub = [r for r in in_set if r["condition"] in NULL_CONDITIONS and analysis_group(r)]
+                sub = [r for r in sub if (r["condition"] == "stitch_null") == (key == "stitch_null")]
+                ys, filled = [primary_step(r)["delta"] for r in sub], [False] * len(sub)
             else:
                 sub = [r for r in in_set if r["condition"] == key]
                 ys, filled = [r["commanded_step"] for r in sub], [r["detected"] for r in sub]
@@ -304,7 +450,7 @@ def fig_profiles(rows: list[dict], examples: list[dict], path: Path) -> None:
                 ax.annotate(f"all {emotion} ({role})", (c["profile_centres_s"][-1], c["profile_arousal"][-1]),
                             xytext=(4, 0), textcoords="offset points", fontsize=8, color=INK2, va="center")  # fmt: skip
         ax.plot(r["profile_centres_s"], r["profile_arousal"], color=COLOR[r["condition"]], linewidth=2.2)
-        ax.axvline(r["step"]["switch_time_s"], color=INK2, linewidth=1, linestyle=":")
+        ax.axvline(primary_step(r)["switch_time_s"], color=INK2, linewidth=1, linestyle=":")
         ax.set_title(f"{LABEL[r['condition']].split(':')[0]}: {r['emotion']} → {r['emotion2']}\n"
                      f"{r['outcome']}, step {r['commanded_step']:+.2f} of {r['ideal_step']:+.2f}",
                      color=INK, fontsize=9.5, loc="left")  # fmt: skip
@@ -329,21 +475,30 @@ def main() -> None:
     cfg = load_config(args.config)
     out = ROOT / (args.out or f"results/{cfg['name']}")
     rows = read_jsonl(out / "rows.jsonl")
+    text = "# Baseline results\n\nGenerated by `python -m emoswitch.report`; do not edit by hand.\n"
+    if not rows:
+        (out / "summary.md").write_text(text + "\nNo measured rows.\n", encoding="utf-8")
+        print(f"[report] {out / 'rows.jsonl'} is empty; wrote an empty summary.md")
+        return
     metrics = json.loads((out / "metrics.json").read_text(encoding="utf-8"))
-    examples = pick_examples(rows, cfg)
+    examples = pick_examples(rows, metrics)
     sections = [
         ("Main result", main_table(metrics)),
+        ("Detection under each boundary rule and validity gate", rule_table(metrics)),
         ("Seeds", seed_table(metrics)),
+        ("Agreement between seeds", agreement_table(metrics)),
         ("Step size", step_table(metrics)),
         ("No-switch rows: what the detector reads when nothing was asked", null_table(metrics)),
         ("Paired comparison", paired_table(metrics)),
-        ("Sensitivity to the detector constants", sensitivity_table(metrics)),
+        ("Detection per phrase", phrase_table(metrics)),
+        ("Sensitivity to the detector constants", sensitivity_table(metrics, cfg)),
         ("Speech gates", gates_table(metrics)),
+        ("Clip validity", validity_table(rows, cfg)),
         ("Outcome of every switch row", outcome_table(rows)),
         ("By commanded switch (all sets and seeds)", pair_table(metrics)),
+        ("Arousal level by text length", length_table(rows, cfg)),
         ("Examples", example_table(examples) if examples else "No example rows."),
     ]
-    text = "# Baseline results\n\nGenerated by `python -m emoswitch.report`; do not edit by hand.\n"
     for title, body in sections:
         text += f"\n## {title}\n\n{body}\n"
     (out / "summary.md").write_text(text, encoding="utf-8")

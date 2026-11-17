@@ -217,6 +217,8 @@ Sample rate: 24000 Hz (312 clips). 240 of the 312 clips are distinct audio. Byte
 | control | 63 | 4.08 / 5.84 / 9.60 | 0.44 / 0.53 / 0.63 | 13 / 20 / 35 | 0 |
 | nl_instruct | 84 | 4.16 / 6.28 / 8.88 | 0.43 / 0.53 / 0.60 | 13 / 21.5 / 32 | 0 |
 | stitch | 72 | 5.02 / 6.38 / 8.54 | 0.35 / 0.48 / 0.62 | 17 / 22 / 31 | 0 |
+
+The boundary of a stitched clip (`stitch`, `stitch_null`) is the one by construction; a stitched clip counts as unlocated if either of its two boundaries is missing.
 <!-- /table -->
 
 Пропусков нет: у каждого клипа есть текст, аудио и найденная граница; у `plain` инструкции нет
@@ -512,12 +514,18 @@ Baseline не дал ни одной детекции: 0 из 36 на dev и 0 �
 ### 6.2. Нулевые строки, устойчивость к константам и проверка H1
 
 <!-- table: summary.md#No-switch rows: what the detector reads when nothing was asked -->
-| no-switch rows of | set | n | mean abs step | p95 abs step | max abs step | would pass the detector (either sign) | 95% CI (Wilson) | profile SD |
-|---|---|---|---|---|---|---|---|---|
-| inline runs | p2a (dev) | 36 | 0.030 | 0.067 | 0.091 | 0/36 = 0.000 | [0.00, 0.10] | 0.056 |
-| inline runs | heldout (val) | 48 | 0.041 | 0.093 | 0.116 | 0/48 = 0.000 | [0.00, 0.07] | 0.067 |
-| stitch runs | p2a (dev) | 24 | 0.027 | 0.057 | 0.078 | 0/24 = 0.000 | [0.00, 0.14] | 0.052 |
-| stitch runs | heldout (val) | 48 | 0.041 | 0.093 | 0.116 | 0/48 = 0.000 | [0.00, 0.07] | 0.067 |
+| no-switch rows | set | n | mean abs step | p95 abs step | max abs step | would pass the detector (either sign), primary rule | 95% CI (Wilson) | pass, stitched boundary by construction | pass, by forced alignment | profile SD |
+|---|---|---|---|---|---|---|---|---|---|---|
+| control, inline runs | p2a (dev) | 27 | 0.032 | 0.074 | 0.091 | 0/27 = 0.000 | [0.00, 0.12] | 0/27 | 0/27 | 0.055 |
+| control, inline runs | heldout (val) | 36 | 0.045 | 0.101 | 0.116 | 0/36 = 0.000 | [0.00, 0.10] | 0/36 | 0/36 | 0.067 |
+| plain, inline runs | p2a (dev) | 9 | 0.025 | 0.048 | 0.056 | 0/9 = 0.000 | [0.00, 0.30] | 0/9 | 0/9 | 0.056 |
+| plain, inline runs | heldout (val) | 12 | 0.028 | 0.059 | 0.069 | 0/12 = 0.000 | [0.00, 0.24] | 0/12 | 0/12 | 0.069 |
+| control, stitch runs | p2a (dev) | 18 | 0.030 | 0.061 | 0.078 | 0/18 = 0.000 | [0.00, 0.18] | 0/18 | 0/18 | 0.052 |
+| control, stitch runs | heldout (val) | 36 | 0.045 | 0.101 | 0.116 | 0/36 = 0.000 | [0.00, 0.10] | 0/36 | 0/36 | 0.067 |
+| plain, stitch runs | p2a (dev) | 6 | 0.019 | 0.029 | 0.030 | 0/6 = 0.000 | [0.00, 0.39] | 0/6 | 0/6 | 0.054 |
+| plain, stitch runs | heldout (val) | 12 | 0.028 | 0.059 | 0.069 | 0/12 = 0.000 | [0.00, 0.24] | 0/12 | 0/12 | 0.069 |
+
+Only `stitch_null` rows have two boundaries; for the single-pass rows both columns are the same count. The validity gate is not applied to no-switch rows: it could only lower their rate.
 <!-- /table -->
 
 Ни одна из 84 нулевых строк baseline-прогонов не прошла бы детектор; верхняя граница Уилсона
@@ -525,15 +533,36 @@ Baseline не дал ни одной детекции: 0 из 36 на dev и 0 �
 Строки прогонов склейки в этой таблице повторяют те же клипы (п. 3.2) и новых свидетельств не дают.
 
 <!-- table: summary.md#Sensitivity to the detector constants -->
-| detector variant | baseline, p2a | baseline, heldout | reference, p2a | reference, heldout | no-switch rows, p2a | no-switch rows, heldout |
-|---|---|---|---|---|---|---|
-| frozen detector | 0/36 | 0/48 | 16/24 | 30/48 | 0/36 | 0/48 |
-| threshold 0.1 | 0/36 | 0/48 | 17/24 | 31/48 | 0/36 | 0/48 |
-| threshold 0.2 | 0/36 | 0/48 | 12/24 | 24/48 | 0/36 | 0/48 |
-| change-point tolerance 0.5 s | 0/36 | 0/48 | 16/24 | 29/48 | 0/36 | 0/48 |
-| change-point tolerance 1.0 s | 0/36 | 0/48 | 17/24 | 35/48 | 0/36 | 0/48 |
-| no change-point condition | 0/36 | 0/48 | 23/24 | 42/48 | 0/36 | 0/48 |
-| weighted change-point estimator | 0/36 | 0/48 | 19/24 | 38/48 | 0/36 | 0/48 |
+| set | threshold | change-point tolerance, s | variant | baseline | reference | control (inline runs) | plain (inline runs) |
+|---|---|---|---|---|---|---|---|
+| p2a (dev) | 0.10 | 0.5 |  | 0/36 | 17/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.10 | 0.75 |  | 0/36 | 17/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.10 | 1.0 |  | 0/36 | 18/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.10 | none |  | 0/36 | 24/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.15 | 0.5 |  | 0/36 | 16/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.15 | 0.75 | frozen | 0/36 | 16/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.15 | 1.0 |  | 0/36 | 17/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.15 | none |  | 0/36 | 23/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.20 | 0.5 |  | 0/36 | 12/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.20 | 0.75 |  | 0/36 | 12/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.20 | 1.0 |  | 0/36 | 12/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.20 | none |  | 0/36 | 17/24 | 0/27 | 0/9 |
+| p2a (dev) | 0.15 | 0.75 | weighted estimator | 0/36 | 19/24 | 0/27 | 0/9 |
+| heldout (val) | 0.10 | 0.5 |  | 0/48 | 30/48 | 0/36 | 0/12 |
+| heldout (val) | 0.10 | 0.75 |  | 0/48 | 31/48 | 0/36 | 0/12 |
+| heldout (val) | 0.10 | 1.0 |  | 0/48 | 37/48 | 0/36 | 0/12 |
+| heldout (val) | 0.10 | none |  | 1/48 | 48/48 | 2/36 | 0/12 |
+| heldout (val) | 0.15 | 0.5 |  | 0/48 | 29/48 | 0/36 | 0/12 |
+| heldout (val) | 0.15 | 0.75 | frozen | 0/48 | 30/48 | 0/36 | 0/12 |
+| heldout (val) | 0.15 | 1.0 |  | 0/48 | 35/48 | 0/36 | 0/12 |
+| heldout (val) | 0.15 | none |  | 0/48 | 42/48 | 0/36 | 0/12 |
+| heldout (val) | 0.20 | 0.5 |  | 0/48 | 23/48 | 0/36 | 0/12 |
+| heldout (val) | 0.20 | 0.75 |  | 0/48 | 24/48 | 0/36 | 0/12 |
+| heldout (val) | 0.20 | 1.0 |  | 0/48 | 29/48 | 0/36 | 0/12 |
+| heldout (val) | 0.20 | none |  | 0/48 | 34/48 | 0/36 | 0/12 |
+| heldout (val) | 0.15 | 0.75 | weighted estimator | 0/48 | 38/48 | 0/36 | 0/12 |
+
+Switch rows: detected; no-switch rows: would pass the detector. Primary rule of each set. `weighted estimator`: the change-point split scaled by sqrt(n1*n2/n), at the frozen constants.
 <!-- /table -->
 
 Вывод о baseline не меняется при проверенных вариантах детектора: при пороге от 0.10 до 0.20, допуске от 0.5
@@ -546,9 +575,10 @@ Baseline не дал ни одной детекции: 0 из 36 на dev и 0 �
 <!-- table: summary.md#Paired comparison -->
 | rows of | paired rows | detected by reference only | by baseline only | McNemar p (rows) | phrases | phrases where reference is ahead | where baseline is ahead | sign test p (phrases) |
 |---|---|---|---|---|---|---|---|---|
-| heldout (val) | 48 | 30 | 0 | 1.9e-09 | 4 | 4 | 0 | 0.12 |
-| p2a (dev) | 24 | 16 | 0 | 3.1e-05 | 3 | 3 | 0 | 0.25 |
-| all sets | 72 | 46 | 0 | 2.8e-14 | 7 | 7 | 0 | 0.016 |
+| p2a (dev) | 24 | 16 | 0 | 3.05e-05 | 3 | 3 | 0 | 0.25 |
+| heldout (val) | 48 | 30 | 0 | 1.86e-09 | 4 | 4 | 0 | 0.125 |
+
+Primary rule of each set. A phrase is ahead for the system with the higher detection rate over all its rows of that phrase (pairs x seeds). Sets are not pooled: the dev set was used to calibrate the detector.
 <!-- /table -->
 
 **Вердикт по H1.** Разность «det baseline минус доля ложных срабатываний» на val равна
@@ -568,12 +598,12 @@ p = 0.016. Различие систем очевидно на измеренн�
 ### 6.3. Исходы и срезы по переходам
 
 <!-- table: summary.md#Outcome of every switch row -->
-| system | set | n | detected | flat | wrong_sign | misplaced | no_step |
-|---|---|---|---|---|---|---|---|
-| baseline: one pass, instruction | p2a | 36 | 0 | 36 | 0 | 0 | 0 |
-| baseline: one pass, instruction | heldout | 48 | 0 | 48 | 0 | 0 | 0 |
-| reference: stitched segments | p2a | 24 | 16 | 1 | 0 | 7 | 0 |
-| reference: stitched segments | heldout | 48 | 30 | 6 | 0 | 12 | 0 |
+| system | set | n | detected | invalid | flat | wrong_sign | no_changepoint | misplaced | no_step |
+|---|---|---|---|---|---|---|---|---|---|
+| baseline: one pass, instruction | p2a | 36 | 0 | 0 | 36 | 0 | 0 | 0 | 0 |
+| baseline: one pass, instruction | heldout | 48 | 0 | 0 | 48 | 0 | 0 | 0 | 0 |
+| reference: stitched segments | p2a | 24 | 16 | 0 | 1 | 0 | 0 | 7 | 0 |
+| reference: stitched segments | heldout | 48 | 30 | 0 | 6 | 0 | 0 | 12 | 0 |
 <!-- /table -->
 
 <!-- table: summary.md#By commanded switch (all sets and seeds) -->
@@ -584,7 +614,7 @@ p = 0.016. Различие систем очевидно на измеренн�
 | baseline: one pass, instruction | sad → angry | 0/21 | -0.037 | 0.243 | angry: 16, plain: 5 |
 | baseline: one pass, instruction | sad → happy | 0/21 | -0.022 | 0.239 | happy: 1, plain: 4, sad: 16 |
 | reference: stitched segments | angry → sad | 8/18 | 0.259 | 0.299 | angry: 2, plain: 9, sad: 7 |
-| reference: stitched segments | happy → sad | 5/18 | 0.236 | 0.290 | happy: 1, plain: 8, sad: 9 |
+| reference: stitched segments | happy → sad | 5/18 | 0.237 | 0.290 | happy: 1, plain: 8, sad: 9 |
 | reference: stitched segments | sad → angry | 17/18 | 0.251 | 0.241 | angry: 1, plain: 10, sad: 7 |
 | reference: stitched segments | sad → happy | 16/18 | 0.251 | 0.237 | happy: 1, plain: 12, sad: 5 |
 <!-- /table -->
@@ -610,23 +640,20 @@ p = 0.016. Различие систем очевидно на измеренн�
 <!-- table: summary.md#Speech gates -->
 | system | set | n | WER mean | WER median | leak rate | looped | gate |
 |---|---|---|---|---|---|---|---|
-| baseline: one pass, instruction | p2a (dev) | 36 | 0.021 | 0.000 | 0.00 | 0 | pass |
-| baseline: one pass, instruction | heldout (val) | 48 | 0.025 | 0.000 | 0.00 | 0 | pass |
-| reference: stitched segments | p2a (dev) | 24 | 0.018 | 0.000 | 0.00 | 0 | pass |
-| reference: stitched segments | heldout (val) | 48 | 0.026 | 0.000 | 0.00 | 0 | pass |
+| baseline: one pass, instruction | p2a (dev) | 36 | 0.000 | 0.000 | 0.00 | 0 | pass |
+| baseline: one pass, instruction | heldout (val) | 48 | 0.000 | 0.000 | 0.00 | 0 | pass |
+| reference: stitched segments | p2a (dev) | 24 | 0.012 | 0.000 | 0.00 | 0 | pass |
+| reference: stitched segments | heldout (val) | 48 | 0.004 | 0.000 | 0.00 | 0 | pass |
 <!-- /table -->
 
 <!-- table: eda.md#Clips with a non-zero WER -->
 | target words | ASR wrote | set | distinct clips |
 |---|---|---|---|
-| `neighbour` | `neighbor` | heldout | 35 |
-| `eight` | `8` | heldout | 24 |
-| `nine` | `9` | p2a | 21 |
 | `afterwards` | `after words` | p2a | 2 |
 | `ripen` | `repen` | heldout | 2 |
-| `neighbour repaired the fence before the storm everyone in the street thanked him the next morning` | `neighbor repaired the fence before the storm everyone in the street thanked him the next morning you` | heldout | 1 |
+| `(nothing)` | `you` | heldout | 1 |
 
-85 of the 240 distinct clips have a non-zero WER; the table lists all of them.
+5 of the 240 distinct clips have a non-zero WER; the table lists all of them.
 <!-- /table -->
 
 Гейт пройден обеими системами на обоих наборах. Ненулевой WER почти целиком происходит от
@@ -670,9 +697,9 @@ p = 0.016. Различие систем очевидно на измеренн�
 | inline_p2a_s43 | 24 | 24/24 | 0.0001 | 0.00001 | 0.000 | 0.0001 | 24/24 | 24/24 | 0.000 | 24/24 |
 | stitch_p2a_s43 | 24 | 24/24 | 0.0001 | 0.00002 | 0.000 | 0.0001 | 24/24 | 24/24 | 0.000 | 24/24 |
 | inline_p2a_s44 | 24 | 24/24 | 0.0002 | 0.00001 | 0.000 | 0.0001 | 24/24 | 24/24 | 0.000 | 24/24 |
-| inline_heldout_s42 | 32 | 32/32 | 0.0002 | 0.00001 | 0.000 | 0.0001 | 32/32 | 31/32 | 0.062 | 32/32 |
-| stitch_heldout_s42 | 32 | 32/32 | 0.0001 | 0.00001 | 0.000 | 0.0001 | 32/32 | 31/32 | 0.062 | 32/32 |
-| inline_heldout_s43 | 32 | 32/32 | 0.0001 | 0.00001 | 0.000 | 0.0000 | 32/32 | 31/32 | 0.062 | 32/32 |
+| inline_heldout_s42 | 32 | 32/32 | 0.0002 | 0.00001 | 0.000 | 0.0001 | 32/32 | 32/32 | 0.000 | 32/32 |
+| stitch_heldout_s42 | 32 | 32/32 | 0.0001 | 0.00001 | 0.000 | 0.0001 | 32/32 | 32/32 | 0.000 | 32/32 |
+| inline_heldout_s43 | 32 | 32/32 | 0.0001 | 0.00001 | 0.000 | 0.0000 | 32/32 | 32/32 | 0.000 | 32/32 |
 | inline_heldout_s44 | 32 | 32/32 | 0.0001 | 0.00001 | 0.000 | 0.0001 | 32/32 | 32/32 | 0.000 | 32/32 |
 
 All detector decisions agree.

@@ -5,7 +5,8 @@
 Reads results/baseline/rows.jsonl and data/reference/<run>.jsonl, writes results/baseline/agreement.md.
 The node rows come from the source project's own scripts; this repository's code is a port of them.
 What is compared is therefore the measured quantities (window grid, arousal, boundary time, step,
-transcript) and the detector decision that this repository's rule gives on each side's step.
+transcript) and the detector decision that this repository's rule gives on each side's step. Both
+transcripts are scored with this repository's WER normalisation (`gates.norm_text`).
 It checks the port and the hardware independence, not the validity of the measure.
 """
 
@@ -17,7 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
-from emoswitch import detect
+from emoswitch import detect, gates
 from emoswitch.config import ROOT, load_config
 from emoswitch.report import table
 from emoswitch.stimuli import NULL_CONDITIONS
@@ -33,7 +34,7 @@ def decision(condition: str, step: dict | None, cfg: dict) -> bool:
     return test(step, dc["min_abs_delta"], dc["max_changepoint_err_s"])
 
 
-def compare(cfg: dict) -> tuple[list[dict], list[str]]:
+def compare(cfg: dict) -> tuple[list[dict], list[str], dict[str, int]]:
     ours = read_jsonl(ROOT / f"results/{cfg['name']}/rows.jsonl")
     reference = {}
     for path in sorted((ROOT / "data/reference").glob("*.jsonl")):
@@ -57,7 +58,7 @@ def compare(cfg: dict) -> tuple[list[dict], list[str]]:
         stat["same_decision"].append(same)
         if not same:
             mismatches.append(f"{r['run']}/{r['id']}: decision differs (ours {r['step']}, node {ref['step']})")
-        stat["wer_diff"].append(abs(r["wer"] - ref["wer_target"]))
+        stat["wer_diff"].append(abs(r["wer"] - gates.word_error_rate(r["text"], ref["hyp"])))
         stat["same_leak"].append(r["leak"] == ref["prefix_leakage"])
     summary = []
     for run, s in per_run.items():

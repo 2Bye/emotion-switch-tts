@@ -14,11 +14,11 @@ def norm_word(word: str) -> str:
 def switch_time(words: list[dict], switch_word: str, duration_s: float, search_from_frac: float) -> float | None:
     """Start time of the first sentence-2 word, read from the aligned words.
 
-    The first quarter of the clip is skipped so that an earlier occurrence cannot be picked.
+    The first quarter of the clip is skipped so that an earlier occurrence cannot be picked. Only the
+    word itself counts: without an exact match the boundary is unknown (None).
     """
     target = norm_word(switch_word)
-    late = [w for w in words if w["start"] >= search_from_frac * duration_s]
-    hits = [w for w in late if w["w"] == target] or [w for w in late if w["w"].startswith(target[:4])]
+    hits = [w for w in words if w["start"] >= search_from_frac * duration_s and w["w"] == target]
     return hits[0]["start"] if hits else None
 
 

@@ -36,11 +36,9 @@ systems:
     instruct: "Say this {adv}"   # each sentence rendered on its own, then joined
     crossfade_ms: 20
   control:
-    role: "null"
     instruct: "Say this {adv}"   # whole phrase, one emotion
-  plain:
-    role: "null"
-    instruct: null
+# The other no-switch rows need no wording: `plain` has no instruction, `stitch_null` joins two `stitch`
+# segments of the same emotion.
 
 # Every released run: [kind, set, seed]. `inline` holds the baseline with its no-switch rows,
 # `stitch` the reference with its no-switch rows. On the dev set the reference has two seeds.
@@ -119,9 +117,26 @@ detector:
   min_seg_windows: 3           # windows required on each side of a candidate split
   switch_search_from_frac: 0.25
 
+# Speech checks. They are applied when scoring, from the stored transcript, so they are not part of the
+# measurement.
 gates:
-  max_mean_wer: 0.10
-  loop_threshold_s: 15.0
+  max_mean_wer: 0.10      # system gate: mean WER of a system on a set
+  max_clip_wer: 0.20      # clip validity (docs/prereg_test.md, rule 2)
+  loop_threshold_s: 15.0  # a longer clip is looped, and invalid
+
+# Which variant of the detector decision is primary on each set role (docs/prereg_test.md, rules 1 and 2).
+# `boundary` is where a stitched clip's boundary is read: `construction` (end of the first segment) or
+# `forced_alignment` (start of the switch word, as for single-pass clips). `validity_gate` counts an
+# invalid clip as not detected. Every variant is reported; dev and val keep the rule of their published numbers.
+primary_rule:
+  dev: {boundary: construction, validity_gate: false}
+  val: {boundary: construction, validity_gate: false}
+  test: {boundary: forced_alignment, validity_gate: true}
+
+# Exploratory grid of detector constants (null = no change-point condition).
+sensitivity:
+  min_abs_delta: [0.10, 0.15, 0.20]
+  max_changepoint_err_s: [0.5, 0.75, 1.0, null]
 
 stats:
   ci: 0.95

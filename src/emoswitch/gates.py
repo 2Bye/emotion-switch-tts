@@ -1,7 +1,8 @@
 """Speech checks on the transcript: word error rate and a spoken-instruction detector.
 
-They feed a system-level gate (see `evaluate.gates`): rows are never dropped, a system whose
-speech fails the gate is simply not compared on detection.
+They feed a system-level gate (see `evaluate.gate_check`): rows are never dropped, a system whose
+speech fails the gate is simply not compared on detection. They also decide whether a single clip is
+valid (`evaluate.is_valid`).
 """
 
 from __future__ import annotations
@@ -34,9 +35,20 @@ NUM_WORDS = {
 }
 
 
+# digits the ASR writes for a number word of the target, 0-20
+DIGIT_WORDS = dict(enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen "
+    "seventeen eighteen nineteen twenty".split()
+))  # fmt: skip
+# British -> American spellings the ASR uses for words of the evaluation texts (results/baseline/eda.md)
+SPELLING = {"neighbour": "neighbor", "neighbours": "neighbors"}
+
+
 def norm_text(text: str) -> str:
+    """Lower case, punctuation to spaces, digits 0-20 to words, one spelling per word of SPELLING."""
     text = re.sub(r"[^\w\s]", " ", text.lower())
-    return re.sub(r"\s+", " ", text).strip()
+    words = [DIGIT_WORDS.get(int(w), w) if w.isascii() and w.isdigit() else w for w in text.split()]
+    return " ".join(SPELLING.get(w, w) for w in words)
 
 
 def word_error_rate(target: str, hypothesis_raw: str) -> float:

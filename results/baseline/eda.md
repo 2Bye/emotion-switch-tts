@@ -37,6 +37,8 @@ Sample rate: 24000 Hz (312 clips). 240 of the 312 clips are distinct audio. Byte
 | nl_instruct | 84 | 4.16 / 6.28 / 8.88 | 0.43 / 0.53 / 0.60 | 13 / 21.5 / 32 | 0 |
 | stitch | 72 | 5.02 / 6.38 / 8.54 | 0.35 / 0.48 / 0.62 | 17 / 22 / 31 | 0 |
 
+The boundary of a stitched clip (`stitch`, `stitch_null`) is the one by construction; a stitched clip counts as unlocated if either of its two boundaries is missing.
+
 ## Arousal levels of the single-emotion renders
 
 | set | rendered as | clips | mean arousal | SD across clips | SD within a clip (window noise) | loudness as rendered, LUFS |
@@ -56,11 +58,8 @@ Across the 84 single-emotion and plain renders of the inline runs, loudness as r
 
 | target words | ASR wrote | set | distinct clips |
 |---|---|---|---|
-| `neighbour` | `neighbor` | heldout | 35 |
-| `eight` | `8` | heldout | 24 |
-| `nine` | `9` | p2a | 21 |
 | `afterwards` | `after words` | p2a | 2 |
 | `ripen` | `repen` | heldout | 2 |
-| `neighbour repaired the fence before the storm everyone in the street thanked him the next morning` | `neighbor repaired the fence before the storm everyone in the street thanked him the next morning you` | heldout | 1 |
+| `(nothing)` | `you` | heldout | 1 |
 
-85 of the 240 distinct clips have a non-zero WER; the table lists all of them.
+5 of the 240 distinct clips have a non-zero WER; the table lists all of them.

@@ -25,7 +25,7 @@ from emoswitch.config import ROOT, load_config, load_phrases  # noqa: E402
 from emoswitch.evaluate import read_jsonl, run_kind  # noqa: E402
 from emoswitch.report import AXIS, COLOR, GRID, INK, INK2, SURFACE, fmt, table  # noqa: E402
 
-CONDITIONS = ("plain", "control", "nl_instruct", "stitch")
+CONDITIONS = ("plain", "control", "stitch_null", "nl_instruct", "stitch")
 LEVELS = ("sad", "plain", "happy", "angry")  # low to high nominal arousal
 
 
@@ -47,16 +47,17 @@ def span(xs: list[float], digits: int = 2) -> str:
 
 def clips_table(manifest: list[dict], rows: dict) -> str:
     out, runs = [], list(dict.fromkeys(m["run"] for m in manifest))
+    conditions = [c for c in CONDITIONS if any(m["condition"] == c for m in manifest)]
     for run in runs:
         sub = [m for m in manifest if m["run"] == run]
         counts = Counter(m["condition"] for m in sub)
         seconds = sum(rows[(m["run"], m["id"])]["duration_s"] for m in sub)
-        out.append([run, sub[0]["set"], str(sub[0]["seed"]), *[str(counts.get(c, 0)) for c in CONDITIONS],
+        out.append([run, sub[0]["set"], str(sub[0]["seed"]), *[str(counts.get(c, 0)) for c in conditions],
                     str(len(sub)), f"{seconds:.1f}"])  # fmt: skip
     total = sum(rows[(m["run"], m["id"])]["duration_s"] for m in manifest)
-    out.append(["**all**", "", "", *[str(sum(m["condition"] == c for m in manifest)) for c in CONDITIONS],
+    out.append(["**all**", "", "", *[str(sum(m["condition"] == c for m in manifest)) for c in conditions],
                 str(len(manifest)), f"{total:.1f}"])  # fmt: skip
-    return table(["run", "set", "seed", *CONDITIONS, "clips", "audio, s"], out)
+    return table(["run", "set", "seed", *conditions, "clips", "audio, s"], out)
 
 
 def repeats_note(manifest: list[dict]) -> str:
@@ -94,12 +95,15 @@ def duration_table(rows: list[dict]) -> str:
             continue
         frac = [r["step"]["switch_time_s"] / r["duration_s"] for r in sub if r["step"]]
         windows = [len(r["profile_arousal"]) for r in sub]
+        unlocated = sum(r["step"] is None or ("step_aligned" in r and r["step_aligned"] is None) for r in sub)
         out.append([cond, str(len(sub)), span([r["duration_s"] for r in sub]), span(frac), span(windows, 0),
-                    str(sum(r["step"] is None for r in sub))])  # fmt: skip
+                    str(unlocated)])  # fmt: skip
     header = ["condition", "distinct clips", "duration, s (min / median / max)",
               "boundary position, share of the clip", "judge windows per clip",
               "clips without a located boundary"]  # fmt: skip
-    return table(header, out)
+    note = ("\n\nThe boundary of a stitched clip (`stitch`, `stitch_null`) is the one by construction; a stitched clip "
+            "counts as unlocated if either of its two boundaries is missing.")  # fmt: skip
+    return table(header, out) + note
 
 
 def level_rows(rows: list[dict], set_name: str, level: str) -> list[dict]:

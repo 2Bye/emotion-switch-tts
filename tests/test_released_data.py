@@ -1,7 +1,10 @@
 """The released audio, the manifest, the committed results and the README must tell one story."""
 
+import hashlib
+import io
 import json
 import re
+from collections import Counter
 
 import soundfile as sf
 
@@ -43,7 +46,17 @@ def test_audio_exists_is_mono_and_matches_the_manifest():
 
 def test_only_stitched_clips_carry_a_boundary_by_construction():
     for m in MANIFEST:
-        assert (m["switch_time_s"] is not None) == (m["condition"] == "stitch"), m["id"]
+        assert (m["switch_time_s"] is not None) == (m["condition"] in ("stitch", "stitch_null")), m["id"]
+
+
+def test_each_flac_decodes_to_the_wav_its_hash_names():
+    """`sha256_wav_source` is the hash of the rendered wav. The FLAC holds the same 16-bit samples, so
+    writing them back as a soundfile PCM_16 WAV must reproduce that file byte for byte."""
+    for m in MANIFEST:
+        samples, sr = sf.read(ROOT / m["audio"], dtype="int16")
+        wav = io.BytesIO()
+        sf.write(wav, samples, sr, format="WAV", subtype="PCM_16")
+        assert hashlib.sha256(wav.getvalue()).hexdigest() == m["sha256_wav_source"], m["audio"]
 
 
 def test_evaluation_texts_contain_no_instruction_words_and_no_digits():
@@ -61,7 +74,35 @@ def test_switch_word_is_unique_in_its_phrase():
 
 def test_committed_rows_cover_the_manifest():
     rows = read_jsonl(RESULTS / "rows.jsonl")
-    assert sorted((r["run"], r["id"]) for r in rows) == sorted((m["run"], m["id"]) for m in MANIFEST)
+    key = lambda r: (r["run"], r["id"], r["sha256_wav_source"])  # noqa: E731
+    assert sorted(map(key, rows)) == sorted(map(key, MANIFEST))
+    stitched = [r for r in rows if r["condition"] in ("stitch", "stitch_null")]
+    assert all(r["switch_time_source"] == "construction" and r["step_aligned"] for r in stitched)
+
+
+def test_detection_counts_written_out_by_hand():
+    """The counts were checked with a separate calculation from the raw profiles (delta and best split
+    recomputed from the windows); here the stored steps are tested with the frozen constants spelled out."""
+    rows = [r for r in read_jsonl(RESULTS / "rows.jsonl") if r["set"] in ("p2a", "heldout")]  # sets released first
+
+    def hit(step: dict | None) -> bool:
+        cp = step and step["changepoint_err_s"]
+        return bool(step and abs(step["delta"]) >= 0.15 and step["sign_ok"] and cp is not None and cp <= 0.75)
+
+    switch = [r for r in rows if r["condition"] in ("nl_instruct", "stitch")]
+    total = Counter((r["condition"], r["set"]) for r in switch)
+    construction = Counter((r["condition"], r["set"]) for r in switch if hit(r["step"]))
+    aligned = Counter((r["condition"], r["set"]) for r in switch if hit(r.get("step_aligned", r["step"])))
+    assert total == {("nl_instruct", "p2a"): 36, ("nl_instruct", "heldout"): 48, ("stitch", "p2a"): 24,
+                     ("stitch", "heldout"): 48}  # fmt: skip
+    assert construction == {("stitch", "p2a"): 16, ("stitch", "heldout"): 30}
+    assert aligned == {("stitch", "p2a"): 15, ("stitch", "heldout"): 29}
+    metrics = json.loads((RESULTS / "metrics.json").read_text(encoding="utf-8"))
+    by_set = {c: metrics["systems"][c]["by_set"] for c in ("nl_instruct", "stitch")}
+    assert [by_set["stitch"][s]["detected"] for s in ("p2a", "heldout")] == [16, 30]
+    assert [by_set["nl_instruct"][s]["detected"] for s in ("p2a", "heldout")] == [0, 0]
+    assert [by_set["stitch"][s]["detected_by_rule"]["forced_alignment+valid"] for s in ("p2a", "heldout")] == [15, 29]
+    assert sum(r["exceeds_null"] for r in rows if r["condition"] in ("control", "plain")) == 0
 
 
 def test_committed_metrics_are_what_the_committed_rows_score_to():

@@ -73,7 +73,7 @@ def test_missing_switch_time_gives_no_step():
     assert not detect.is_detected(None, THR, TOL)
 
 
-def test_switch_time_skips_an_early_occurrence_and_falls_back_to_a_prefix():
+def test_switch_time_skips_an_early_occurrence_and_needs_the_exact_word():
     words = [
         {"w": "later", "start": 0.2, "end": 0.5},
         {"w": "we", "start": 0.6, "end": 0.7},
@@ -81,5 +81,5 @@ def test_switch_time_skips_an_early_occurrence_and_falls_back_to_a_prefix():
     ]
     assert detect.switch_time(words, "Later", 6.0, 0.25) == 2.4
     words = [{"w": "afterward", "start": 3.1, "end": 3.6}]
-    assert detect.switch_time(words, "afterwards", 6.0, 0.25) == 3.1
+    assert detect.switch_time(words, "afterwards", 6.0, 0.25) is None  # no prefix match
     assert detect.switch_time(words, "tomorrow", 6.0, 0.25) is None

@@ -12,7 +12,8 @@ MIN_SAMPLES = 400  # the judge returns nothing below 25 ms
 
 
 def load_audio(path: str, sample_rate: int, lufs: float | None) -> np.ndarray:
-    """Mono float32 at `sample_rate`, loudness-normalised to `lufs` (None = as is).
+    """Mono float32 at `sample_rate`, loudness-normalised to `lufs` (None = as is), then peak-limited
+    to 0.99. A clip whose normalised peak would exceed that ends up quieter than `lufs`.
 
     The step is kept from the original instrument. It does not change the judge's output: the
     judge's own preprocessor rescales every window to zero mean and unit variance.
@@ -95,23 +96,22 @@ class ArousalJudge:
 
 
 def window_profile(y: np.ndarray, judge, sample_rate: int, window_s: float, hop_s: float) -> tuple[list, list]:
-    """Slide a fixed window over the clip. Returns (window centres in seconds, arousal per window)."""
+    """Slide a fixed window over the clip. Returns (window centres in seconds, arousal per window).
+
+    A clip shorter than the window is judged as one window (if at least 0.25 s long). The end of the
+    clip after the last full window is shorter than the hop and is not judged on its own.
+    """
     win, hop = int(window_s * sample_rate), int(hop_s * sample_rate)
     min_seg = max(MIN_SAMPLES, min(win, int(0.25 * sample_rate)))
     centres, arousal = [], []
-    start = covered = 0
+    start = 0
     while start + min(win, len(y)) <= len(y) and start < len(y):
         seg = y[start : start + win]
         if len(seg) < min_seg:
             break
         centres.append(round((start + len(seg) / 2) / sample_rate, 3))
         arousal.append(judge(seg)["arousal"])
-        covered = start + len(seg)
         if start + win >= len(y):
             break
         start += hop
-    if len(y) - covered >= min_seg:  # leftover longer than 0.25 s gets its own window
-        seg = y[covered:]
-        centres.append(round((covered + len(seg) / 2) / sample_rate, 3))
-        arousal.append(judge(seg)["arousal"])
     return centres, arousal

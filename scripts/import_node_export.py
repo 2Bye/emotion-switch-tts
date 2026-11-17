@@ -3,8 +3,9 @@
     python scripts/import_node_export.py --export <dir with runs/ and rendered/>
 
 Runs come in two kinds. `runs/<node dir>` was rendered and measured by the probe scripts of the
-source project; `rendered/<run>` was rendered by this repository's `emoswitch.generate`.
-For every run listed in the config it
+source project; `rendered/<run>` was rendered by this repository's `emoswitch.generate` (any run
+kind of `emoswitch.stimuli.RUN_KINDS`, any set of the config, e.g. `stitchnull_test_s42`).
+For every run listed under `runs` in the config it
   * keeps the rows of the baseline experiment (baseline or reference, plus their no-switch rows);
   * checks that each kept row is exactly the row `emoswitch.stimuli` builds from the config
     (id, text, instruction, emotions, expected sign), so the released audio is what the config says;
@@ -91,6 +92,9 @@ def import_probe_run(src: Path, expected: dict, run: str, audio_dir: Path) -> tu
 def import_rendered_run(src: Path, expected: dict, run: str, audio_dir: Path) -> tuple[list, dict]:
     """A run rendered by this repository's own `emoswitch.generate`; nothing was measured on the node."""
     rendered = {r["id"]: r for r in read_jsonl(src / "manifest.jsonl")}
+    missing = sorted(set(expected) - set(rendered))
+    if missing:
+        raise SystemExit(f"[import] {run}: rows the config asks for are absent: {missing}")
     manifest = []
     for row_id, exp in expected.items():
         got = rendered[row_id]

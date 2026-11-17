@@ -1,5 +1,5 @@
 {
-  "measure_fingerprint": "b43d1b22367feed2",
+  "measure_fingerprint": "0f287bd16523c026",
   "n_clips": 312,
   "seconds": 2921,
   "device": "cpu",
@@ -11,5 +11,22 @@
     "transformers": "4.57.3",
     "faster_whisper": "1.2.1",
     "ctranslate2": "4.8.2"
-  }
+  },
+  "later_passes": [
+    {
+      "n_measured": 0,
+      "n_aligned_only": 72,
+      "seconds": 28,
+      "device": "cpu",
+      "platform": "Darwin arm64",
+      "python": "3.11.14",
+      "versions": {
+        "torch": "2.8.0",
+        "torchaudio": "2.8.0",
+        "transformers": "4.57.3",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2"
+      }
+    }
+  ]
 }
