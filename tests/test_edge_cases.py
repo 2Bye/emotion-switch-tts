@@ -47,16 +47,15 @@ def stitched_row(set_name: str, hyp: str | None = None) -> dict:
 
 def test_primary_rule_follows_the_role_of_the_set():
     """dev and val: boundary by construction, no validity gate; test: forced alignment and the gate."""
-    cfg = {**CFG, "sets": {**CFG["sets"], **CFG["planned_sets"]}}
     dev, test = stitched_row("p2a"), stitched_row("test")
     garbled = stitched_row("p2a", hyp="something else entirely was said here")
-    add_derived([dev, test, garbled], cfg)
+    add_derived([dev, test, garbled], CFG)
     assert dev["decisions"] == {"construction": True, "forced_alignment": False} and dev["detected"]
     assert test["decisions"] == dev["decisions"] and not test["detected"] and test["outcome"] == "misplaced"
     assert not garbled["valid"] and garbled["detected"]  # dev: the gate is reported, not applied
     garbled_test = stitched_row("test", hyp="something else entirely was said here")
     garbled_test["step_aligned"] = garbled_test["step"]
-    add_derived([garbled_test], cfg)
+    add_derived([garbled_test], CFG)
     assert garbled_test["decisions"]["forced_alignment"] and not garbled_test["detected"]
     assert garbled_test["outcome"] == "invalid"
 

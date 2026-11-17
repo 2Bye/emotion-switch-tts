@@ -462,5 +462,65 @@
   "stitch_heldout_s44": {
     "rendered_by": "emoswitch.generate of this repository",
     "n_rows_released": 32
+  },
+  "inline_test_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "inline_test_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "inline_test_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitch_test_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitch_test_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitch_test_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitchnull_test_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 36
+  },
+  "stitchnull_test_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 36
+  },
+  "stitchnull_test_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 36
+  },
+  "stitchnull_heldout_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 12
+  },
+  "stitchnull_heldout_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 12
+  },
+  "stitchnull_heldout_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 12
+  },
+  "stitchnull_p2a_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 9
+  },
+  "stitchnull_p2a_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 9
+  },
+  "stitchnull_p2a_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 9
   }
 }

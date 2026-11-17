@@ -143,6 +143,29 @@ def rule_table(metrics: dict) -> str:
     return table(header, rows) + note
 
 
+def boundary_gap_note(rows: list[dict], metrics: dict) -> str:
+    """How far the two boundaries of a stitched clip are apart, per set."""
+    parts = []
+    for set_name in metrics["set_roles"]:
+        gaps = [
+            r["step_aligned"]["switch_time_s"] - r["step"]["switch_time_s"]
+            for r in rows
+            if r["set"] == set_name and r["switch_time_source"] == "construction" and r["step"] and r["step_aligned"]
+        ]
+        if gaps:
+            parts.append(
+                f"{set_label(metrics, set_name)}: {min(gaps):.2f} / {float(np.median(gaps)):.2f} / {max(gaps):.2f} s "
+                f"over {len(gaps)} clips"
+            )
+    if not parts:
+        return ""
+    return (
+        "\n\nForced-aligned boundary minus the boundary by construction in stitched clips (min / median / max): "
+        + "; ".join(parts)
+        + "."
+    )
+
+
 def agreement_table(metrics: dict) -> str:
     """Does the primary decision on a (phrase, commanded pair) repeat across seeds?"""
     rows = []
@@ -224,8 +247,10 @@ def sensitivity_table(metrics: dict, cfg: dict) -> str:
             rows.append([set_label(metrics, set_name), f"{v['min_abs_delta']:.2f}", "none" if tol is None else f"{tol}",
                          label] + [frac(*c) if c else "n/a" for c in cells])  # fmt: skip
     header = ["set", "threshold", "change-point tolerance, s", "variant"] + [GROUP_LABEL[g] for g in groups]
-    note = ("\n\nSwitch rows: detected; no-switch rows: would pass the detector. Primary rule of each set. "
-            "`weighted estimator`: the change-point split scaled by sqrt(n1*n2/n), at the frozen constants.")
+    note = (
+        "\n\nSwitch rows: detected; no-switch rows: would pass the detector. Primary rule of each set. "
+        "`weighted estimator`: the change-point split scaled by sqrt(n1*n2/n), at the frozen constants."
+    )
     return table(header, rows) + note
 
 
@@ -294,11 +319,13 @@ def outcome_table(rows: list[dict]) -> str:
 def pair_table(metrics: dict) -> str:
     rows = []
     for cond, system in metrics["systems"].items():
-        for pair, m in system["by_pair"].items():
+        for key, m in system["by_pair"].items():
+            set_name, pair = key.split("/")
             nearest = ", ".join(f"{name}: {n}" for name, n in m["nearest_level_counts"].items())
-            rows.append([LABEL[cond], pair.replace(">", " → "), f"{m['detected']}/{m['n']}",
-                         fmt(m["commanded_step_mean"]), fmt(m["ideal_step_mean"]), nearest])  # fmt: skip
-    header = ["system", "commanded switch", "detected", "commanded step", "ideal step",
+            rows.append([LABEL[cond], set_label(metrics, set_name), pair.replace(">", " → "),
+                         f"{m['detected']}/{m['n']}", fmt(m["commanded_step_mean"]), fmt(m["ideal_step_mean"]),
+                         nearest])  # fmt: skip
+    header = ["system", "set", "commanded switch", "detected", "commanded step", "ideal step",
               "whole-clip arousal is nearest to the render of"]  # fmt: skip
     return table(header, rows)
 
@@ -340,7 +367,7 @@ def phrase_table(metrics: dict) -> str:
 
 
 def pick_examples(rows: list[dict], metrics: dict) -> list[dict]:
-    """Three typical baseline misses (largest shortfall, distinct switches) and one reference hit.
+    """Three baseline misses (largest shortfall, distinct switches) and one reference hit.
     Test rows first, then validation rows; the choice depends on the rows only, so it is reproducible."""
     preference = {"test": 0, "val": 1, "dev": 2}
     order = {s: preference[role] for s, role in metrics["set_roles"].items()}
@@ -400,9 +427,9 @@ def fig_steps(rows: list[dict], metrics: dict, cfg: dict, path: Path) -> None:
     fig, axes = plt.subplots(1, len(sets), figsize=(4.6 * len(sets), 4.2), sharey=True, squeeze=False)
     fig.patch.set_facecolor(SURFACE)
     rng = np.random.default_rng(0)
-    groups = [("null", "no switch asked"), ("nl_instruct", "baseline"), ("stitch", "reference")]
+    groups = [("null", "no switch\nasked"), ("nl_instruct", "baseline"), ("stitch", "reference")]
     if any(r["condition"] == "stitch_null" for r in rows):
-        groups.insert(1, ("stitch_null", "stitched, one emotion"))
+        groups.insert(1, ("stitch_null", "stitched,\none emotion"))
     for ax, set_name in zip(axes[0], sets, strict=True):
         _style(ax)
         ax.axhspan(-thr, thr, color=GRID, alpha=0.6, linewidth=0)
@@ -459,7 +486,7 @@ def fig_profiles(rows: list[dict], examples: list[dict], path: Path) -> None:
     for row_axes in axes:
         row_axes[0].set_ylabel("judge arousal (1 s window)", color=INK2, fontsize=10)
     fig.text(0.01, 0.01, "Coloured line: the clip. Grey lines: the same phrase rendered in one emotion throughout "
-             "(dashed: the emotion commanded for sentence 1, dotted: for sentence 2). "
+             "(dashed: the emotion commanded\nfor sentence 1, dotted: for sentence 2). "
              "Vertical line: the commanded boundary.", color=INK2, fontsize=8.5)  # fmt: skip
     fig.tight_layout(rect=(0, 0.04, 1, 1))
     fig.savefig(path, dpi=160, facecolor=SURFACE)
@@ -484,7 +511,10 @@ def main() -> None:
     examples = pick_examples(rows, metrics)
     sections = [
         ("Main result", main_table(metrics)),
-        ("Detection under each boundary rule and validity gate", rule_table(metrics)),
+        (
+            "Detection under each boundary rule and validity gate",
+            rule_table(metrics) + boundary_gap_note(rows, metrics),
+        ),
         ("Seeds", seed_table(metrics)),
         ("Agreement between seeds", agreement_table(metrics)),
         ("Step size", step_table(metrics)),
@@ -495,7 +525,7 @@ def main() -> None:
         ("Speech gates", gates_table(metrics)),
         ("Clip validity", validity_table(rows, cfg)),
         ("Outcome of every switch row", outcome_table(rows)),
-        ("By commanded switch (all sets and seeds)", pair_table(metrics)),
+        ("By commanded switch", pair_table(metrics)),
         ("Arousal level by text length", length_table(rows, cfg)),
         ("Examples", example_table(examples) if examples else "No example rows."),
     ]

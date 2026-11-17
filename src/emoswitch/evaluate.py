@@ -469,9 +469,9 @@ def score(cfg: dict, rows: list[dict]) -> dict:
             }
         for (s, seed), g in _group(sub, "set", "seed").items():
             system["by_set_seed"][f"{s}/s{seed}"] = summarise_switch(g, cfg)
-        for (e1, e2), g in _group(sub, "emotion", "emotion2").items():
+        for (s, e1, e2), g in _group(sub, "set", "emotion", "emotion2").items():
             nearest = [r["nearest_level"] for r in g if r["nearest_level"]]
-            system["by_pair"][f"{e1}>{e2}"] = {
+            system["by_pair"][f"{s}/{e1}>{e2}"] = {
                 **summarise_switch(g, cfg),
                 "nearest_level_counts": {name: nearest.count(name) for name in sorted(set(nearest))},
             }

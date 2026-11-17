@@ -42,7 +42,6 @@ def fake_row(cfg: dict, row: dict, run: str) -> dict:
 @pytest.fixture(scope="module")
 def scored():
     cfg = load_config("configs/baseline.yaml")
-    cfg["sets"] = {**cfg["sets"], **cfg["planned_sets"]}
     rows = []
     for set_name in cfg["sets"]:
         for kind in ("inline", "stitch", "stitchnull"):

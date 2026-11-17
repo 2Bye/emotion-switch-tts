@@ -1,10 +1,11 @@
 {
   "config": "configs/baseline.yaml",
   "measure_fingerprint": "0f287bd16523c026",
-  "n_rows": 312,
+  "n_rows": 1059,
   "set_roles": {
     "p2a": "dev",
-    "heldout": "val"
+    "heldout": "val",
+    "test": "test"
   },
   "primary_rule": {
     "p2a": {
@@ -14,25 +15,29 @@
     "heldout": {
       "boundary": "construction",
       "validity_gate": false
+    },
+    "test": {
+      "boundary": "forced_alignment",
+      "validity_gate": true
     }
   },
   "systems": {
     "nl_instruct": {
       "role": "baseline",
       "pooled": {
-        "n": 84,
-        "n_with_step": 84,
+        "n": 228,
+        "n_with_step": 228,
         "detected": 0,
         "det_rate": 0.0,
         "det_ci_wilson": [
           0.0,
-          0.04373172841465989
+          0.01656933509750344
         ],
         "det_ci_phrase_bootstrap": [
           0.0,
           0.0
         ],
-        "n_phrases": 7,
+        "n_phrases": 19,
         "detected_by_rule": {
           "construction": 0,
           "construction+valid": 0,
@@ -68,16 +73,64 @@
           "heldout/p3": [
             0,
             12
+          ],
+          "test/p0": [
+            0,
+            12
+          ],
+          "test/p1": [
+            0,
+            12
+          ],
+          "test/p10": [
+            0,
+            12
+          ],
+          "test/p11": [
+            0,
+            12
+          ],
+          "test/p2": [
+            0,
+            12
+          ],
+          "test/p3": [
+            0,
+            12
+          ],
+          "test/p4": [
+            0,
+            12
+          ],
+          "test/p5": [
+            0,
+            12
+          ],
+          "test/p6": [
+            0,
+            12
+          ],
+          "test/p7": [
+            0,
+            12
+          ],
+          "test/p8": [
+            0,
+            12
+          ],
+          "test/p9": [
+            0,
+            12
           ]
         },
-        "abs_delta_mean": 0.04066785714285714,
-        "abs_delta_max": 0.1336,
-        "commanded_step_mean": -0.006453571428571429,
-        "sign_ok_rate": 0.4166666666666667,
-        "changepoint_within_tol_rate": 0.03571428571428571,
-        "ideal_step_mean": 0.26645833333333335,
-        "realised_share": -0.024219814587289182,
-        "wer_mean": 0.0,
+        "abs_delta_mean": 0.04519605263157895,
+        "abs_delta_max": 0.1757,
+        "commanded_step_mean": -0.0029381578947368426,
+        "sign_ok_rate": 0.4605263157894737,
+        "changepoint_within_tol_rate": 0.12719298245614036,
+        "ideal_step_mean": 0.24914868421052633,
+        "realised_share": -0.011792789129298185,
+        "wer_mean": 0.0005847953216374269,
         "wer_median": 0.0,
         "leak_rate": 0.0,
         "looped": 0,
@@ -192,6 +245,98 @@
           "ideal_step_mean": 0.2744041666666666,
           "realised_share": -0.025312419332796817,
           "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.0,
+          "det_rate_seed_sd": 0.0
+        },
+        "test": {
+          "n": 144,
+          "n_with_step": 144,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.025983637143036746
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              12
+            ],
+            "test/p1": [
+              0,
+              12
+            ],
+            "test/p10": [
+              0,
+              12
+            ],
+            "test/p11": [
+              0,
+              12
+            ],
+            "test/p2": [
+              0,
+              12
+            ],
+            "test/p3": [
+              0,
+              12
+            ],
+            "test/p4": [
+              0,
+              12
+            ],
+            "test/p5": [
+              0,
+              12
+            ],
+            "test/p6": [
+              0,
+              12
+            ],
+            "test/p7": [
+              0,
+              12
+            ],
+            "test/p8": [
+              0,
+              12
+            ],
+            "test/p9": [
+              0,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.047837500000000005,
+          "abs_delta_max": 0.1757,
+          "commanded_step_mean": -0.0008874999999999989,
+          "sign_ok_rate": 0.4861111111111111,
+          "changepoint_within_tol_rate": 0.18055555555555555,
+          "ideal_step_mean": 0.23905138888888885,
+          "realised_share": -0.003712590853895893,
+          "wer_mean": 0.000925925925925926,
           "wer_median": 0.0,
           "leak_rate": 0.0,
           "looped": 0,
@@ -536,23 +681,290 @@
             "no_leak": true,
             "passed": true
           }
+        },
+        "test/s42": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            6.938893903907228e-18,
+            0.07410012966611748
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              0,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              0,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              0,
+              4
+            ],
+            "test/p8": [
+              0,
+              4
+            ],
+            "test/p9": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.04453541666666666,
+          "abs_delta_max": 0.1341,
+          "commanded_step_mean": 0.004747916666666668,
+          "sign_ok_rate": 0.5,
+          "changepoint_within_tol_rate": 0.10416666666666667,
+          "ideal_step_mean": 0.2514104166666667,
+          "realised_share": 0.018885123097193344,
+          "wer_mean": 0.001388888888888889,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s43": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            6.938893903907228e-18,
+            0.07410012966611748
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              0,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              0,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              0,
+              4
+            ],
+            "test/p8": [
+              0,
+              4
+            ],
+            "test/p9": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.04639583333333333,
+          "abs_delta_max": 0.1757,
+          "commanded_step_mean": -0.008408333333333332,
+          "sign_ok_rate": 0.3958333333333333,
+          "changepoint_within_tol_rate": 0.22916666666666666,
+          "ideal_step_mean": 0.21578958333333334,
+          "realised_share": -0.038965427354965776,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s44": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            6.938893903907228e-18,
+            0.07410012966611748
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              0,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              0,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              0,
+              4
+            ],
+            "test/p8": [
+              0,
+              4
+            ],
+            "test/p9": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.05258125,
+          "abs_delta_max": 0.1581,
+          "commanded_step_mean": 0.0009979166666666658,
+          "sign_ok_rate": 0.5625,
+          "changepoint_within_tol_rate": 0.20833333333333334,
+          "ideal_step_mean": 0.2499541666666667,
+          "realised_share": 0.003992398606411178,
+          "wer_mean": 0.001388888888888889,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
         }
       },
       "by_pair": {
-        "angry>sad": {
-          "n": 21,
-          "n_with_step": 21,
+        "p2a/angry>sad": {
+          "n": 9,
+          "n_with_step": 9,
           "detected": 0,
           "det_rate": 0.0,
           "det_ci_wilson": [
             0.0,
-            0.154639018924847
+            0.2991450484195441
           ],
           "det_ci_phrase_bootstrap": [
             0.0,
             0.0
           ],
-          "n_phrases": 7,
+          "n_phrases": 3,
           "detected_by_rule": {
             "construction": 0,
             "construction+valid": 0,
@@ -572,7 +984,221 @@
             "p2a/p2": [
               0,
               3
+            ]
+          },
+          "abs_delta_mean": 0.04516666666666666,
+          "abs_delta_max": 0.0937,
+          "commanded_step_mean": 0.03623333333333333,
+          "sign_ok_rate": 0.7777777777777778,
+          "changepoint_within_tol_rate": 0.2222222222222222,
+          "ideal_step_mean": 0.2859666666666667,
+          "realised_share": 0.12670474414267396,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "angry": 9
+          }
+        },
+        "p2a/happy>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.2991450484195441
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
             ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.03125555555555556,
+          "abs_delta_max": 0.0923,
+          "commanded_step_mean": -0.0033222222222222203,
+          "sign_ok_rate": 0.4444444444444444,
+          "changepoint_within_tol_rate": 0.0,
+          "ideal_step_mean": 0.2563333333333333,
+          "realised_share": -0.012960554833116603,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "plain": 2,
+            "sad": 7
+          }
+        },
+        "p2a/sad>angry": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.2991450484195441
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.05081111111111111,
+          "abs_delta_max": 0.1098,
+          "commanded_step_mean": -0.042588888888888884,
+          "sign_ok_rate": 0.1111111111111111,
+          "changepoint_within_tol_rate": 0.0,
+          "ideal_step_mean": 0.24774444444444443,
+          "realised_share": -0.17190653451136922,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "angry": 9
+          }
+        },
+        "p2a/sad>happy": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.2991450484195441
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.04022222222222222,
+          "abs_delta_max": 0.0758,
+          "commanded_step_mean": -0.013511111111111113,
+          "sign_ok_rate": 0.3333333333333333,
+          "changepoint_within_tol_rate": 0.0,
+          "ideal_step_mean": 0.2334111111111111,
+          "realised_share": -0.057885466749178854,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "plain": 2,
+            "sad": 7
+          }
+        },
+        "heldout/angry>sad": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            2.7755575615628914e-17,
+            0.24249400665524085
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 4,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
             "heldout/p0": [
               0,
               3
@@ -590,13 +1216,13 @@
               3
             ]
           },
-          "abs_delta_mean": 0.04304761904761906,
+          "abs_delta_mean": 0.04145833333333333,
           "abs_delta_max": 0.1336,
-          "commanded_step_mean": 0.03093333333333333,
-          "sign_ok_rate": 0.7619047619047619,
-          "changepoint_within_tol_rate": 0.14285714285714285,
-          "ideal_step_mean": 0.29748571428571424,
-          "realised_share": 0.10398258419772059,
+          "commanded_step_mean": 0.02695833333333333,
+          "sign_ok_rate": 0.75,
+          "changepoint_within_tol_rate": 0.08333333333333333,
+          "ideal_step_mean": 0.306125,
+          "realised_share": 0.08806315502926365,
           "wer_mean": 0.0,
           "wer_median": 0.0,
           "leak_rate": 0.0,
@@ -608,24 +1234,24 @@
             "passed": true
           },
           "nearest_level_counts": {
-            "angry": 15,
+            "angry": 6,
             "plain": 6
           }
         },
-        "happy>sad": {
-          "n": 21,
-          "n_with_step": 21,
+        "heldout/happy>sad": {
+          "n": 12,
+          "n_with_step": 12,
           "detected": 0,
           "det_rate": 0.0,
           "det_ci_wilson": [
-            0.0,
-            0.154639018924847
+            2.7755575615628914e-17,
+            0.24249400665524085
           ],
           "det_ci_phrase_bootstrap": [
             0.0,
             0.0
           ],
-          "n_phrases": 7,
+          "n_phrases": 4,
           "detected_by_rule": {
             "construction": 0,
             "construction+valid": 0,
@@ -634,18 +1260,6 @@
           },
           "n_invalid": 0,
           "per_phrase": {
-            "p2a/p0": [
-              0,
-              3
-            ],
-            "p2a/p1": [
-              0,
-              3
-            ],
-            "p2a/p2": [
-              0,
-              3
-            ],
             "heldout/p0": [
               0,
               3
@@ -663,13 +1277,13 @@
               3
             ]
           },
-          "abs_delta_mean": 0.0337952380952381,
-          "abs_delta_max": 0.0923,
-          "commanded_step_mean": 0.002604761904761905,
-          "sign_ok_rate": 0.47619047619047616,
+          "abs_delta_mean": 0.0357,
+          "abs_delta_max": 0.0778,
+          "commanded_step_mean": 0.007049999999999998,
+          "sign_ok_rate": 0.5,
           "changepoint_within_tol_rate": 0.0,
-          "ideal_step_mean": 0.2867428571428572,
-          "realised_share": 0.009083964394845222,
+          "ideal_step_mean": 0.30955,
+          "realised_share": 0.022774995961880144,
           "wer_mean": 0.0,
           "wer_median": 0.0,
           "leak_rate": 0.0,
@@ -682,24 +1296,24 @@
           },
           "nearest_level_counts": {
             "happy": 1,
-            "plain": 7,
-            "sad": 13
+            "plain": 5,
+            "sad": 6
           }
         },
-        "sad>angry": {
-          "n": 21,
-          "n_with_step": 21,
+        "heldout/sad>angry": {
+          "n": 12,
+          "n_with_step": 12,
           "detected": 0,
           "det_rate": 0.0,
           "det_ci_wilson": [
-            0.0,
-            0.154639018924847
+            2.7755575615628914e-17,
+            0.24249400665524085
           ],
           "det_ci_phrase_bootstrap": [
             0.0,
             0.0
           ],
-          "n_phrases": 7,
+          "n_phrases": 4,
           "detected_by_rule": {
             "construction": 0,
             "construction+valid": 0,
@@ -708,18 +1322,6 @@
           },
           "n_invalid": 0,
           "per_phrase": {
-            "p2a/p0": [
-              0,
-              3
-            ],
-            "p2a/p1": [
-              0,
-              3
-            ],
-            "p2a/p2": [
-              0,
-              3
-            ],
             "heldout/p0": [
               0,
               3
@@ -737,13 +1339,13 @@
               3
             ]
           },
-          "abs_delta_mean": 0.04190000000000001,
-          "abs_delta_max": 0.1098,
-          "commanded_step_mean": -0.03733809523809524,
-          "sign_ok_rate": 0.14285714285714285,
+          "abs_delta_mean": 0.03521666666666667,
+          "abs_delta_max": 0.0618,
+          "commanded_step_mean": -0.033400000000000006,
+          "sign_ok_rate": 0.16666666666666666,
           "changepoint_within_tol_rate": 0.0,
-          "ideal_step_mean": 0.2427857142857143,
-          "realised_share": -0.1537903304893596,
+          "ideal_step_mean": 0.23906666666666665,
+          "realised_share": -0.13970998326826548,
           "wer_mean": 0.0,
           "wer_median": 0.0,
           "leak_rate": 0.0,
@@ -755,24 +1357,24 @@
             "passed": true
           },
           "nearest_level_counts": {
-            "angry": 16,
+            "angry": 7,
             "plain": 5
           }
         },
-        "sad>happy": {
-          "n": 21,
-          "n_with_step": 21,
+        "heldout/sad>happy": {
+          "n": 12,
+          "n_with_step": 12,
           "detected": 0,
           "det_rate": 0.0,
           "det_ci_wilson": [
-            0.0,
-            0.154639018924847
+            2.7755575615628914e-17,
+            0.24249400665524085
           ],
           "det_ci_phrase_bootstrap": [
             0.0,
             0.0
           ],
-          "n_phrases": 7,
+          "n_phrases": 4,
           "detected_by_rule": {
             "construction": 0,
             "construction+valid": 0,
@@ -781,18 +1383,6 @@
           },
           "n_invalid": 0,
           "per_phrase": {
-            "p2a/p0": [
-              0,
-              3
-            ],
-            "p2a/p1": [
-              0,
-              3
-            ],
-            "p2a/p2": [
-              0,
-              3
-            ],
             "heldout/p0": [
               0,
               3
@@ -810,13 +1400,13 @@
               3
             ]
           },
-          "abs_delta_mean": 0.04392857142857142,
+          "abs_delta_mean": 0.04670833333333333,
           "abs_delta_max": 0.079,
-          "commanded_step_mean": -0.022014285714285715,
-          "sign_ok_rate": 0.2857142857142857,
+          "commanded_step_mean": -0.028391666666666666,
+          "sign_ok_rate": 0.25,
           "changepoint_within_tol_rate": 0.0,
-          "ideal_step_mean": 0.23881904761904765,
-          "realised_share": -0.09217977348859466,
+          "ideal_step_mean": 0.24287500000000004,
+          "realised_share": -0.11689826728426833,
           "wer_mean": 0.0,
           "wer_median": 0.0,
           "leak_rate": 0.0,
@@ -829,8 +1419,382 @@
           },
           "nearest_level_counts": {
             "happy": 1,
-            "plain": 4,
-            "sad": 16
+            "plain": 2,
+            "sad": 9
+          }
+        },
+        "test/angry>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.09641862859446367
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.052175,
+          "abs_delta_max": 0.1341,
+          "commanded_step_mean": 0.007825000000000002,
+          "sign_ok_rate": 0.6388888888888888,
+          "changepoint_within_tol_rate": 0.2777777777777778,
+          "ideal_step_mean": 0.26837500000000003,
+          "realised_share": 0.02915696320447135,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "angry": 29,
+            "plain": 7
+          }
+        },
+        "test/happy>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.09641862859446367
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.04330833333333333,
+          "abs_delta_max": 0.1214,
+          "commanded_step_mean": 0.00838611111111111,
+          "sign_ok_rate": 0.5,
+          "changepoint_within_tol_rate": 0.08333333333333333,
+          "ideal_step_mean": 0.23228888888888888,
+          "realised_share": 0.036102075959054805,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "happy": 1,
+            "plain": 12,
+            "sad": 23
+          }
+        },
+        "test/sad>angry": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.09641862859446367
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.04986666666666667,
+          "abs_delta_max": 0.1757,
+          "commanded_step_mean": -0.0023166666666666665,
+          "sign_ok_rate": 0.4722222222222222,
+          "changepoint_within_tol_rate": 0.2222222222222222,
+          "ideal_step_mean": 0.2424388888888889,
+          "realised_share": -0.009555672678109028,
+          "wer_mean": 0.003703703703703704,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "angry": 29,
+            "plain": 7
+          }
+        },
+        "test/sad>happy": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.09641862859446367
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.04599999999999999,
+          "abs_delta_max": 0.1475,
+          "commanded_step_mean": -0.017444444444444443,
+          "sign_ok_rate": 0.3333333333333333,
+          "changepoint_within_tol_rate": 0.1388888888888889,
+          "ideal_step_mean": 0.21310277777777778,
+          "realised_share": -0.08185930106756001,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "happy": 2,
+            "plain": 8,
+            "sad": 26
           }
         }
       }
@@ -838,24 +1802,24 @@
     "stitch": {
       "role": "reference",
       "pooled": {
-        "n": 72,
-        "n_with_step": 72,
-        "detected": 46,
-        "det_rate": 0.6388888888888888,
+        "n": 216,
+        "n_with_step": 216,
+        "detected": 132,
+        "det_rate": 0.6111111111111112,
         "det_ci_wilson": [
-          0.5235248046738358,
-          0.7401832029382592
+          0.5446987646404472,
+          0.673640397851872
         ],
         "det_ci_phrase_bootstrap": [
-          0.5735294117647058,
-          0.7058823529411765
+          0.5566037735849056,
+          0.6681818181818182
         ],
-        "n_phrases": 7,
+        "n_phrases": 19,
         "detected_by_rule": {
-          "construction": 46,
-          "construction+valid": 46,
-          "forced_alignment": 44,
-          "forced_alignment+valid": 44
+          "construction": 140,
+          "construction+valid": 140,
+          "forced_alignment": 130,
+          "forced_alignment+valid": 130
         },
         "n_invalid": 0,
         "per_phrase": {
@@ -886,16 +1850,64 @@
           "heldout/p3": [
             6,
             12
+          ],
+          "test/p0": [
+            9,
+            12
+          ],
+          "test/p1": [
+            8,
+            12
+          ],
+          "test/p10": [
+            5,
+            12
+          ],
+          "test/p11": [
+            5,
+            12
+          ],
+          "test/p2": [
+            7,
+            12
+          ],
+          "test/p3": [
+            6,
+            12
+          ],
+          "test/p4": [
+            10,
+            12
+          ],
+          "test/p5": [
+            6,
+            12
+          ],
+          "test/p6": [
+            7,
+            12
+          ],
+          "test/p7": [
+            6,
+            12
+          ],
+          "test/p8": [
+            8,
+            12
+          ],
+          "test/p9": [
+            9,
+            12
           ]
         },
-        "abs_delta_mean": 0.24937083333333337,
-        "abs_delta_max": 0.448,
-        "commanded_step_mean": 0.24937083333333337,
+        "abs_delta_mean": 0.23370648148148146,
+        "abs_delta_max": 0.4759,
+        "commanded_step_mean": 0.23370648148148146,
         "sign_ok_rate": 1.0,
-        "changepoint_within_tol_rate": 0.6666666666666666,
-        "ideal_step_mean": 0.2670638888888889,
-        "realised_share": 0.9337497269692022,
-        "wer_mean": 0.006637099284158107,
+        "changepoint_within_tol_rate": 0.6620370370370371,
+        "ideal_step_mean": 0.24838888888888885,
+        "realised_share": 0.9408894356221573,
+        "wer_mean": 0.0028296503786699864,
         "wer_median": 0.0,
         "leak_rate": 0.0,
         "looped": 0,
@@ -1022,6 +2034,98 @@
           "n_seeds": 3,
           "det_rate_seed_mean": 0.625,
           "det_rate_seed_sd": 0.0
+        },
+        "test": {
+          "n": 144,
+          "n_with_step": 144,
+          "detected": 86,
+          "det_rate": 0.5972222222222222,
+          "det_ci_wilson": [
+            0.5155967976218372,
+            0.6737952729336834
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5277777777777778,
+            0.6736111111111112
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 94,
+            "construction+valid": 94,
+            "forced_alignment": 86,
+            "forced_alignment+valid": 86
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              9,
+              12
+            ],
+            "test/p1": [
+              8,
+              12
+            ],
+            "test/p10": [
+              5,
+              12
+            ],
+            "test/p11": [
+              5,
+              12
+            ],
+            "test/p2": [
+              7,
+              12
+            ],
+            "test/p3": [
+              6,
+              12
+            ],
+            "test/p4": [
+              10,
+              12
+            ],
+            "test/p5": [
+              6,
+              12
+            ],
+            "test/p6": [
+              7,
+              12
+            ],
+            "test/p7": [
+              6,
+              12
+            ],
+            "test/p8": [
+              8,
+              12
+            ],
+            "test/p9": [
+              9,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.22587430555555554,
+          "abs_delta_max": 0.4759,
+          "commanded_step_mean": 0.22587430555555554,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6597222222222222,
+          "ideal_step_mean": 0.23905138888888885,
+          "realised_share": 0.9448776123218512,
+          "wer_mean": 0.000925925925925926,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.5972222222222223,
+          "det_rate_seed_sd": 0.06696979695133996
         }
       },
       "by_set_seed": {
@@ -1301,28 +2405,295 @@
             "no_leak": true,
             "passed": true
           }
+        },
+        "test/s42": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 30,
+          "det_rate": 0.625,
+          "det_ci_wilson": [
+            0.4836276351921527,
+            0.747847332391318
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5416666666666666,
+            0.7291666666666666
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 33,
+            "construction+valid": 33,
+            "forced_alignment": 30,
+            "forced_alignment+valid": 30
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              4
+            ],
+            "test/p1": [
+              2,
+              4
+            ],
+            "test/p10": [
+              2,
+              4
+            ],
+            "test/p11": [
+              2,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              2,
+              4
+            ],
+            "test/p4": [
+              4,
+              4
+            ],
+            "test/p5": [
+              2,
+              4
+            ],
+            "test/p6": [
+              3,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              3,
+              4
+            ],
+            "test/p9": [
+              3,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.21361875000000005,
+          "abs_delta_max": 0.3782,
+          "commanded_step_mean": 0.21361875000000005,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6666666666666666,
+          "ideal_step_mean": 0.2514104166666667,
+          "realised_share": 0.8496813808762236,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s43": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 25,
+          "det_rate": 0.5208333333333334,
+          "det_ci_wilson": [
+            0.3832923230334281,
+            0.6552868382304838
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3958333333333333,
+            0.625
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 27,
+            "construction+valid": 27,
+            "forced_alignment": 25,
+            "forced_alignment+valid": 25
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              4
+            ],
+            "test/p1": [
+              3,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              2,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              2,
+              4
+            ],
+            "test/p4": [
+              2,
+              4
+            ],
+            "test/p5": [
+              3,
+              4
+            ],
+            "test/p6": [
+              2,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              2,
+              4
+            ],
+            "test/p9": [
+              3,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.22595208333333336,
+          "abs_delta_max": 0.4113,
+          "commanded_step_mean": 0.22595208333333336,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6041666666666666,
+          "ideal_step_mean": 0.21578958333333334,
+          "realised_share": 1.047094488264996,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s44": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 31,
+          "det_rate": 0.6458333333333334,
+          "det_ci_wilson": [
+            0.504390570103431,
+            0.7656635587439515
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5208333333333334,
+            0.7708333333333334
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 34,
+            "construction+valid": 34,
+            "forced_alignment": 31,
+            "forced_alignment+valid": 31
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              4,
+              4
+            ],
+            "test/p1": [
+              3,
+              4
+            ],
+            "test/p10": [
+              3,
+              4
+            ],
+            "test/p11": [
+              1,
+              4
+            ],
+            "test/p2": [
+              3,
+              4
+            ],
+            "test/p3": [
+              2,
+              4
+            ],
+            "test/p4": [
+              4,
+              4
+            ],
+            "test/p5": [
+              1,
+              4
+            ],
+            "test/p6": [
+              2,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              3,
+              4
+            ],
+            "test/p9": [
+              3,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.2380520833333333,
+          "abs_delta_max": 0.4759,
+          "commanded_step_mean": 0.2380520833333333,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.7083333333333334,
+          "ideal_step_mean": 0.2499541666666667,
+          "realised_share": 0.9523829368717599,
+          "wer_mean": 0.002777777777777778,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
         }
       },
       "by_pair": {
-        "angry>sad": {
-          "n": 18,
-          "n_with_step": 18,
-          "detected": 8,
-          "det_rate": 0.4444444444444444,
+        "p2a/angry>sad": {
+          "n": 6,
+          "n_with_step": 6,
+          "detected": 3,
+          "det_rate": 0.5,
           "det_ci_wilson": [
-            0.24559518127005633,
-            0.6628358435795723
+            0.1876163064826506,
+            0.8123836935173494
           ],
           "det_ci_phrase_bootstrap": [
-            0.3684210526315789,
-            0.5555555555555556
+            0.5,
+            0.5
           ],
-          "n_phrases": 7,
+          "n_phrases": 3,
           "detected_by_rule": {
-            "construction": 8,
-            "construction+valid": 8,
-            "forced_alignment": 8,
-            "forced_alignment+valid": 8
+            "construction": 3,
+            "construction+valid": 3,
+            "forced_alignment": 3,
+            "forced_alignment+valid": 3
           },
           "n_invalid": 0,
           "per_phrase": {
@@ -1337,7 +2708,223 @@
             "p2a/p2": [
               1,
               2
+            ]
+          },
+          "abs_delta_mean": 0.2555,
+          "abs_delta_max": 0.3944,
+          "commanded_step_mean": 0.2555,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5,
+          "ideal_step_mean": 0.2856666666666667,
+          "realised_share": 0.8943990665110851,
+          "wer_mean": 0.023809523809523808,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "plain": 4,
+            "sad": 2
+          }
+        },
+        "p2a/happy>sad": {
+          "n": 6,
+          "n_with_step": 6,
+          "detected": 2,
+          "det_rate": 0.3333333333333333,
+          "det_ci_wilson": [
+            0.09677141110578041,
+            0.700006684861608
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.5
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 2,
+            "construction+valid": 2,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              1,
+              2
             ],
+            "p2a/p1": [
+              0,
+              2
+            ],
+            "p2a/p2": [
+              1,
+              2
+            ]
+          },
+          "abs_delta_mean": 0.21045,
+          "abs_delta_max": 0.274,
+          "commanded_step_mean": 0.21045,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": 0.2512833333333333,
+          "realised_share": 0.8375008290774028,
+          "wer_mean": 0.023809523809523808,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "plain": 3,
+            "sad": 3
+          }
+        },
+        "p2a/sad>angry": {
+          "n": 6,
+          "n_with_step": 6,
+          "detected": 5,
+          "det_rate": 0.8333333333333334,
+          "det_ci_wilson": [
+            0.43649717781352987,
+            0.9699466302516935
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              1,
+              2
+            ],
+            "p2a/p1": [
+              2,
+              2
+            ],
+            "p2a/p2": [
+              2,
+              2
+            ]
+          },
+          "abs_delta_mean": 0.2508666666666666,
+          "abs_delta_max": 0.4049,
+          "commanded_step_mean": 0.2508666666666666,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 1.0,
+          "ideal_step_mean": 0.24621666666666667,
+          "realised_share": 1.0188858051851348,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "plain": 2,
+            "sad": 4
+          }
+        },
+        "p2a/sad>happy": {
+          "n": 6,
+          "n_with_step": 6,
+          "detected": 6,
+          "det_rate": 1.0,
+          "det_ci_wilson": [
+            0.6096657120978346,
+            1.0
+          ],
+          "det_ci_phrase_bootstrap": [
+            1.0,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 6,
+            "construction+valid": 6,
+            "forced_alignment": 6,
+            "forced_alignment+valid": 6
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              2,
+              2
+            ],
+            "p2a/p1": [
+              2,
+              2
+            ],
+            "p2a/p2": [
+              2,
+              2
+            ]
+          },
+          "abs_delta_mean": 0.2694666666666667,
+          "abs_delta_max": 0.3531,
+          "commanded_step_mean": 0.2694666666666667,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 1.0,
+          "ideal_step_mean": 0.22636666666666663,
+          "realised_share": 1.190399057576204,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "plain": 3,
+            "sad": 3
+          }
+        },
+        "heldout/angry>sad": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 5,
+          "det_rate": 0.4166666666666667,
+          "det_ci_wilson": [
+            0.19326031365875665,
+            0.6804886874504503
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            0.5833333333333334
+          ],
+          "n_phrases": 4,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 0,
+          "per_phrase": {
             "heldout/p0": [
               2,
               3
@@ -1355,14 +2942,14 @@
               3
             ]
           },
-          "abs_delta_mean": 0.2590277777777778,
-          "abs_delta_max": 0.3944,
-          "commanded_step_mean": 0.2590277777777778,
+          "abs_delta_mean": 0.2607916666666667,
+          "abs_delta_max": 0.3633,
+          "commanded_step_mean": 0.2607916666666667,
           "sign_ok_rate": 1.0,
-          "changepoint_within_tol_rate": 0.4444444444444444,
-          "ideal_step_mean": 0.29930555555555555,
-          "realised_share": 0.8654292343387472,
-          "wer_mean": 0.01490818549642079,
+          "changepoint_within_tol_rate": 0.4166666666666667,
+          "ideal_step_mean": 0.306125,
+          "realised_share": 0.8519123451749014,
+          "wer_mean": 0.01045751633986928,
           "wer_median": 0.0,
           "leak_rate": 0.0,
           "looped": 0,
@@ -1374,44 +2961,32 @@
           },
           "nearest_level_counts": {
             "angry": 2,
-            "plain": 9,
-            "sad": 7
+            "plain": 5,
+            "sad": 5
           }
         },
-        "happy>sad": {
-          "n": 18,
-          "n_with_step": 18,
-          "detected": 5,
-          "det_rate": 0.2777777777777778,
+        "heldout/happy>sad": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 3,
+          "det_rate": 0.25,
           "det_ci_wilson": [
-            0.12499753379553993,
-            0.5087265656029746
+            0.08894166839405471,
+            0.5323053349335657
           ],
           "det_ci_phrase_bootstrap": [
-            0.1,
+            0.0,
             0.5
           ],
-          "n_phrases": 7,
+          "n_phrases": 4,
           "detected_by_rule": {
-            "construction": 5,
-            "construction+valid": 5,
-            "forced_alignment": 4,
-            "forced_alignment+valid": 4
+            "construction": 3,
+            "construction+valid": 3,
+            "forced_alignment": 3,
+            "forced_alignment+valid": 3
           },
           "n_invalid": 0,
           "per_phrase": {
-            "p2a/p0": [
-              1,
-              2
-            ],
-            "p2a/p1": [
-              0,
-              2
-            ],
-            "p2a/p2": [
-              1,
-              2
-            ],
             "heldout/p0": [
               2,
               3
@@ -1429,14 +3004,14 @@
               3
             ]
           },
-          "abs_delta_mean": 0.23652777777777778,
+          "abs_delta_mean": 0.24956666666666663,
           "abs_delta_max": 0.448,
-          "commanded_step_mean": 0.23652777777777778,
+          "commanded_step_mean": 0.24956666666666663,
           "sign_ok_rate": 1.0,
-          "changepoint_within_tol_rate": 0.2777777777777778,
-          "ideal_step_mean": 0.2901277777777778,
-          "realised_share": 0.8152538153687071,
-          "wer_mean": 0.011640211640211638,
+          "changepoint_within_tol_rate": 0.25,
+          "ideal_step_mean": 0.30955,
+          "realised_share": 0.8062240887309535,
+          "wer_mean": 0.005555555555555556,
           "wer_median": 0.0,
           "leak_rate": 0.0,
           "looped": 0,
@@ -1448,44 +3023,32 @@
           },
           "nearest_level_counts": {
             "happy": 1,
-            "plain": 8,
-            "sad": 9
+            "plain": 5,
+            "sad": 6
           }
         },
-        "sad>angry": {
-          "n": 18,
-          "n_with_step": 18,
-          "detected": 17,
-          "det_rate": 0.9444444444444444,
+        "heldout/sad>angry": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 12,
+          "det_rate": 1.0,
           "det_ci_wilson": [
-            0.7424269921812741,
-            0.990124809021697
-          ],
-          "det_ci_phrase_bootstrap": [
-            0.8125,
+            0.7575059933447592,
             1.0
           ],
-          "n_phrases": 7,
+          "det_ci_phrase_bootstrap": [
+            1.0,
+            1.0
+          ],
+          "n_phrases": 4,
           "detected_by_rule": {
-            "construction": 17,
-            "construction+valid": 17,
-            "forced_alignment": 17,
-            "forced_alignment+valid": 17
+            "construction": 12,
+            "construction+valid": 12,
+            "forced_alignment": 12,
+            "forced_alignment+valid": 12
           },
           "n_invalid": 0,
           "per_phrase": {
-            "p2a/p0": [
-              1,
-              2
-            ],
-            "p2a/p1": [
-              2,
-              2
-            ],
-            "p2a/p2": [
-              2,
-              2
-            ],
             "heldout/p0": [
               3,
               3
@@ -1503,13 +3066,13 @@
               3
             ]
           },
-          "abs_delta_mean": 0.2511722222222222,
+          "abs_delta_mean": 0.251325,
           "abs_delta_max": 0.4161,
-          "commanded_step_mean": 0.2511722222222222,
+          "commanded_step_mean": 0.251325,
           "sign_ok_rate": 1.0,
           "changepoint_within_tol_rate": 1.0,
-          "ideal_step_mean": 0.24145,
-          "realised_share": 1.0402659855962817,
+          "ideal_step_mean": 0.23906666666666665,
+          "realised_share": 1.05127579475739,
           "wer_mean": 0.0,
           "wer_median": 0.0,
           "leak_rate": 0.0,
@@ -1522,44 +3085,32 @@
           },
           "nearest_level_counts": {
             "angry": 1,
-            "plain": 10,
-            "sad": 7
+            "plain": 8,
+            "sad": 3
           }
         },
-        "sad>happy": {
-          "n": 18,
-          "n_with_step": 18,
-          "detected": 16,
-          "det_rate": 0.8888888888888888,
+        "heldout/sad>happy": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 10,
+          "det_rate": 0.8333333333333334,
           "det_ci_wilson": [
-            0.672002348698212,
-            0.9689804773543876
+            0.5519691377470266,
+            0.9530348578161463
           ],
           "det_ci_phrase_bootstrap": [
-            0.7777777777777778,
+            0.6666666666666666,
             1.0
           ],
-          "n_phrases": 7,
+          "n_phrases": 4,
           "detected_by_rule": {
-            "construction": 16,
-            "construction+valid": 16,
-            "forced_alignment": 15,
-            "forced_alignment+valid": 15
+            "construction": 10,
+            "construction+valid": 10,
+            "forced_alignment": 9,
+            "forced_alignment+valid": 9
           },
           "n_invalid": 0,
           "per_phrase": {
-            "p2a/p0": [
-              2,
-              2
-            ],
-            "p2a/p1": [
-              2,
-              2
-            ],
-            "p2a/p2": [
-              2,
-              2
-            ],
             "heldout/p0": [
               2,
               3
@@ -1577,13 +3128,13 @@
               3
             ]
           },
-          "abs_delta_mean": 0.25075555555555556,
+          "abs_delta_mean": 0.24140000000000003,
           "abs_delta_max": 0.4209,
-          "commanded_step_mean": 0.25075555555555556,
+          "commanded_step_mean": 0.24140000000000003,
           "sign_ok_rate": 1.0,
-          "changepoint_within_tol_rate": 0.9444444444444444,
-          "ideal_step_mean": 0.23737222222222223,
-          "realised_share": 1.0563812109439,
+          "changepoint_within_tol_rate": 0.9166666666666666,
+          "ideal_step_mean": 0.24287500000000004,
+          "realised_share": 0.9939269171384458,
           "wer_mean": 0.0,
           "wer_median": 0.0,
           "leak_rate": 0.0,
@@ -1596,8 +3147,384 @@
           },
           "nearest_level_counts": {
             "happy": 1,
-            "plain": 12,
-            "sad": 5
+            "plain": 9,
+            "sad": 2
+          }
+        },
+        "test/angry>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 14,
+          "det_rate": 0.3888888888888889,
+          "det_ci_wilson": [
+            0.24784873065371,
+            0.5513554090339485
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.19444444444444445,
+            0.6111111111111112
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 20,
+            "construction+valid": 20,
+            "forced_alignment": 14,
+            "forced_alignment+valid": 14
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              2,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              1,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              3,
+              3
+            ],
+            "test/p5": [
+              3,
+              3
+            ],
+            "test/p6": [
+              1,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              1,
+              3
+            ],
+            "test/p9": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.24021944444444443,
+          "abs_delta_max": 0.416,
+          "commanded_step_mean": 0.24021944444444443,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3888888888888889,
+          "ideal_step_mean": 0.26837500000000003,
+          "realised_share": 0.8950887543342133,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "angry": 1,
+            "plain": 26,
+            "sad": 9
+          }
+        },
+        "test/happy>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 10,
+          "det_rate": 0.2777777777777778,
+          "det_ci_wilson": [
+            0.1584833794013461,
+            0.43992489997397105
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.1111111111111111,
+            0.4444444444444444
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 12,
+            "construction+valid": 12,
+            "forced_alignment": 10,
+            "forced_alignment+valid": 10
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              2,
+              3
+            ],
+            "test/p10": [
+              1,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              2,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.17559999999999998,
+          "abs_delta_max": 0.3341,
+          "commanded_step_mean": 0.17559999999999998,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.2777777777777778,
+          "ideal_step_mean": 0.23228888888888888,
+          "realised_share": 0.7559552281641633,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "happy": 3,
+            "plain": 14,
+            "sad": 19
+          }
+        },
+        "test/sad>angry": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 33,
+          "det_rate": 0.9166666666666666,
+          "det_ci_wilson": [
+            0.7817330875072737,
+            0.9712513886640066
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.8333333333333334,
+            1.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 34,
+            "construction+valid": 34,
+            "forced_alignment": 33,
+            "forced_alignment+valid": 33
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              3
+            ],
+            "test/p1": [
+              3,
+              3
+            ],
+            "test/p10": [
+              2,
+              3
+            ],
+            "test/p11": [
+              2,
+              3
+            ],
+            "test/p2": [
+              3,
+              3
+            ],
+            "test/p3": [
+              3,
+              3
+            ],
+            "test/p4": [
+              3,
+              3
+            ],
+            "test/p5": [
+              2,
+              3
+            ],
+            "test/p6": [
+              3,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              3,
+              3
+            ],
+            "test/p9": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.2643,
+          "abs_delta_max": 0.4759,
+          "commanded_step_mean": 0.2643,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.9722222222222222,
+          "ideal_step_mean": 0.2424388888888889,
+          "realised_share": 1.0901716354636903,
+          "wer_mean": 0.001851851851851852,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "angry": 3,
+            "plain": 27,
+            "sad": 6
+          }
+        },
+        "test/sad>happy": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 29,
+          "det_rate": 0.8055555555555556,
+          "det_ci_wilson": [
+            0.6497195700482261,
+            0.9024690458107127
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6111111111111112,
+            0.9722222222222222
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 28,
+            "construction+valid": 28,
+            "forced_alignment": 29,
+            "forced_alignment+valid": 29
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              3
+            ],
+            "test/p1": [
+              3,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              3,
+              3
+            ],
+            "test/p2": [
+              3,
+              3
+            ],
+            "test/p3": [
+              3,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              1,
+              3
+            ],
+            "test/p6": [
+              3,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              2,
+              3
+            ],
+            "test/p9": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.2233777777777778,
+          "abs_delta_max": 0.4113,
+          "commanded_step_mean": 0.2233777777777778,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 1.0,
+          "ideal_step_mean": 0.21310277777777778,
+          "realised_share": 1.0482161711224371,
+          "wer_mean": 0.001851851851851852,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {
+            "happy": 6,
+            "plain": 17,
+            "sad": 13
           }
         }
       }
@@ -1606,23 +3533,23 @@
   "null": {
     "control/inline": {
       "pooled": {
-        "n": 63,
-        "n_with_step": 63,
-        "abs_delta_mean": 0.039776190476190486,
-        "abs_delta_p95": 0.09034999999999999,
-        "abs_delta_max": 0.1162,
-        "exceed": 0,
-        "exceed_rate": 0.0,
+        "n": 171,
+        "n_with_step": 171,
+        "abs_delta_mean": 0.045026900584795325,
+        "abs_delta_p95": 0.10189999999999999,
+        "abs_delta_max": 0.2338,
+        "exceed": 1,
+        "exceed_rate": 0.005847953216374269,
         "exceed_ci_wilson": [
-          3.469446951953614e-18,
-          0.05747119958885172
+          0.0010330543138187126,
+          0.032376978181304424
         ],
         "exceed_by_boundary": {
-          "construction": 0,
-          "forced_alignment": 0
+          "construction": 1,
+          "forced_alignment": 1
         },
         "n_invalid": 0,
-        "profile_sd_mean": 0.061939682539682545,
+        "profile_sd_mean": 0.06828830409356726,
         "wer_mean": 0.0,
         "leak_rate": 0.0,
         "looped": 0
@@ -1671,28 +3598,50 @@
           "wer_mean": 0.0,
           "leak_rate": 0.0,
           "looped": 0
+        },
+        "test": {
+          "n": 108,
+          "n_with_step": 108,
+          "abs_delta_mean": 0.048089814814814814,
+          "abs_delta_p95": 0.11003499999999991,
+          "abs_delta_max": 0.2338,
+          "exceed": 1,
+          "exceed_rate": 0.009259259259259259,
+          "exceed_ci_wilson": [
+            0.0016363608538834916,
+            0.05059345519366322
+          ],
+          "exceed_by_boundary": {
+            "construction": 1,
+            "forced_alignment": 1
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.07199166666666668,
+          "wer_mean": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0
         }
       }
     },
     "plain/inline": {
       "pooled": {
-        "n": 21,
-        "n_with_step": 21,
-        "abs_delta_mean": 0.026590476190476185,
-        "abs_delta_p95": 0.0556,
-        "abs_delta_max": 0.0688,
+        "n": 57,
+        "n_with_step": 57,
+        "abs_delta_mean": 0.03201578947368421,
+        "abs_delta_p95": 0.08337999999999991,
+        "abs_delta_max": 0.1066,
         "exceed": 0,
         "exceed_rate": 0.0,
         "exceed_ci_wilson": [
           0.0,
-          0.154639018924847
+          0.06313883485297894
         ],
         "exceed_by_boundary": {
           "construction": 0,
           "forced_alignment": 0
         },
         "n_invalid": 0,
-        "profile_sd_mean": 0.06302380952380954,
+        "profile_sd_mean": 0.06350526315789475,
         "wer_mean": 0.0,
         "leak_rate": 0.0,
         "looped": 0
@@ -1741,28 +3690,50 @@
           "wer_mean": 0.0,
           "leak_rate": 0.0,
           "looped": 0
+        },
+        "test": {
+          "n": 36,
+          "n_with_step": 36,
+          "abs_delta_mean": 0.03518055555555555,
+          "abs_delta_p95": 0.0989,
+          "abs_delta_max": 0.1066,
+          "exceed": 0,
+          "exceed_rate": 0.0,
+          "exceed_ci_wilson": [
+            0.0,
+            0.09641862859446367
+          ],
+          "exceed_by_boundary": {
+            "construction": 0,
+            "forced_alignment": 0
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.06378611111111111,
+          "wer_mean": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0
         }
       }
     },
     "control/stitch": {
       "pooled": {
-        "n": 54,
-        "n_with_step": 54,
-        "abs_delta_mean": 0.04020555555555557,
-        "abs_delta_p95": 0.0879599999999999,
-        "abs_delta_max": 0.1162,
-        "exceed": 0,
-        "exceed_rate": 0.0,
+        "n": 162,
+        "n_with_step": 162,
+        "abs_delta_mean": 0.04546172839506173,
+        "abs_delta_p95": 0.10342999999999995,
+        "abs_delta_max": 0.2338,
+        "exceed": 1,
+        "exceed_rate": 0.006172839506172839,
         "exceed_ci_wilson": [
-          0.0,
-          0.0664135880908964
+          0.0010904900922820773,
+          0.03413266135750011
         ],
         "exceed_by_boundary": {
-          "construction": 0,
-          "forced_alignment": 0
+          "construction": 1,
+          "forced_alignment": 1
         },
         "n_invalid": 0,
-        "profile_sd_mean": 0.06177222222222222,
+        "profile_sd_mean": 0.0685851851851852,
         "wer_mean": 0.0,
         "leak_rate": 0.0,
         "looped": 0
@@ -1811,28 +3782,50 @@
           "wer_mean": 0.0,
           "leak_rate": 0.0,
           "looped": 0
+        },
+        "test": {
+          "n": 108,
+          "n_with_step": 108,
+          "abs_delta_mean": 0.048089814814814814,
+          "abs_delta_p95": 0.11003499999999991,
+          "abs_delta_max": 0.2338,
+          "exceed": 1,
+          "exceed_rate": 0.009259259259259259,
+          "exceed_ci_wilson": [
+            0.0016363608538834916,
+            0.05059345519366322
+          ],
+          "exceed_by_boundary": {
+            "construction": 1,
+            "forced_alignment": 1
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.07199166666666668,
+          "wer_mean": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0
         }
       }
     },
     "plain/stitch": {
       "pooled": {
-        "n": 18,
-        "n_with_step": 18,
-        "abs_delta_mean": 0.02507777777777778,
-        "abs_delta_p95": 0.05290499999999997,
-        "abs_delta_max": 0.0688,
+        "n": 54,
+        "n_with_step": 54,
+        "abs_delta_mean": 0.03181296296296296,
+        "abs_delta_p95": 0.0862899999999999,
+        "abs_delta_max": 0.1066,
         "exceed": 0,
         "exceed_rate": 0.0,
         "exceed_ci_wilson": [
           0.0,
-          0.17587922364665765
+          0.0664135880908964
         ],
         "exceed_by_boundary": {
           "construction": 0,
           "forced_alignment": 0
         },
         "n_invalid": 0,
-        "profile_sd_mean": 0.06358333333333334,
+        "profile_sd_mean": 0.06371851851851852,
         "wer_mean": 0.0,
         "leak_rate": 0.0,
         "looped": 0
@@ -1881,11 +3874,135 @@
           "wer_mean": 0.0,
           "leak_rate": 0.0,
           "looped": 0
+        },
+        "test": {
+          "n": 36,
+          "n_with_step": 36,
+          "abs_delta_mean": 0.03518055555555555,
+          "abs_delta_p95": 0.0989,
+          "abs_delta_max": 0.1066,
+          "exceed": 0,
+          "exceed_rate": 0.0,
+          "exceed_ci_wilson": [
+            0.0,
+            0.09641862859446367
+          ],
+          "exceed_by_boundary": {
+            "construction": 0,
+            "forced_alignment": 0
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.06378611111111111,
+          "wer_mean": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0
+        }
+      }
+    },
+    "stitch_null/stitchnull": {
+      "pooled": {
+        "n": 171,
+        "n_with_step": 171,
+        "abs_delta_mean": 0.05910175438596492,
+        "abs_delta_p95": 0.1387,
+        "abs_delta_max": 0.2392,
+        "exceed": 6,
+        "exceed_rate": 0.03508771929824561,
+        "exceed_ci_wilson": [
+          0.016178397190256082,
+          0.07442630793829172
+        ],
+        "exceed_by_boundary": {
+          "construction": 11,
+          "forced_alignment": 5
+        },
+        "n_invalid": 1,
+        "profile_sd_mean": 0.07723508771929825,
+        "wer_mean": 0.019548872180451128,
+        "leak_rate": 0.0,
+        "looped": 0
+      },
+      "by_set": {
+        "p2a": {
+          "n": 27,
+          "n_with_step": 27,
+          "abs_delta_mean": 0.04785555555555557,
+          "abs_delta_p95": 0.09493,
+          "abs_delta_max": 0.1362,
+          "exceed": 0,
+          "exceed_rate": 0.0,
+          "exceed_ci_wilson": [
+            0.0,
+            0.12455502974186705
+          ],
+          "exceed_by_boundary": {
+            "construction": 0,
+            "forced_alignment": 0
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.06899259259259259,
+          "wer_mean": 0.005291005291005291,
+          "leak_rate": 0.0,
+          "looped": 0
+        },
+        "heldout": {
+          "n": 36,
+          "n_with_step": 36,
+          "abs_delta_mean": 0.06207222222222223,
+          "abs_delta_p95": 0.1587,
+          "abs_delta_max": 0.1847,
+          "exceed": 3,
+          "exceed_rate": 0.08333333333333333,
+          "exceed_ci_wilson": [
+            0.02874861133599338,
+            0.2182669124927263
+          ],
+          "exceed_by_boundary": {
+            "construction": 3,
+            "forced_alignment": 2
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.07831666666666667,
+          "wer_mean": 0.001851851851851852,
+          "leak_rate": 0.0,
+          "looped": 0
+        },
+        "test": {
+          "n": 108,
+          "n_with_step": 108,
+          "abs_delta_mean": 0.06092314814814815,
+          "abs_delta_p95": 0.13159999999999997,
+          "abs_delta_max": 0.2392,
+          "exceed": 3,
+          "exceed_rate": 0.027777777777777776,
+          "exceed_ci_wilson": [
+            0.009491339899289714,
+            0.07850338875023635
+          ],
+          "exceed_by_boundary": {
+            "construction": 8,
+            "forced_alignment": 3
+          },
+          "n_invalid": 1,
+          "profile_sd_mean": 0.0789351851851852,
+          "wer_mean": 0.029012345679012348,
+          "leak_rate": 0.0,
+          "looped": 0
         }
       }
     }
   },
   "paired_reference_vs_baseline": {
+    "heldout": {
+      "n_pairs": 48,
+      "reference_only": 30,
+      "baseline_only": 0,
+      "mcnemar_p": 1.862645149230957e-09,
+      "n_phrases": 4,
+      "phrases_reference_ahead": 4,
+      "phrases_baseline_ahead": 0,
+      "phrase_sign_test_p": 0.125
+    },
     "p2a": {
       "n_pairs": 24,
       "reference_only": 16,
@@ -1896,15 +4013,15 @@
       "phrases_baseline_ahead": 0,
       "phrase_sign_test_p": 0.25
     },
-    "heldout": {
-      "n_pairs": 48,
-      "reference_only": 30,
+    "test": {
+      "n_pairs": 144,
+      "reference_only": 86,
       "baseline_only": 0,
-      "mcnemar_p": 1.862645149230957e-09,
-      "n_phrases": 4,
-      "phrases_reference_ahead": 4,
+      "mcnemar_p": 2.5849394142282115e-26,
+      "n_phrases": 12,
+      "phrases_reference_ahead": 12,
       "phrases_baseline_ahead": 0,
-      "phrase_sign_test_p": 0.125
+      "phrase_sign_test_p": 0.00048828125
     }
   },
   "seed_agreement": {
@@ -1977,6 +4094,26 @@
         "s42-s43": [
           6,
           12
+        ]
+      }
+    },
+    "stitch_null/p2a": {
+      "n_cells": 9,
+      "n_cells_multi_seed": 9,
+      "unanimous": 9,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          9,
+          9
+        ],
+        "s42-s44": [
+          9,
+          9
+        ],
+        "s43-s44": [
+          9,
+          9
         ]
       }
     },
@@ -2059,6 +4196,126 @@
           16
         ]
       }
+    },
+    "stitch_null/heldout": {
+      "n_cells": 12,
+      "n_cells_multi_seed": 12,
+      "unanimous": 9,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          10,
+          12
+        ],
+        "s42-s44": [
+          11,
+          12
+        ],
+        "s43-s44": [
+          9,
+          12
+        ]
+      }
+    },
+    "control/test": {
+      "n_cells": 36,
+      "n_cells_multi_seed": 36,
+      "unanimous": 35,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          36,
+          36
+        ],
+        "s42-s44": [
+          35,
+          36
+        ],
+        "s43-s44": [
+          35,
+          36
+        ]
+      }
+    },
+    "nl_instruct/test": {
+      "n_cells": 48,
+      "n_cells_multi_seed": 48,
+      "unanimous": 48,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          48,
+          48
+        ],
+        "s42-s44": [
+          48,
+          48
+        ],
+        "s43-s44": [
+          48,
+          48
+        ]
+      }
+    },
+    "plain/test": {
+      "n_cells": 12,
+      "n_cells_multi_seed": 12,
+      "unanimous": 12,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          12,
+          12
+        ],
+        "s42-s44": [
+          12,
+          12
+        ],
+        "s43-s44": [
+          12,
+          12
+        ]
+      }
+    },
+    "stitch/test": {
+      "n_cells": 48,
+      "n_cells_multi_seed": 48,
+      "unanimous": 30,
+      "unanimous_positive": 19,
+      "seed_pairs": {
+        "s42-s43": [
+          37,
+          48
+        ],
+        "s42-s44": [
+          39,
+          48
+        ],
+        "s43-s44": [
+          32,
+          48
+        ]
+      }
+    },
+    "stitch_null/test": {
+      "n_cells": 36,
+      "n_cells_multi_seed": 36,
+      "unanimous": 33,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          34,
+          36
+        ],
+        "s42-s44": [
+          34,
+          36
+        ],
+        "s43-s44": [
+          34,
+          36
+        ]
+      }
     }
   },
   "sensitivity": [
@@ -2083,6 +4340,10 @@
           17,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2098,6 +4359,30 @@
         "stitch/heldout": [
           30,
           48
+        ],
+        "stitch_null/heldout": [
+          4,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          1,
+          144
+        ],
+        "plain/test": [
+          1,
+          36
+        ],
+        "stitch/test": [
+          86,
+          144
+        ],
+        "stitch_null/test": [
+          16,
+          108
         ]
       }
     },
@@ -2122,6 +4407,10 @@
           17,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2137,6 +4426,30 @@
         "stitch/heldout": [
           31,
           48
+        ],
+        "stitch_null/heldout": [
+          4,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          1,
+          144
+        ],
+        "plain/test": [
+          1,
+          36
+        ],
+        "stitch/test": [
+          93,
+          144
+        ],
+        "stitch_null/test": [
+          17,
+          108
         ]
       }
     },
@@ -2161,6 +4474,10 @@
           18,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2176,6 +4493,30 @@
         "stitch/heldout": [
           37,
           48
+        ],
+        "stitch_null/heldout": [
+          4,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          1,
+          144
+        ],
+        "plain/test": [
+          1,
+          36
+        ],
+        "stitch/test": [
+          100,
+          144
+        ],
+        "stitch_null/test": [
+          17,
+          108
         ]
       }
     },
@@ -2200,6 +4541,10 @@
           24,
           24
         ],
+        "stitch_null/p2a": [
+          1,
+          27
+        ],
         "control/heldout": [
           2,
           36
@@ -2215,6 +4560,30 @@
         "stitch/heldout": [
           48,
           48
+        ],
+        "stitch_null/heldout": [
+          9,
+          36
+        ],
+        "control/test": [
+          8,
+          108
+        ],
+        "nl_instruct/test": [
+          6,
+          144
+        ],
+        "plain/test": [
+          1,
+          36
+        ],
+        "stitch/test": [
+          136,
+          144
+        ],
+        "stitch_null/test": [
+          17,
+          108
         ]
       }
     },
@@ -2239,6 +4608,10 @@
           16,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2254,6 +4627,30 @@
         "stitch/heldout": [
           29,
           48
+        ],
+        "stitch_null/heldout": [
+          3,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          79,
+          144
+        ],
+        "stitch_null/test": [
+          3,
+          108
         ]
       }
     },
@@ -2277,6 +4674,10 @@
         "stitch/p2a": [
           16,
           24
+        ],
+        "stitch_null/p2a": [
+          0,
+          27
         ],
         "control/heldout": [
           0,
@@ -2293,6 +4694,30 @@
         "stitch/heldout": [
           30,
           48
+        ],
+        "stitch_null/heldout": [
+          3,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          86,
+          144
+        ],
+        "stitch_null/test": [
+          3,
+          108
         ]
       }
     },
@@ -2317,6 +4742,10 @@
           17,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2332,6 +4761,30 @@
         "stitch/heldout": [
           35,
           48
+        ],
+        "stitch_null/heldout": [
+          3,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          91,
+          144
+        ],
+        "stitch_null/test": [
+          3,
+          108
         ]
       }
     },
@@ -2356,6 +4809,10 @@
           23,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2371,6 +4828,30 @@
         "stitch/heldout": [
           42,
           48
+        ],
+        "stitch_null/heldout": [
+          3,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          115,
+          144
+        ],
+        "stitch_null/test": [
+          3,
+          108
         ]
       }
     },
@@ -2395,6 +4876,10 @@
           12,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2410,6 +4895,30 @@
         "stitch/heldout": [
           23,
           48
+        ],
+        "stitch_null/heldout": [
+          0,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          66,
+          144
+        ],
+        "stitch_null/test": [
+          2,
+          108
         ]
       }
     },
@@ -2434,6 +4943,10 @@
           12,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2449,6 +4962,30 @@
         "stitch/heldout": [
           24,
           48
+        ],
+        "stitch_null/heldout": [
+          0,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          71,
+          144
+        ],
+        "stitch_null/test": [
+          2,
+          108
         ]
       }
     },
@@ -2473,6 +5010,10 @@
           12,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2488,6 +5029,30 @@
         "stitch/heldout": [
           29,
           48
+        ],
+        "stitch_null/heldout": [
+          0,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          75,
+          144
+        ],
+        "stitch_null/test": [
+          2,
+          108
         ]
       }
     },
@@ -2512,6 +5077,10 @@
           17,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2527,6 +5096,30 @@
         "stitch/heldout": [
           34,
           48
+        ],
+        "stitch_null/heldout": [
+          0,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          85,
+          144
+        ],
+        "stitch_null/test": [
+          2,
+          108
         ]
       }
     },
@@ -2551,6 +5144,10 @@
           19,
           24
         ],
+        "stitch_null/p2a": [
+          0,
+          27
+        ],
         "control/heldout": [
           0,
           36
@@ -2566,6 +5163,30 @@
         "stitch/heldout": [
           38,
           48
+        ],
+        "stitch_null/heldout": [
+          3,
+          36
+        ],
+        "control/test": [
+          1,
+          108
+        ],
+        "nl_instruct/test": [
+          0,
+          144
+        ],
+        "plain/test": [
+          0,
+          36
+        ],
+        "stitch/test": [
+          102,
+          144
+        ],
+        "stitch_null/test": [
+          3,
+          108
         ]
       }
     }

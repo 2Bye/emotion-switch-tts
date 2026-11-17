@@ -83,8 +83,8 @@ def describe(rows: list[dict]) -> str:
         example = sub[0]
         text = (
             f"**`{cond}`** ({len(sub)} rows). `instruct` takes the values {', '.join(instructs)}. "
-            f"Example for `{example['id']}`, the text the model was given: \"{example['node_full_text']}\"; "
-            f"the text the clip is scored against: \"{example['text']}\"."
+            f'Example for `{example["id"]}`, the text the model was given: "{example["node_full_text"]}"; '
+            f'the text the clip is scored against: "{example["text"]}".'
         )
         if cond == "cont":
             text += " The boundary by construction is the end of the first segment, as the node row records it."
