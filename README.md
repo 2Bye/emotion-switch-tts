@@ -815,9 +815,11 @@ Not measured on the node (rendered by this repository's generator): stitch_heldo
 Нужны [uv](https://docs.astral.sh/uv/) и Python 3.11 (uv поставит его сам).
 
 ```bash
-git clone https://github.com/2Bye/emotion-switch-tts.git && cd emotion-switch-tts
+git clone --branch hw1 https://github.com/2Bye/emotion-switch-tts.git && cd emotion-switch-tts
 uv sync
 ```
+
+Работа сдаётся pull request'ом из ветки `hw1` в `main`. После его слияния ключ `--branch hw1` не нужен.
 
 **Быстрая проверка без моделей, несколько секунд.** Пересчитывает метрики, все таблицы и графики
 из построчных измерений [results/baseline/rows.jsonl](results/baseline/rows.jsonl) и выложенного
