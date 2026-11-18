@@ -1,0 +1,21 @@
+# Render of the test set and of the stitch_null runs on the GPU node, 2026-11-17 (UTC, node clock).
+# Lines written by the render script: start (with the commit of this repository it ran), the sha256 of the
+# checkpoint downloaded from the Hugging Face Hub, one line per run at its start, end.
+start 2026-11-17T12:42:58Z commit c4df5a244d3730a76d10769aead4e1deee13e21f
+475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49  model.safetensors
+run inline test 42 2026-11-17T12:43:15Z
+run inline test 43 2026-11-17T12:58:12Z
+run inline test 44 2026-11-17T13:13:36Z
+run stitch test 42 2026-11-17T13:28:42Z
+run stitch test 43 2026-11-17T13:44:04Z
+run stitch test 44 2026-11-17T13:59:15Z
+run stitchnull test 42 2026-11-17T14:14:15Z
+run stitchnull test 43 2026-11-17T14:20:10Z
+run stitchnull test 44 2026-11-17T14:26:13Z
+run stitchnull heldout 42 2026-11-17T14:32:03Z
+run stitchnull heldout 43 2026-11-17T14:34:01Z
+run stitchnull heldout 44 2026-11-17T14:35:59Z
+run stitchnull p2a 42 2026-11-17T14:38:00Z
+run stitchnull p2a 43 2026-11-17T14:39:27Z
+run stitchnull p2a 44 2026-11-17T14:40:45Z
+end 2026-11-17T14:42:07Z

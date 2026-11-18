@@ -1,0 +1,19 @@
+{
+  "set": "test",
+  "role": "test",
+  "note": "Test set. Texts, runs, measurement rules and the thresholds of the hypothesis were committed before any clip of this set was rendered (docs/prereg_test.md).",
+  "phrases": [
+    {"id": "p0", "s1": "The ferry leaves the island before sunrise.", "s2": "Passengers usually wait near the ticket window.", "switch_word": "passengers"},
+    {"id": "p1", "s1": "The printer in the hallway stopped working again.", "s2": "Somebody should call the repair service today.", "switch_word": "somebody"},
+    {"id": "p2", "s1": "Our train was delayed by heavy snow.", "s2": "Meanwhile the children played cards in the corridor.", "switch_word": "meanwhile"},
+    {"id": "p3", "s1": "The museum closes early during the winter months.", "s2": "Visitors can still walk through the garden.", "switch_word": "visitors"},
+    {"id": "p4", "s1": "She left her umbrella in the waiting room.", "s2": "Luckily the rain stopped before the evening.", "switch_word": "luckily"},
+    {"id": "p5", "s1": "The farmers bring fresh vegetables to the market.", "s2": "Customers arrive long before the stalls open.", "switch_word": "customers"},
+    {"id": "p6", "s1": "The lecture on bridges lasted until noon.", "s2": "Eventually the students went outside for lunch.", "switch_word": "eventually"},
+    {"id": "p7", "s1": "The mountain road is closed after the landslide.", "s2": "Drivers must follow the signs through the village.", "switch_word": "drivers"},
+    {"id": "p8", "s1": "My sister keeps old letters in a wooden box.", "s2": "Sometimes she reads them aloud to her children.", "switch_word": "sometimes"},
+    {"id": "p9", "s1": "The orchestra rehearsed in the empty hall.", "s2": "Tonight the concert begins after the speeches.", "switch_word": "tonight"},
+    {"id": "p10", "s1": "The fishing boats returned with the morning tide.", "s2": "Villagers gathered on the pier to watch.", "switch_word": "villagers"},
+    {"id": "p11", "s1": "The library received a large donation of books.", "s2": "Volunteers sorted them over the weekend.", "switch_word": "volunteers"}
+  ]
+}
