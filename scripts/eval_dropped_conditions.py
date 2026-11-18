@@ -27,7 +27,7 @@ DROPPED = {"inline_tag": "inline-tag-", "cont": "segcont-cont-"}
 
 
 def node_rows(export: Path) -> list[tuple[str, str, int, dict]]:
-    """(node dir, set, seed, node row) of every dropped row, in the order of RUNS."""
+    """(run, set, seed, node row) of every dropped row, in the order of RUNS."""
     out = []
     for node_dir, (_, set_name, seed) in RUNS.items():
         for r in read_jsonl(export / "runs" / node_dir / "t0_report.jsonl"):
@@ -67,7 +67,6 @@ def build_manifest(cfg: dict, export: Path) -> list[dict]:
                 "expect_sign": r["expect_sign"],
                 # `cont` is stitched: the node row carries the end of the first segment
                 "switch_time_s": r.get("switch_time_s") if r["condition"] == "cont" else None,
-                "node_run": f"runs/{node_dir}",
                 **flac,
             }
         )

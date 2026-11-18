@@ -6,12 +6,12 @@
     "inline_p2a_s43": {
       "clips": 24,
       "byte_identical": 24,
-      "released_clips_rendered_by": "probe_inline.py of the source project, 2026-11-11"
+      "released_clips_rendered_by": "the single-pass probe script of the source project, 2026-11-11"
     },
     "stitch_p2a_s43": {
       "clips": 24,
       "byte_identical": 24,
-      "released_clips_rendered_by": "probe_segcont.py of the source project, 2026-09-04"
+      "released_clips_rendered_by": "the stitching probe script of the source project, 2026-09-04"
     }
   },
   "runs_rendered_by_this_generator_and_released": {
@@ -40,7 +40,7 @@
       "inline_heldout_s42": {
         "clips": 32,
         "byte_identical": 32,
-        "released_clips_rendered_by": "probe_inline.py of the source project"
+        "released_clips_rendered_by": "the single-pass probe script of the source project"
       }
     }
   }

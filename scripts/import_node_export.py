@@ -2,7 +2,7 @@
 
     python scripts/import_node_export.py --export <dir with runs/ and rendered/>
 
-Runs come in two kinds. `runs/<node dir>` was rendered and measured by the probe scripts of the
+Runs come in two kinds. `runs/<run>` was rendered and measured by the probe scripts of the
 source project; `rendered/<run>` was rendered by this repository's `emoswitch.generate` (any run
 kind of `emoswitch.stimuli.RUN_KINDS`, any set of the config, e.g. `stitchnull_test_s42`).
 For every run listed under `runs` in the config it
@@ -27,17 +27,17 @@ import soundfile as sf
 from emoswitch.config import ROOT, load_config
 from emoswitch.stimuli import build_rows
 
-# node run directory -> (run kind, set, seed)
+# probe runs, exported as runs/<run> -> (run kind, set, seed)
 RUNS = {
-    "inline_R_p2a_v2": ("inline", "p2a", 42),
-    "inline_R_heldout_v2": ("inline", "heldout", 42),
-    "hw1_inline_R_p2a_s43": ("inline", "p2a", 43),
-    "hw1_inline_R_heldout_s43": ("inline", "heldout", 43),
-    "hw1_inline_R_p2a_s44": ("inline", "p2a", 44),
-    "hw1_inline_R_heldout_s44": ("inline", "heldout", 44),
-    "segcont_R": ("stitch", "p2a", 42),
-    "segcont_R_seed43": ("stitch", "p2a", 43),
-    "segcont_R_heldout": ("stitch", "heldout", 42),
+    "inline_p2a_s42": ("inline", "p2a", 42),
+    "inline_heldout_s42": ("inline", "heldout", 42),
+    "inline_p2a_s43": ("inline", "p2a", 43),
+    "inline_heldout_s43": ("inline", "heldout", 43),
+    "inline_p2a_s44": ("inline", "p2a", 44),
+    "inline_heldout_s44": ("inline", "heldout", 44),
+    "stitch_p2a_s42": ("stitch", "p2a", 42),
+    "stitch_p2a_s43": ("stitch", "p2a", 43),
+    "stitch_heldout_s42": ("stitch", "heldout", 42),
 }
 NODE_CONDITION = {"naive": "stitch"}  # the node calls the stitched reference "naive"
 CHECKED = ("id", "condition", "emotion", "emotion2", "text", "instruct", "expect_sign", "switch_word")
@@ -74,12 +74,13 @@ def import_probe_run(src: Path, expected: dict, run: str, audio_dir: Path) -> tu
     summary = src / "profile_summary.json"
     provenance = {
         "rendered_by": "probe script of the source project",
-        "node_run": f"runs/{src.name}",
         "n_rows_released": len(manifest),
         "n_rows_in_node_run": len(node_rows),
         "conditions_in_node_run": sorted({r["condition"] for r in node_rows.values()}),
-        "checkpoint": Path(meta.get("model") or meta.get("cv_model") or "").name or None,
-        "probe": {k: meta.get(k) for k in ("run_id", "model_sha256", "seed", "gen_preset", "argv", "git", "versions")},
+        "probe": {
+            **{k: meta.get(k) for k in ("run_id", "model_sha256", "seed", "versions")},
+            "worktree_dirty": (meta.get("git") or {}).get("dirty"),
+        },
         "profile": (
             {k: json.loads(summary.read_text()).get(k) for k in ("window_s", "hop_s", "align", "detect_threshold")}
             if summary.exists()

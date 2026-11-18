@@ -1,7 +1,6 @@
 {
   "inline_p2a_s42": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/inline_R_p2a_v2",
     "n_rows_released": 24,
     "n_rows_in_node_run": 36,
     "conditions_in_node_run": [
@@ -10,28 +9,10 @@
       "nl_instruct",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20260905-072240",
       "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
       "seed": 42,
-      "gen_preset": "greedy105",
-      "argv": [
-        "scripts/probe_inline.py",
-        "--model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/inline_R_p2a_v2",
-        "--conditions",
-        "nl_instruct,inline_tag,control,plain"
-      ],
-      "git": {
-        "commit": "5cf73f9b66764a50b6c9d194a5b5f9dac55195ae",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
       "versions": {
         "python": "3.11.13",
         "torch": "2.8.0+cu128",
@@ -42,7 +23,8 @@
         "ctranslate2": "4.8.2",
         "jiwer": "?",
         "numpy": "1.26.4"
-      }
+      },
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -53,7 +35,6 @@
   },
   "inline_heldout_s42": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/inline_R_heldout_v2",
     "n_rows_released": 32,
     "n_rows_in_node_run": 48,
     "conditions_in_node_run": [
@@ -62,30 +43,10 @@
       "nl_instruct",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20260905-073008",
       "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
       "seed": 42,
-      "gen_preset": "greedy105",
-      "argv": [
-        "scripts/probe_inline.py",
-        "--model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/inline_R_heldout_v2",
-        "--conditions",
-        "nl_instruct,inline_tag,control,plain",
-        "--phrases-file",
-        "configs/inline/switch2_heldout.json"
-      ],
-      "git": {
-        "commit": "5cf73f9b66764a50b6c9d194a5b5f9dac55195ae",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
       "versions": {
         "python": "3.11.13",
         "torch": "2.8.0+cu128",
@@ -96,7 +57,8 @@
         "ctranslate2": "4.8.2",
         "jiwer": "?",
         "numpy": "1.26.4"
-      }
+      },
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -107,7 +69,6 @@
   },
   "inline_p2a_s43": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/hw1_inline_R_p2a_s43",
     "n_rows_released": 24,
     "n_rows_in_node_run": 36,
     "conditions_in_node_run": [
@@ -116,30 +77,10 @@
       "nl_instruct",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20261111-110721",
       "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
       "seed": 43,
-      "gen_preset": "greedy105",
-      "argv": [
-        "scripts/probe_inline.py",
-        "--model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/hw1_inline_R_p2a_s43",
-        "--conditions",
-        "nl_instruct,inline_tag,control,plain",
-        "--seed",
-        "43"
-      ],
-      "git": {
-        "commit": "b21b157a1ae288568f1c81db4fc2bd8a465f41c0",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
       "versions": {
         "python": "3.11.13",
         "torch": "2.8.0+cu128",
@@ -150,7 +91,8 @@
         "ctranslate2": "4.8.2",
         "jiwer": "?",
         "numpy": "2.4.6"
-      }
+      },
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -161,7 +103,6 @@
   },
   "inline_heldout_s43": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/hw1_inline_R_heldout_s43",
     "n_rows_released": 32,
     "n_rows_in_node_run": 48,
     "conditions_in_node_run": [
@@ -170,32 +111,10 @@
       "nl_instruct",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20261111-111545",
       "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
       "seed": 43,
-      "gen_preset": "greedy105",
-      "argv": [
-        "scripts/probe_inline.py",
-        "--model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/hw1_inline_R_heldout_s43",
-        "--conditions",
-        "nl_instruct,inline_tag,control,plain",
-        "--phrases-file",
-        "configs/inline/switch2_heldout.json",
-        "--seed",
-        "43"
-      ],
-      "git": {
-        "commit": "b21b157a1ae288568f1c81db4fc2bd8a465f41c0",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
       "versions": {
         "python": "3.11.13",
         "torch": "2.8.0+cu128",
@@ -206,7 +125,8 @@
         "ctranslate2": "4.8.2",
         "jiwer": "?",
         "numpy": "2.4.6"
-      }
+      },
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -217,7 +137,6 @@
   },
   "inline_p2a_s44": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/hw1_inline_R_p2a_s44",
     "n_rows_released": 24,
     "n_rows_in_node_run": 36,
     "conditions_in_node_run": [
@@ -226,30 +145,10 @@
       "nl_instruct",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20261111-112851",
       "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
       "seed": 44,
-      "gen_preset": "greedy105",
-      "argv": [
-        "scripts/probe_inline.py",
-        "--model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/hw1_inline_R_p2a_s44",
-        "--conditions",
-        "nl_instruct,inline_tag,control,plain",
-        "--seed",
-        "44"
-      ],
-      "git": {
-        "commit": "b21b157a1ae288568f1c81db4fc2bd8a465f41c0",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
       "versions": {
         "python": "3.11.13",
         "torch": "2.8.0+cu128",
@@ -260,7 +159,8 @@
         "ctranslate2": "4.8.2",
         "jiwer": "?",
         "numpy": "2.4.6"
-      }
+      },
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -271,7 +171,6 @@
   },
   "inline_heldout_s44": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/hw1_inline_R_heldout_s44",
     "n_rows_released": 32,
     "n_rows_in_node_run": 48,
     "conditions_in_node_run": [
@@ -280,32 +179,10 @@
       "nl_instruct",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20261111-113741",
       "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
       "seed": 44,
-      "gen_preset": "greedy105",
-      "argv": [
-        "scripts/probe_inline.py",
-        "--model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/hw1_inline_R_heldout_s44",
-        "--conditions",
-        "nl_instruct,inline_tag,control,plain",
-        "--phrases-file",
-        "configs/inline/switch2_heldout.json",
-        "--seed",
-        "44"
-      ],
-      "git": {
-        "commit": "b21b157a1ae288568f1c81db4fc2bd8a465f41c0",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
       "versions": {
         "python": "3.11.13",
         "torch": "2.8.0+cu128",
@@ -316,7 +193,8 @@
         "ctranslate2": "4.8.2",
         "jiwer": "?",
         "numpy": "2.4.6"
-      }
+      },
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -327,7 +205,6 @@
   },
   "stitch_p2a_s42": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/segcont_R",
     "n_rows_released": 24,
     "n_rows_in_node_run": 36,
     "conditions_in_node_run": [
@@ -336,29 +213,12 @@
       "naive",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20260904-233211",
       "model_sha256": null,
       "seed": 42,
-      "gen_preset": null,
-      "argv": [
-        "scripts/probe_segcont.py",
-        "--cv-model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--icl-model",
-        "runs/R_basetype",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/segcont_R"
-      ],
-      "git": {
-        "commit": "bdb8dd816fc3238a8c17884d7472bfbcb9aaa139",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
-      "versions": null
+      "versions": null,
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -369,7 +229,6 @@
   },
   "stitch_p2a_s43": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/segcont_R_seed43",
     "n_rows_released": 24,
     "n_rows_in_node_run": 36,
     "conditions_in_node_run": [
@@ -378,31 +237,12 @@
       "naive",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20260904-234034",
       "model_sha256": null,
       "seed": 43,
-      "gen_preset": null,
-      "argv": [
-        "scripts/probe_segcont.py",
-        "--cv-model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--icl-model",
-        "runs/R_basetype",
-        "--speaker",
-        "esd0016",
-        "--seed",
-        "43",
-        "--out-dir",
-        "runs/segcont_R_seed43"
-      ],
-      "git": {
-        "commit": "071b2b905be71d8cd154dee484faade45bd99b67",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
-      "versions": null
+      "versions": null,
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
@@ -413,7 +253,6 @@
   },
   "stitch_heldout_s42": {
     "rendered_by": "probe script of the source project",
-    "node_run": "runs/segcont_R_heldout",
     "n_rows_released": 32,
     "n_rows_in_node_run": 48,
     "conditions_in_node_run": [
@@ -422,31 +261,12 @@
       "naive",
       "plain"
     ],
-    "checkpoint": "checkpoint-epoch-1_step1050-keep",
     "probe": {
       "run_id": "20260905-010102",
       "model_sha256": null,
       "seed": 42,
-      "gen_preset": null,
-      "argv": [
-        "scripts/probe_segcont.py",
-        "--cv-model",
-        "runs/t1_en10rc_lora_lr5e5_instruct_fixed_tagadj_r128_sub03/checkpoint-epoch-1_step1050-keep",
-        "--icl-model",
-        "runs/R_basetype",
-        "--speaker",
-        "esd0016",
-        "--out-dir",
-        "runs/segcont_R_heldout",
-        "--phrases-file",
-        "configs/inline/switch2_heldout.json"
-      ],
-      "git": {
-        "commit": "6ca6494620ed58912c08085d4b6a52a199e02015",
-        "branch": "m4-experiments",
-        "dirty": true
-      },
-      "versions": null
+      "versions": null,
+      "worktree_dirty": true
     },
     "profile": {
       "window_s": 1.0,
