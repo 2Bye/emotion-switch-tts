@@ -182,3 +182,18 @@ def test_committed_inpass_rows_cover_the_manifest_and_score_to_the_committed_tab
 def test_holm_adjustment():
     assert experiments.holm([0.01, 0.04, 0.03]) == pytest.approx([0.03, 0.06, 0.06])
     assert experiments.holm([0.5, 0.0005]) == pytest.approx([0.5, 0.001])
+
+
+def test_the_report_tables_are_copies_and_its_headline_counts_are_the_committed_ones():
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from sync_readme import BLOCK, render
+
+    report = (ROOT / "HW2.md").read_text(encoding="utf-8")
+    assert len(BLOCK.findall(report)) >= 8
+    assert render(report, RESULTS) == report
+    committed = json.loads((RESULTS / "experiments.json").read_text(encoding="utf-8"))["experiments"]
+    for e in committed:
+        if e["set"] == "test" and e["seed"] is None and e["role"] != "baseline":
+            assert f"{e['detected']} из {e['n']} ({e['det']:.3f})" in report, e["system"]

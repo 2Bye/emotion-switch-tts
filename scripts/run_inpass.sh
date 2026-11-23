@@ -16,3 +16,4 @@ else
   uv run python -m emoswitch.evaluate --config "$CONFIG"
 fi
 uv run python -m emoswitch.experiments --config "$CONFIG"
+uv run python scripts/sync_readme.py --file HW2.md --config "$CONFIG" --check

@@ -1,0 +1,18 @@
+# Renders of the in-pass systems on the dev set on the GPU node, 2026-11-23 (UTC, node clock).
+# Assembled from the logs of the two shell scripts that ran them; the lines are theirs, the comments are added.
+#
+# First attempt: directions estimated, then p2a seed 42 rendered with the aligner on the GPU. The card is
+# shared; the process ran out of memory before the run was complete. Nothing of this attempt is released.
+start 2026-11-23T06:57:51Z
+475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49  model.safetensors
+steer_done 2026-11-23T07:02:29Z
+torch.OutOfMemoryError: CUDA out of memory
+# Between the attempts the aligner of the boundary was moved to the CPU (src/emoswitch/generate.py) and
+# PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True was set. The decoder code, the config and the directions
+# were not changed.
+# Second attempt: all three seeds from the beginning; these are the released dev clips.
+start 2026-11-23T07:05:59Z
+run inpass p2a 42 try 1 2026-11-23T07:05:59Z
+run inpass p2a 43 try 1 2026-11-23T07:10:44Z
+run inpass p2a 44 try 1 2026-11-23T07:14:52Z
+end 2026-11-23T07:19:48Z

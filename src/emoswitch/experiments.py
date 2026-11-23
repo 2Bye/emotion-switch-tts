@@ -221,6 +221,42 @@ def null_rows(rows: list[dict], cfg: dict) -> list[dict]:
     return out
 
 
+def changepoint_offsets(rows: list[dict], cfg: dict) -> list[dict]:
+    """Where the best split of the profile sits against the boundary, over the valid switch rows whose step
+    has the commanded sign and the required size. Negative = before the boundary."""
+    dc = cfg["detector"]
+    thr, tol = dc["min_abs_delta"], dc["max_changepoint_err_s"]
+    out = []
+    order = {s: i for i, s in enumerate(cfg["sets"])}
+    for cond in systems_of(cfg, rows):
+        sub = [r for r in rows if r["condition"] == cond]
+        for s in sorted({r["set"] for r in sub}, key=order.get):
+            valid = [primary_step(r) for r in sub if r["set"] == s and r["valid"]]
+            steps = [st for st in valid if st and st["sign_ok"] and abs(st["delta"]) >= thr]
+            steps = [st for st in steps if st["changepoint_err_s"] is not None]
+            off = [st["changepoint_s"] - st["switch_time_s"] for st in steps]
+            far = [st["changepoint_err_s"] > tol for st in steps]  # the detector's own comparison
+            out.append(
+                {
+                    "system": cond,
+                    "set": s,
+                    "n_valid": len(valid),
+                    "n_step": len(steps),
+                    "median_s": float(np.median(off)) if off else None,
+                    "early": sum(f and o < 0 for f, o in zip(far, off, strict=True)),
+                    "within": sum(not f for f in far),
+                    "late": sum(f and o > 0 for f, o in zip(far, off, strict=True)),
+                }
+            )
+    return out
+
+
+def metrics_of(cfg: dict, out, key: str) -> dict:
+    """`key` of metrics.json of this experiment and of the baseline experiment, read side by side."""
+    read = lambda d: json.loads((d / "metrics.json").read_text(encoding="utf-8"))[key]  # noqa: E731
+    return {"own": read(out), "baseline": read(ROOT / BASELINE_DIR)}
+
+
 def by_pair(rows: list[dict], cfg: dict) -> dict:
     """system -> set -> 'e1>e2' -> [detected, n]."""
     out = {name: defaultdict(lambda: defaultdict(lambda: [0, 0])) for name in systems_of(cfg, rows)}
@@ -345,6 +381,54 @@ def pair_table(pairs: dict, cfg: dict) -> str:
     return table(["system", "set", *[n.replace(">", " → ") for n in names]], rows)
 
 
+def changepoint_table(items: list[dict], cfg: dict) -> str:
+    tol = cfg["detector"]["max_changepoint_err_s"]
+    rows = [
+        [i["system"], set_name(cfg, i["set"]), frac(i["n_step"], i["n_valid"]),
+         "" if i["median_s"] is None else f"{i['median_s']:+.2f}", str(i["early"]), str(i["within"]), str(i["late"])]
+        for i in items
+    ]  # fmt: skip
+    head = ["system", "set", "rows with a step of the commanded sign and size, of the valid rows",
+            "median offset of the change-point from the boundary, s", f"earlier than -{tol} s",
+            f"within {tol} s", f"later than +{tol} s"]  # fmt: skip
+    return table(head, rows)
+
+
+def sensitivity_table(grids: dict, cfg: dict, sets: list[str], names: list[str]) -> str:
+    """Counts of every system under each pair of detector constants and, at the frozen pair, with the weighted
+    change-point estimator (`evaluate.sensitivity`); the frozen detector is in bold."""
+    dc = cfg["detector"]
+    base = {(g["min_abs_delta"], g["max_changepoint_err_s"], g["weighted_split"]): g["counts"]
+            for g in grids["baseline"]}  # fmt: skip
+    groups = [*names, *[c for c in NULL_CONDITIONS if c.endswith("_null")]]
+    rows = []
+    for s in sets:
+        for g in grids["own"]:
+            key = (g["min_abs_delta"], g["max_changepoint_err_s"], g["weighted_split"])
+            counts = {**base.get(key, {}), **g["counts"]}
+            frozen = key == (dc["min_abs_delta"], dc["max_changepoint_err_s"], False)
+            cells = [frac(*counts[f"{n}/{s}"]) if f"{n}/{s}" in counts else "" for n in groups]
+            tol = "none" if key[1] is None else f"{key[1]:.2f}"
+            line = [set_name(cfg, s), f"{key[0]:.2f}", tol + (", weighted split" if key[2] else ""), *cells]
+            rows.append([f"**{c}**" if frozen and c else c for c in line])
+    return table(["set", "min step", "max change-point error, s", *groups], rows)
+
+
+def agreement_table(agreement: dict, cfg: dict, sets: list[str], names: list[str]) -> str:
+    merged = {**agreement["baseline"], **agreement["own"]}
+    rows = []
+    for n in [*names, *[c for c in NULL_CONDITIONS if c.endswith("_null")]]:
+        for s in sets:
+            a = merged.get(f"{n}/{s}")
+            if a:
+                rows.append([n, set_name(cfg, s), str(a["n_cells_multi_seed"]), str(a["unanimous"]),
+                             str(a["unanimous_positive"]),
+                             ", ".join(f"{k} {frac(*v)}" for k, v in a["seed_pairs"].items())])  # fmt: skip
+    head = ["system", "set", "cells (phrase x switch) with more than one seed", "same decision at every seed",
+            "of them detected", "same decision, by pair of seeds"]  # fmt: skip
+    return table(head, rows)
+
+
 # ── figures ─────────────────────────────────────────────────────────────────
 
 
@@ -417,6 +501,53 @@ def fig_steps(rows: list[dict], cfg: dict, path) -> None:
     axes[0][0].set_ylabel("arousal step in the commanded direction", color=INK2, fontsize=10)
     fig.text(0.01, 0.01, f"Filled dot: counted as a switch. Grey band: below the detector threshold {thr}.",
              color=INK2, fontsize=8.5)  # fmt: skip
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.savefig(path, dpi=160, facecolor=SURFACE)
+    plt.close(fig)
+
+
+def fig_profiles(rows: list[dict], cfg: dict, path) -> None:
+    """Mean arousal profile of every system around the boundary: time is counted from the boundary, the level
+    from the clip's mean before it, in the commanded direction."""
+    import matplotlib.pyplot as plt
+
+    names = systems_of(cfg, rows)
+    sets = [s for s in cfg["sets"] if any(r["set"] == s for r in rows)]
+    hop, tol = cfg["judge"]["hop_s"], cfg["detector"]["max_changepoint_err_s"]
+    lo, hi = -3.0, 3.0
+    fig, axes = plt.subplots(1, len(sets), figsize=(5.6 * len(sets), 4.2), sharey=True, squeeze=False)
+    fig.patch.set_facecolor(SURFACE)
+    for ax, s in zip(axes[0], sets, strict=True):
+        ax.axvspan(-tol, tol, color="#eae9e3", zorder=0)
+        ax.axhline(0, color=AXIS, linewidth=0.8)
+        for name in names:
+            cells = defaultdict(list)
+            for r in rows:
+                step = primary_step(r) if r["condition"] == name and r["set"] == s and r["valid"] else None
+                if not step:
+                    continue
+                t = np.asarray(r["profile_centres_s"]) - step["switch_time_s"]
+                a = r["expect_sign"] * (np.asarray(r["profile_arousal"]) - step["mean_before"])
+                for i, v in zip(np.floor(t / hop + 0.5).astype(int), a, strict=True):
+                    cells[int(i)].append(float(v))
+            n_clips = max((len(v) for v in cells.values()), default=0)
+            idx = [i for i in sorted(cells) if lo <= i * hop <= hi and len(cells[i]) >= max(10, n_clips / 2)]
+            ax.plot(
+                [i * hop for i in idx],
+                [float(np.mean(cells[i])) for i in idx],
+                color=COLOR.get(name, INK2),
+                linewidth=1.8,
+                label=_label(name).replace("\n", " "),
+            )
+        ax.set_xlabel("time from the boundary, s", color=INK2, fontsize=10)
+        ax.set_title(set_name(cfg, s), loc="left", fontsize=11, color=INK)
+        _axes(ax)
+    axes[0][0].set_ylabel("arousal against the level before the boundary,\nin the commanded direction",
+                          color=INK2, fontsize=10)  # fmt: skip
+    axes[0][-1].legend(frameon=False, fontsize=8.5, loc="upper left")
+    note = (f"Mean over the valid switch rows; drawn where at least half of the clips have a window. "
+            f"Grey band: where the detector accepts the change-point (within {tol} s).")  # fmt: skip
+    fig.text(0.01, 0.01, note, color=INK2, fontsize=8.5)
     fig.tight_layout(rect=(0, 0.05, 1, 1))
     fig.savefig(path, dpi=160, facecolor=SURFACE)
     plt.close(fig)
@@ -544,6 +675,7 @@ def main() -> None:
     nulls = [n for n in null_rows(rows, cfg) if n["set"] in sets]
     pairs = by_pair([r for r in rows if r["set"] in sets], cfg)
     names = systems_of(cfg, rows)
+    offsets = [o for o in changepoint_offsets(rows, cfg) if o["set"] in sets]
 
     flat = [{**e, "ci_wilson": ci(e["ci_wilson"]), "ci_phrases": ci(e["ci_phrases"]), "seed": e["seed"] or "all",
              "outcomes": json.dumps(e["outcomes"], sort_keys=True)} for e in records]  # fmt: skip
@@ -552,12 +684,13 @@ def main() -> None:
               "commanded_step_mean", "outcomes"])  # fmt: skip
     preds = predictions([r for r in rows if r["set"] in sets], cfg)
     write_csv(out / "predictions.csv", preds, list(preds[0]))
-    (out / "experiments.json").write_text(
-        json.dumps({"experiments": records, "contrasts": contrasts, "interaction": interactions, "null": nulls,
-                    "by_pair": pairs}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")  # fmt: skip
+    record = {"experiments": records, "contrasts": contrasts, "interaction": interactions, "null": nulls,
+              "by_pair": pairs, "changepoint": offsets}  # fmt: skip
+    (out / "experiments.json").write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     fig_systems(records, cfg, out / "fig_systems.png")
     fig_steps([r for r in rows if r["set"] in sets], cfg, out / "fig_inpass_steps.png")
     fig_pairs(pairs, cfg, out / "fig_pairs.png")
+    fig_profiles([r for r in rows if r["set"] in sets], cfg, out / "fig_inpass_profiles.png")
     fig_outcomes(records, cfg, out / "fig_outcomes.png")
     sections = [
         ("Systems", system_table(cfg, names)),
@@ -568,6 +701,9 @@ def main() -> None:
         ("No-switch rows", null_table(nulls, cfg)),
         ("Outcome of every switch row", outcome_table(records, cfg)),
         ("By commanded switch", pair_table(pairs, cfg)),
+        ("Where the change-point sits", changepoint_table(offsets, cfg)),
+        ("Detector constants", sensitivity_table(metrics_of(cfg, out, "sensitivity"), cfg, sets, names)),
+        ("Agreement between seeds", agreement_table(metrics_of(cfg, out, "seed_agreement"), cfg, sets, names)),
     ]
     text = "# In-pass systems: experiments\n\nGenerated by `python -m emoswitch.experiments`; do not edit by hand.\n"
     text += "".join(f"\n## {title}\n\n{body}\n" for title, body in sections)

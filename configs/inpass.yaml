@@ -61,10 +61,7 @@ runs:
   - [inpass, p2a, 42]
   - [inpass, p2a, 43]
   - [inpass, p2a, 44]
-
-# Runs committed before they were rendered (docs/prereg_inpass.md). They move to `runs` when their
-# audio is released.
-planned_runs:
+  # Rendered on 2026-11-23; the list was committed before rendering (docs/prereg_inpass.md).
   - [inpass, test, 42]
   - [inpass, test, 43]
   - [inpass, test, 44]
