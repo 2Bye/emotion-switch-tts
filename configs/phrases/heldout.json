@@ -1,0 +1,11 @@
+{
+  "set": "heldout",
+  "role": "val",
+  "note": "Validation set. Texts were written after the detector constants were frozen and are absent from every training and calibration set.",
+  "phrases": [
+    {"id": "p0", "s1": "The bakery on the corner opens at eight.", "s2": "Nobody expected the line to reach the bridge.", "switch_word": "nobody"},
+    {"id": "p1", "s1": "We parked the car behind the old library.", "s2": "Suddenly the lights in the reading room went out.", "switch_word": "suddenly"},
+    {"id": "p2", "s1": "The garden needs water twice a week in summer.", "s2": "Otherwise the tomatoes never ripen properly.", "switch_word": "otherwise"},
+    {"id": "p3", "s1": "My neighbour repaired the fence before the storm.", "s2": "Everyone in the street thanked him the next morning.", "switch_word": "everyone"}
+  ]
+}

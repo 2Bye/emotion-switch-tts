@@ -1,0 +1,346 @@
+{
+  "inline_p2a_s42": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 24,
+    "n_rows_in_node_run": 36,
+    "conditions_in_node_run": [
+      "control",
+      "inline_tag",
+      "nl_instruct",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20260905-072240",
+      "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+      "seed": 42,
+      "versions": {
+        "python": "3.11.13",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3",
+        "qwen_tts": "?",
+        "peft": "0.20.0",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2",
+        "jiwer": "?",
+        "numpy": "1.26.4"
+      },
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "inline_heldout_s42": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 32,
+    "n_rows_in_node_run": 48,
+    "conditions_in_node_run": [
+      "control",
+      "inline_tag",
+      "nl_instruct",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20260905-073008",
+      "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+      "seed": 42,
+      "versions": {
+        "python": "3.11.13",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3",
+        "qwen_tts": "?",
+        "peft": "0.20.0",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2",
+        "jiwer": "?",
+        "numpy": "1.26.4"
+      },
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "inline_p2a_s43": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 24,
+    "n_rows_in_node_run": 36,
+    "conditions_in_node_run": [
+      "control",
+      "inline_tag",
+      "nl_instruct",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20261111-110721",
+      "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+      "seed": 43,
+      "versions": {
+        "python": "3.11.13",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3",
+        "qwen_tts": "?",
+        "peft": "0.20.0",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2",
+        "jiwer": "?",
+        "numpy": "2.4.6"
+      },
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "inline_heldout_s43": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 32,
+    "n_rows_in_node_run": 48,
+    "conditions_in_node_run": [
+      "control",
+      "inline_tag",
+      "nl_instruct",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20261111-111545",
+      "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+      "seed": 43,
+      "versions": {
+        "python": "3.11.13",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3",
+        "qwen_tts": "?",
+        "peft": "0.20.0",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2",
+        "jiwer": "?",
+        "numpy": "2.4.6"
+      },
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "inline_p2a_s44": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 24,
+    "n_rows_in_node_run": 36,
+    "conditions_in_node_run": [
+      "control",
+      "inline_tag",
+      "nl_instruct",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20261111-112851",
+      "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+      "seed": 44,
+      "versions": {
+        "python": "3.11.13",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3",
+        "qwen_tts": "?",
+        "peft": "0.20.0",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2",
+        "jiwer": "?",
+        "numpy": "2.4.6"
+      },
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "inline_heldout_s44": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 32,
+    "n_rows_in_node_run": 48,
+    "conditions_in_node_run": [
+      "control",
+      "inline_tag",
+      "nl_instruct",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20261111-113741",
+      "model_sha256": "475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49",
+      "seed": 44,
+      "versions": {
+        "python": "3.11.13",
+        "torch": "2.8.0+cu128",
+        "transformers": "4.57.3",
+        "qwen_tts": "?",
+        "peft": "0.20.0",
+        "faster_whisper": "1.2.1",
+        "ctranslate2": "4.8.2",
+        "jiwer": "?",
+        "numpy": "2.4.6"
+      },
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "stitch_p2a_s42": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 24,
+    "n_rows_in_node_run": 36,
+    "conditions_in_node_run": [
+      "cont",
+      "control",
+      "naive",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20260904-233211",
+      "model_sha256": null,
+      "seed": 42,
+      "versions": null,
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "stitch_p2a_s43": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 24,
+    "n_rows_in_node_run": 36,
+    "conditions_in_node_run": [
+      "cont",
+      "control",
+      "naive",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20260904-234034",
+      "model_sha256": null,
+      "seed": 43,
+      "versions": null,
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "stitch_heldout_s42": {
+    "rendered_by": "probe script of the source project",
+    "n_rows_released": 32,
+    "n_rows_in_node_run": 48,
+    "conditions_in_node_run": [
+      "cont",
+      "control",
+      "naive",
+      "plain"
+    ],
+    "probe": {
+      "run_id": "20260905-010102",
+      "model_sha256": null,
+      "seed": 42,
+      "versions": null,
+      "worktree_dirty": true
+    },
+    "profile": {
+      "window_s": 1.0,
+      "hop_s": 0.25,
+      "align": "mms_fa",
+      "detect_threshold": 0.15
+    }
+  },
+  "stitch_heldout_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 32
+  },
+  "stitch_heldout_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 32
+  },
+  "inline_test_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "inline_test_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "inline_test_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitch_test_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitch_test_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitch_test_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 96
+  },
+  "stitchnull_test_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 36
+  },
+  "stitchnull_test_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 36
+  },
+  "stitchnull_test_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 36
+  },
+  "stitchnull_heldout_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 12
+  },
+  "stitchnull_heldout_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 12
+  },
+  "stitchnull_heldout_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 12
+  },
+  "stitchnull_p2a_s42": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 9
+  },
+  "stitchnull_p2a_s43": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 9
+  },
+  "stitchnull_p2a_s44": {
+    "rendered_by": "emoswitch.generate of this repository",
+    "n_rows_released": 9
+  }
+}

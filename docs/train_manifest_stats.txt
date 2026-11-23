@@ -1,0 +1,59 @@
+# Statistics of the training and validation manifests of model R (the fine-tuned checkpoint evaluated in this repository).
+# Produced on the training node by reading the manifests only; the corpora themselves are not part of this repository.
+# 'unique texts' is counted after lower-casing and stripping punctuation; 'unique texts per source' counts raw strings.
+# 'eval sentence' lines: how often each evaluation sentence of configs/phrases/*.json occurs in the manifest texts.
+
+== train_with_codes.jsonl: n_rows 18013; keys (without codes) ['audio', 'category', 'id', 'instruct', 'intensity', 'prefix_mode', 'ref_audio', 'speaker', 'target_text', 'text']
+   category: [('neutral', 3662), ('angry', 3566), ('happy', 3491), ('sad', 3398), ('surprise', 3176), ('fear', 544), ('calm', 176)]
+   intensity: [('medium', 17271), ('strong', 702), ('weak', 40)]
+   prefix_mode: [('nl', 7289), ('tag', 7276), ('bare', 3448)]
+   text key: text
+   unique texts: 441
+   words per text: min 2 median 6 max 12
+   rows whose text holds two or more sentences: 50
+   eval sentence 'We took the early train to the city.': exact 0, as substring 0
+   eval sentence 'Later we walked to the old museum.': exact 0, as substring 0
+   eval sentence 'The documents are on the second shelf.': exact 0, as substring 0
+   eval sentence 'Tomorrow the office opens at nine.': exact 0, as substring 0
+   eval sentence 'The meeting was moved to the next room.': exact 0, as substring 0
+   eval sentence 'Afterwards everyone went back to work.': exact 0, as substring 0
+   eval sentence 'The bakery on the corner opens at eight.': exact 0, as substring 0
+   eval sentence 'Nobody expected the line to reach the bridge.': exact 0, as substring 0
+   eval sentence 'We parked the car behind the old library.': exact 0, as substring 0
+   eval sentence 'Suddenly the lights in the reading room went out.': exact 0, as substring 0
+   eval sentence 'The garden needs water twice a week in summer.': exact 0, as substring 0
+   eval sentence 'Otherwise the tomatoes never ripen properly.': exact 0, as substring 0
+   eval sentence 'My neighbour repaired the fence before the storm.': exact 0, as substring 0
+   eval sentence 'Everyone in the street thanked him the next morning.': exact 0, as substring 0
+   distinct instructions: 507
+   instructions that mention 'first/second sentence': 0 []
+== val_with_codes.jsonl: n_rows 1184; keys (without codes) ['audio', 'category', 'id', 'instruct', 'intensity', 'prefix_mode', 'ref_audio', 'speaker', 'target_text', 'text']
+   category: [('neutral', 234), ('happy', 232), ('sad', 230), ('angry', 226), ('surprise', 216), ('fear', 30), ('calm', 16)]
+   intensity: [('medium', 1127), ('strong', 55), ('weak', 2)]
+   prefix_mode: [('tag', 526), ('nl', 430), ('bare', 228)]
+   text key: text
+   unique texts: 46
+   words per text: min 3 median 6 max 11
+   rows whose text holds two or more sentences: 0
+   eval sentence 'We took the early train to the city.': exact 0, as substring 0
+   eval sentence 'Later we walked to the old museum.': exact 0, as substring 0
+   eval sentence 'The documents are on the second shelf.': exact 0, as substring 0
+   eval sentence 'Tomorrow the office opens at nine.': exact 0, as substring 0
+   eval sentence 'The meeting was moved to the next room.': exact 0, as substring 0
+   eval sentence 'Afterwards everyone went back to work.': exact 0, as substring 0
+   eval sentence 'The bakery on the corner opens at eight.': exact 0, as substring 0
+   eval sentence 'Nobody expected the line to reach the bridge.': exact 0, as substring 0
+   eval sentence 'We parked the car behind the old library.': exact 0, as substring 0
+   eval sentence 'Suddenly the lights in the reading room went out.': exact 0, as substring 0
+   eval sentence 'The garden needs water twice a week in summer.': exact 0, as substring 0
+   eval sentence 'Otherwise the tomatoes never ripen properly.': exact 0, as substring 0
+   eval sentence 'My neighbour repaired the fence before the storm.': exact 0, as substring 0
+   eval sentence 'Everyone in the street thanked him the next morning.': exact 0, as substring 0
+   distinct instructions: 182
+   instructions that mention 'first/second sentence': 0 []
+== train sources: [('ESD', 15000), ('CREMA-D', 1869), ('RAVDESS', 1144)]
+   speakers per source: {'ESD': 10, 'RAVDESS': 22, 'CREMA-D': 87, 'other': 0}
+   rows of ESD speaker 0016: 1500 [('neutral', 300), ('happy', 300), ('surprise', 300), ('sad', 300), ('angry', 300)]
+   ESD rows per speaker: [('0011', 1500), ('0012', 1500), ('0013', 1500), ('0014', 1500), ('0015', 1500), ('0016', 1500), ('0017', 1500), ('0018', 1500), ('0019', 1500), ('0020', 1500)]
+   category x source: [(('CREMA-D', 'angry'), 390), (('CREMA-D', 'fear'), 368), (('CREMA-D', 'happy'), 315), (('CREMA-D', 'neutral'), 574), (('CREMA-D', 'sad'), 222), (('ESD', 'angry'), 3000), (('ESD', 'happy'), 3000), (('ESD', 'neutral'), 3000), (('ESD', 'sad'), 3000), (('ESD', 'surprise'), 3000), (('RAVDESS', 'angry'), 176), (('RAVDESS', 'calm'), 176), (('RAVDESS', 'fear'), 176), (('RAVDESS', 'happy'), 176), (('RAVDESS', 'neutral'), 88), (('RAVDESS', 'sad'), 176), (('RAVDESS', 'surprise'), 176)]
+   unique clips (audio): 18013 unique texts per source: {'ESD': 451, 'RAVDESS': 2, 'CREMA-D': 12}
