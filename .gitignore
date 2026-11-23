@@ -16,3 +16,8 @@ data/raw_export/
 data/audio_rendered/
 *.wav
 checkpoints/
+
+# local MLflow store (scripts/log_mlflow.py)
+mlflow.db
+mlartifacts/
+mlruns/

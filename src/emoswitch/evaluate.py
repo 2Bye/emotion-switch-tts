@@ -184,7 +184,7 @@ def analysis_group(row: dict) -> str | None:
 
 def decision(row: dict) -> bool:
     """The row's primary decision: detected for a switch row, exceeds the null test for a no-switch row."""
-    return row["detected"] if row["condition"] in SWITCH_CONDITIONS else row["exceeds_null"]
+    return row["exceeds_null"] if row["condition"] in NULL_CONDITIONS else row["detected"]
 
 
 def outcome(step: dict | None, detected: bool, min_abs_delta: float, gated_out: bool = False) -> str:
@@ -355,7 +355,7 @@ def paired_comparison(rows: list[dict], systems: dict) -> dict:
     base = {key(r): r["detected"] for r in rows if r["condition"] == "nl_instruct"}
     ref = {key(r): r["detected"] for r in rows if r["condition"] == "stitch"}
     out = {}
-    for s in set(systems["nl_instruct"]["by_set"]) & set(systems["stitch"]["by_set"]):
+    for s in (s for s in systems["nl_instruct"]["by_set"] if s in systems["stitch"]["by_set"]):
         keys = sorted(k for k in set(base) & set(ref) if k[0] == s)
         row_level = stats.mcnemar_exact([ref[k] for k in keys], [base[k] for k in keys])
         b_phr, r_phr = systems["nl_instruct"]["by_set"][s]["per_phrase"], systems["stitch"]["by_set"][s]["per_phrase"]
@@ -423,11 +423,11 @@ def sensitivity(rows: list[dict], cfg: dict) -> list[dict]:
                     dc["min_seg_windows"],
                     weighted_split=True,
                 )
-            if r["condition"] in SWITCH_CONDITIONS:
+            if r["condition"] in NULL_CONDITIONS:
+                hit = detect.exceeds_null(step, thr, tol)
+            else:
                 gated_out = rules[r["set"]]["validity_gate"] and not r["valid"]
                 hit = detect.is_detected(step, thr, tol) and not gated_out
-            else:
-                hit = detect.exceeds_null(step, thr, tol)
             cell = counts.setdefault(f"{group}/{r['set']}", [0, 0])
             cell[0] += hit
             cell[1] += 1
@@ -448,7 +448,7 @@ def score(cfg: dict, rows: list[dict]) -> dict:
         "systems": {},
         "null": {},
     }
-    for cond in SWITCH_CONDITIONS:
+    for cond in (c for c, spec in cfg["systems"].items() if "role" in spec):  # every system the config declares
         sub = [r for r in rows if r["condition"] == cond]
         if not sub:
             continue
@@ -495,7 +495,7 @@ def score(cfg: dict, rows: list[dict]) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", default="configs/baseline.yaml")
-    ap.add_argument("--manifest", default="data/manifest.jsonl")
+    ap.add_argument("--manifest", default=None, help="default: the config's `manifest`, else data/manifest.jsonl")
     ap.add_argument("--out", default=None, help="output directory (default: results/<config name>)")
     ap.add_argument("--device", default="cpu")
     ap.add_argument("--from-rows", action="store_true", help="skip the models and score the existing rows.jsonl")
@@ -514,7 +514,7 @@ def main() -> None:
         rows = read_jsonl(rows_path)
     else:
         started = time.time()
-        manifest = read_jsonl(ROOT / args.manifest)
+        manifest = read_jsonl(ROOT / (args.manifest or cfg.get("manifest", "data/manifest.jsonl")))
         meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else None
         previous = []
         if meta and rows_path.exists():

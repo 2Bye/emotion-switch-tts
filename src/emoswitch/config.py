@@ -10,9 +10,20 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def merge(base: dict, over: dict) -> dict:
+    """`over` on top of `base`; nested mappings are merged, everything else is replaced."""
+    out = dict(base)
+    for key, value in over.items():
+        out[key] = merge(out[key], value) if isinstance(value, dict) and isinstance(out.get(key), dict) else value
+    return out
+
+
 def load_config(path: str | Path) -> dict:
+    """A config may name another one under `extends`: its own keys are then laid over that config."""
     full = (ROOT / path).resolve()
     cfg = yaml.safe_load(full.read_text(encoding="utf-8"))
+    if "extends" in cfg:
+        cfg = merge(load_config(cfg.pop("extends")), cfg)
     cfg["config_path"] = str(full.relative_to(ROOT)) if full.is_relative_to(ROOT) else full.name
     return cfg
 

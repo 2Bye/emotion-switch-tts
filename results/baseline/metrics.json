@@ -3993,16 +3993,6 @@
     }
   },
   "paired_reference_vs_baseline": {
-    "heldout": {
-      "n_pairs": 48,
-      "reference_only": 30,
-      "baseline_only": 0,
-      "mcnemar_p": 1.862645149230957e-09,
-      "n_phrases": 4,
-      "phrases_reference_ahead": 4,
-      "phrases_baseline_ahead": 0,
-      "phrase_sign_test_p": 0.125
-    },
     "p2a": {
       "n_pairs": 24,
       "reference_only": 16,
@@ -4012,6 +4002,16 @@
       "phrases_reference_ahead": 3,
       "phrases_baseline_ahead": 0,
       "phrase_sign_test_p": 0.25
+    },
+    "heldout": {
+      "n_pairs": 48,
+      "reference_only": 30,
+      "baseline_only": 0,
+      "mcnemar_p": 1.862645149230957e-09,
+      "n_phrases": 4,
+      "phrases_reference_ahead": 4,
+      "phrases_baseline_ahead": 0,
+      "phrase_sign_test_p": 0.125
     },
     "test": {
       "n_pairs": 144,

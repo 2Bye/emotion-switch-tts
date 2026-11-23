@@ -1,0 +1,82 @@
+# In-pass emotion switch on the same model R (homework 2). Everything not set here comes from the
+# baseline config: the sets, the commanded pairs, decoding, the judge, the aligner, the ASR, the
+# detector, the gates and the primary rule of every set are the same.
+extends: configs/baseline.yaml
+name: inpass
+manifest: data/manifest_inpass.jsonl
+
+# One mechanism, two optional components. Every in-pass system renders sentence 1 under the first
+# instruction, then rebuilds the model input with the second instruction at the sentence boundary and
+# lets the same pass continue (src/emoswitch/inpass.py).
+#   anchor: the head of the context the model sees is taken from a render in the second emotion
+#   steer:  the hidden state that emits each continued frame is shifted towards the second emotion
+systems:
+  nl_instruct:
+    change: none (the baseline of homework 1)
+    hypothesis: "H1: one instruction naming both emotions gives no step"
+  stitch:
+    change: two separate renders joined as a waveform (the reference of homework 1; not a single pass)
+    hypothesis: what the detector reads on audio that switches by construction
+  swap:
+    role: inpass
+    anchor: false
+    steer: false
+    change: the instruction is replaced at the sentence boundary inside one pass
+    hypothesis: "H2a: the instruction alone does not move the level, the generated context holds it"
+  swap_anchor:
+    role: inpass
+    anchor: true
+    steer: false
+    change: swap + the head of the context is taken from a render in the second emotion
+    hypothesis: "H2b: a context that already sounds like the second emotion lets the level move"
+  swap_steer:
+    role: inpass
+    anchor: false
+    steer: true
+    change: swap + the emitting hidden state is shifted towards the second emotion
+    hypothesis: "H2c: a shift of the hidden state moves the level against an unchanged context"
+  swap_anchor_steer:
+    role: inpass
+    anchor: true
+    steer: true
+    change: swap + anchor + steering
+    hypothesis: "H2d: the two components add up; det reaches 0.50 without a waveform join"
+
+# The values of `anchor` and `steer` were chosen in the source project on the dev and val sets with an
+# earlier version of the detector. They are not tuned here.
+inpass:
+  instruct: "Say this {adv}"
+  anchor:
+    share: 0.6           # share of the kept sentence-1 frames replaced in the context
+    min_tail_frames: 8   # real frames always left right before the boundary
+  steer:
+    layer: 20            # decoder layer whose output is shifted (of 28)
+    alpha: 0.15          # shift = alpha * ||h|| along the unit direction
+    directions: data/steer/directions.npz
+    texts: configs/phrases/steer.json   # sentences the directions are estimated on; in no evaluation set
+    seed: 42
+
+# Every released in-pass run: [kind, set, seed]. One run holds all four systems and their null rows.
+runs:
+  - [inpass, p2a, 42]
+  - [inpass, p2a, 43]
+  - [inpass, p2a, 44]
+
+# Runs committed before they were rendered (docs/prereg_inpass.md). They move to `runs` when their
+# audio is released.
+planned_runs:
+  - [inpass, test, 42]
+  - [inpass, test, 43]
+  - [inpass, test, 44]
+
+# Paired comparisons reported for every set: system `a` against system `b`. The `confirmatory` ones are
+# the tests of docs/prereg_inpass.md; their sign-test p-values are also Holm-adjusted within a set.
+contrasts:
+  - {a: swap, b: nl_instruct, question: "does replacing the instruction at the boundary help? (H2a)"}
+  - {a: swap_anchor, b: swap, confirmatory: true, question: "the anchor on its own (H2b)"}
+  - {a: swap_steer, b: swap, confirmatory: true, question: "steering on its own (H2c)"}
+  - {a: swap_anchor_steer, b: swap_steer, confirmatory: true, question: "ablation: the full system without the anchor (H2d)"}
+  - {a: swap_anchor_steer, b: swap_anchor, confirmatory: true, question: "ablation: the full system without steering (H2d)"}
+  - {a: swap_anchor_steer, b: swap, question: "ablation: the full system without both components"}
+  - {a: swap_anchor_steer, b: nl_instruct, question: "the full system against the baseline"}
+  - {a: swap_anchor_steer, b: stitch, question: "the full system against the stitched reference"}
