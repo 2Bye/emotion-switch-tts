@@ -1222,7 +1222,8 @@ uv run python -m emoswitch.generate --set heldout --kind inline --seed 42 --dry-
 │   └── reference/                   измерения узла, происхождение прогонов, проверка генератора, журнал рендера
 ├── results/baseline/                rows.jsonl, metrics.json, measure_meta.json, таблицы, графики
 ├── results/inpass/                  ДЗ2: то же и experiments.csv, predictions.csv
-├── docs/                            статистика обучающего манифеста, рецепт модели R, предрегистрация
+├── docs/                            статистика обучающего манифеста, рецепт модели R, предрегистрация,
+│                                    снимок интерфейса MLflow
 └── tests/
 ```
 
