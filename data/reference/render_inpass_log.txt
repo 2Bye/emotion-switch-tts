@@ -1,0 +1,10 @@
+# Render of the in-pass systems on the test set on the GPU node, 2026-11-23 (UTC, node clock).
+# Lines written by the shell wrapper that ran scripts of this repository on the node: start (with the commit of this repository it ran), the sha256 of the
+# checkpoint downloaded from the Hugging Face Hub and of the steering directions, one line per run at its start, end.
+start 2026-11-23T08:00:35Z commit c083d20acbe0d98a9972b8368e79148c4dd116e5
+475e2ef4a766fc24622045aa52bdffd879de9866af1b763b607925d427b01e49  model.safetensors
+768f85eb79aeb3d34a4ddf085ef175824e9589a6de5d7db437fe99871929b24b  data/steer/directions.npz
+run inpass test 42 try 1 2026-11-23T08:00:40Z
+run inpass test 43 try 1 2026-11-23T08:19:37Z
+run inpass test 44 try 1 2026-11-23T08:37:51Z
+end 2026-11-23T08:56:42Z

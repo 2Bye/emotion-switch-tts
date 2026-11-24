@@ -1,0 +1,5953 @@
+{
+  "config": "configs/inpass.yaml",
+  "measure_fingerprint": "0f287bd16523c026",
+  "n_rows": 855,
+  "set_roles": {
+    "p2a": "dev",
+    "heldout": "val",
+    "test": "test"
+  },
+  "primary_rule": {
+    "p2a": {
+      "boundary": "construction",
+      "validity_gate": false
+    },
+    "heldout": {
+      "boundary": "construction",
+      "validity_gate": false
+    },
+    "test": {
+      "boundary": "forced_alignment",
+      "validity_gate": true
+    }
+  },
+  "systems": {
+    "swap": {
+      "role": "inpass",
+      "pooled": {
+        "n": 180,
+        "n_with_step": 180,
+        "detected": 6,
+        "det_rate": 0.03333333333333333,
+        "det_ci_wilson": [
+          0.015364790984832809,
+          0.0708043404086727
+        ],
+        "det_ci_phrase_bootstrap": [
+          0.005555555555555556,
+          0.06666666666666667
+        ],
+        "n_phrases": 15,
+        "detected_by_rule": {
+          "construction": 6,
+          "construction+valid": 6,
+          "forced_alignment": 6,
+          "forced_alignment+valid": 6
+        },
+        "n_invalid": 0,
+        "per_phrase": {
+          "p2a/p0": [
+            0,
+            12
+          ],
+          "p2a/p1": [
+            0,
+            12
+          ],
+          "p2a/p2": [
+            1,
+            12
+          ],
+          "test/p0": [
+            2,
+            12
+          ],
+          "test/p1": [
+            0,
+            12
+          ],
+          "test/p10": [
+            0,
+            12
+          ],
+          "test/p11": [
+            0,
+            12
+          ],
+          "test/p2": [
+            0,
+            12
+          ],
+          "test/p3": [
+            0,
+            12
+          ],
+          "test/p4": [
+            2,
+            12
+          ],
+          "test/p5": [
+            0,
+            12
+          ],
+          "test/p6": [
+            0,
+            12
+          ],
+          "test/p7": [
+            0,
+            12
+          ],
+          "test/p8": [
+            1,
+            12
+          ],
+          "test/p9": [
+            0,
+            12
+          ]
+        },
+        "abs_delta_mean": 0.06285555555555555,
+        "abs_delta_max": 0.2366,
+        "commanded_step_mean": 0.05407777777777778,
+        "sign_ok_rate": 0.8166666666666667,
+        "changepoint_within_tol_rate": 0.28888888888888886,
+        "ideal_step_mean": null,
+        "realised_share": null,
+        "wer_mean": 0.00037037037037037035,
+        "wer_median": 0.0,
+        "leak_rate": 0.0,
+        "looped": 0,
+        "gates": {
+          "wer_mean_le_max": true,
+          "no_loops": true,
+          "no_leak": true,
+          "passed": true
+        }
+      },
+      "by_set": {
+        "p2a": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 1,
+          "det_rate": 0.027777777777777776,
+          "det_ci_wilson": [
+            0.004920407139810443,
+            0.14169718653273855
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.08333333333333333
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 1,
+            "construction+valid": 1,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              12
+            ],
+            "p2a/p1": [
+              0,
+              12
+            ],
+            "p2a/p2": [
+              1,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.06175833333333333,
+          "abs_delta_max": 0.2305,
+          "commanded_step_mean": 0.056336111111111115,
+          "sign_ok_rate": 0.8611111111111112,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.001851851851851852,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.027777777777777776,
+          "det_rate_seed_sd": 0.048112522432468816
+        },
+        "test": {
+          "n": 144,
+          "n_with_step": 144,
+          "detected": 5,
+          "det_rate": 0.034722222222222224,
+          "det_ci_wilson": [
+            0.014920742375757766,
+            0.07870291996567921
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.06961805555555303
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              12
+            ],
+            "test/p1": [
+              0,
+              12
+            ],
+            "test/p10": [
+              0,
+              12
+            ],
+            "test/p11": [
+              0,
+              12
+            ],
+            "test/p2": [
+              0,
+              12
+            ],
+            "test/p3": [
+              0,
+              12
+            ],
+            "test/p4": [
+              2,
+              12
+            ],
+            "test/p5": [
+              0,
+              12
+            ],
+            "test/p6": [
+              0,
+              12
+            ],
+            "test/p7": [
+              0,
+              12
+            ],
+            "test/p8": [
+              1,
+              12
+            ],
+            "test/p9": [
+              0,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.06312986111111112,
+          "abs_delta_max": 0.2366,
+          "commanded_step_mean": 0.05351319444444444,
+          "sign_ok_rate": 0.8055555555555556,
+          "changepoint_within_tol_rate": 0.2777777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.034722222222222224,
+          "det_rate_seed_sd": 0.06014065304058602
+        }
+      },
+      "by_set_seed": {
+        "p2a/s42": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 1,
+          "det_rate": 0.08333333333333333,
+          "det_ci_wilson": [
+            0.014865094404917095,
+            0.35387991114111694
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.25
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 1,
+            "construction+valid": 1,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              4
+            ],
+            "p2a/p1": [
+              0,
+              4
+            ],
+            "p2a/p2": [
+              1,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.07185000000000001,
+          "abs_delta_max": 0.2305,
+          "commanded_step_mean": 0.06426666666666667,
+          "sign_ok_rate": 0.8333333333333334,
+          "changepoint_within_tol_rate": 0.5,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s43": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            2.7755575615628914e-17,
+            0.24249400665524085
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              4
+            ],
+            "p2a/p1": [
+              0,
+              4
+            ],
+            "p2a/p2": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.04385000000000001,
+          "abs_delta_max": 0.1055,
+          "commanded_step_mean": 0.03698333333333333,
+          "sign_ok_rate": 0.8333333333333334,
+          "changepoint_within_tol_rate": 0.16666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.005555555555555556,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s44": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            2.7755575615628914e-17,
+            0.24249400665524085
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              4
+            ],
+            "p2a/p1": [
+              0,
+              4
+            ],
+            "p2a/p2": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.069575,
+          "abs_delta_max": 0.1375,
+          "commanded_step_mean": 0.06775833333333335,
+          "sign_ok_rate": 0.9166666666666666,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s42": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            6.938893903907228e-18,
+            0.07410012966611748
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              0,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              0,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              0,
+              4
+            ],
+            "test/p8": [
+              0,
+              4
+            ],
+            "test/p9": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.060110416666666666,
+          "abs_delta_max": 0.1677,
+          "commanded_step_mean": 0.051122916666666664,
+          "sign_ok_rate": 0.7916666666666666,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s43": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            6.938893903907228e-18,
+            0.07410012966611748
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              0,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              0,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              0,
+              4
+            ],
+            "test/p8": [
+              0,
+              4
+            ],
+            "test/p9": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.05320208333333334,
+          "abs_delta_max": 0.1496,
+          "commanded_step_mean": 0.03491875,
+          "sign_ok_rate": 0.7083333333333334,
+          "changepoint_within_tol_rate": 0.22916666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s44": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 5,
+          "det_rate": 0.10416666666666667,
+          "det_ci_wilson": [
+            0.045321719041813105,
+            0.2216742169438633
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.2088541666666591
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              0,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              2,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              0,
+              4
+            ],
+            "test/p8": [
+              1,
+              4
+            ],
+            "test/p9": [
+              0,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.07607708333333334,
+          "abs_delta_max": 0.2366,
+          "commanded_step_mean": 0.07449791666666666,
+          "sign_ok_rate": 0.9166666666666666,
+          "changepoint_within_tol_rate": 0.2708333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        }
+      },
+      "by_pair": {
+        "p2a/angry>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.2991450484195441
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.04824444444444445,
+          "abs_delta_max": 0.1318,
+          "commanded_step_mean": 0.04824444444444445,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.0,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/happy>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 1,
+          "det_rate": 0.1111111111111111,
+          "det_ci_wilson": [
+            0.019890887638544907,
+            0.434999705576656
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.3333333333333333
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 1,
+            "construction+valid": 1,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.06967777777777778,
+          "abs_delta_max": 0.2305,
+          "commanded_step_mean": 0.0669,
+          "sign_ok_rate": 0.7777777777777778,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.007407407407407408,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>angry": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.2991450484195441
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.06105555555555556,
+          "abs_delta_max": 0.1401,
+          "commanded_step_mean": 0.04887777777777778,
+          "sign_ok_rate": 0.7777777777777778,
+          "changepoint_within_tol_rate": 0.5555555555555556,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>happy": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 0,
+          "det_rate": 0.0,
+          "det_ci_wilson": [
+            0.0,
+            0.2991450484195441
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 0,
+            "construction+valid": 0,
+            "forced_alignment": 0,
+            "forced_alignment+valid": 0
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              0,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.06805555555555556,
+          "abs_delta_max": 0.1375,
+          "commanded_step_mean": 0.06132222222222223,
+          "sign_ok_rate": 0.8888888888888888,
+          "changepoint_within_tol_rate": 0.4444444444444444,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/angry>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 1,
+          "det_rate": 0.027777777777777776,
+          "det_ci_wilson": [
+            0.004920407139810443,
+            0.14169718653273855
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.08333333333333333
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 1,
+            "construction+valid": 1,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.0620861111111111,
+          "abs_delta_max": 0.1844,
+          "commanded_step_mean": 0.05680833333333332,
+          "sign_ok_rate": 0.8611111111111112,
+          "changepoint_within_tol_rate": 0.19444444444444445,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/happy>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 1,
+          "det_rate": 0.027777777777777776,
+          "det_ci_wilson": [
+            0.004920407139810443,
+            0.14169718653273855
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.08333333333333333
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 1,
+            "construction+valid": 1,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              1,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.07364722222222223,
+          "abs_delta_max": 0.2204,
+          "commanded_step_mean": 0.06060277777777778,
+          "sign_ok_rate": 0.8055555555555556,
+          "changepoint_within_tol_rate": 0.16666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>angry": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 2,
+          "det_rate": 0.05555555555555555,
+          "det_ci_wilson": [
+            0.015369986664161853,
+            0.18144657208647252
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.1388888888888889
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 2,
+            "construction+valid": 2,
+            "forced_alignment": 2,
+            "forced_alignment+valid": 2
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.056475000000000004,
+          "abs_delta_max": 0.2366,
+          "commanded_step_mean": 0.044997222222222216,
+          "sign_ok_rate": 0.7777777777777778,
+          "changepoint_within_tol_rate": 0.3055555555555556,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>happy": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 1,
+          "det_rate": 0.027777777777777776,
+          "det_ci_wilson": [
+            0.004920407139810443,
+            0.14169718653273855
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.08333333333333333
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 1,
+            "construction+valid": 1,
+            "forced_alignment": 1,
+            "forced_alignment+valid": 1
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.06031111111111111,
+          "abs_delta_max": 0.1662,
+          "commanded_step_mean": 0.051644444444444444,
+          "sign_ok_rate": 0.7777777777777778,
+          "changepoint_within_tol_rate": 0.4444444444444444,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        }
+      }
+    },
+    "swap_anchor": {
+      "role": "inpass",
+      "pooled": {
+        "n": 180,
+        "n_with_step": 180,
+        "detected": 66,
+        "det_rate": 0.36666666666666664,
+        "det_ci_wilson": [
+          0.29973787719518796,
+          0.43916758891724206
+        ],
+        "det_ci_phrase_bootstrap": [
+          0.29444444444444445,
+          0.45
+        ],
+        "n_phrases": 15,
+        "detected_by_rule": {
+          "construction": 66,
+          "construction+valid": 66,
+          "forced_alignment": 66,
+          "forced_alignment+valid": 66
+        },
+        "n_invalid": 3,
+        "per_phrase": {
+          "p2a/p0": [
+            8,
+            12
+          ],
+          "p2a/p1": [
+            3,
+            12
+          ],
+          "p2a/p2": [
+            6,
+            12
+          ],
+          "test/p0": [
+            6,
+            12
+          ],
+          "test/p1": [
+            2,
+            12
+          ],
+          "test/p10": [
+            3,
+            12
+          ],
+          "test/p11": [
+            4,
+            12
+          ],
+          "test/p2": [
+            4,
+            12
+          ],
+          "test/p3": [
+            3,
+            12
+          ],
+          "test/p4": [
+            3,
+            12
+          ],
+          "test/p5": [
+            3,
+            12
+          ],
+          "test/p6": [
+            3,
+            12
+          ],
+          "test/p7": [
+            5,
+            12
+          ],
+          "test/p8": [
+            5,
+            12
+          ],
+          "test/p9": [
+            8,
+            12
+          ]
+        },
+        "abs_delta_mean": 0.14571666666666666,
+        "abs_delta_max": 0.3261,
+        "commanded_step_mean": 0.14510777777777778,
+        "sign_ok_rate": 0.9944444444444445,
+        "changepoint_within_tol_rate": 0.5833333333333334,
+        "ideal_step_mean": null,
+        "realised_share": null,
+        "wer_mean": 0.005781755009696187,
+        "wer_median": 0.0,
+        "leak_rate": 0.0,
+        "looped": 1,
+        "gates": {
+          "wer_mean_le_max": true,
+          "no_loops": false,
+          "no_leak": true,
+          "passed": false
+        }
+      },
+      "by_set": {
+        "p2a": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 17,
+          "det_rate": 0.4722222222222222,
+          "det_ci_wilson": [
+            0.31986041515179053,
+            0.629940619770124
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.25,
+            0.6666666666666666
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 17,
+            "construction+valid": 17,
+            "forced_alignment": 17,
+            "forced_alignment+valid": 17
+          },
+          "n_invalid": 1,
+          "per_phrase": {
+            "p2a/p0": [
+              8,
+              12
+            ],
+            "p2a/p1": [
+              3,
+              12
+            ],
+            "p2a/p2": [
+              6,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.1545388888888889,
+          "abs_delta_max": 0.2842,
+          "commanded_step_mean": 0.1545388888888889,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6388888888888888,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.006125356125356125,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 1,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.47222222222222227,
+          "det_rate_seed_sd": 0.09622504486493764
+        },
+        "test": {
+          "n": 144,
+          "n_with_step": 144,
+          "detected": 49,
+          "det_rate": 0.3402777777777778,
+          "det_ci_wilson": [
+            0.2679409517116232,
+            0.4209149323757358
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.2708333333333333,
+            0.4236111111111111
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 49,
+            "construction+valid": 49,
+            "forced_alignment": 49,
+            "forced_alignment+valid": 49
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "test/p0": [
+              6,
+              12
+            ],
+            "test/p1": [
+              2,
+              12
+            ],
+            "test/p10": [
+              3,
+              12
+            ],
+            "test/p11": [
+              4,
+              12
+            ],
+            "test/p2": [
+              4,
+              12
+            ],
+            "test/p3": [
+              3,
+              12
+            ],
+            "test/p4": [
+              3,
+              12
+            ],
+            "test/p5": [
+              3,
+              12
+            ],
+            "test/p6": [
+              3,
+              12
+            ],
+            "test/p7": [
+              5,
+              12
+            ],
+            "test/p8": [
+              5,
+              12
+            ],
+            "test/p9": [
+              8,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.1435111111111111,
+          "abs_delta_max": 0.3261,
+          "commanded_step_mean": 0.14275,
+          "sign_ok_rate": 0.9930555555555556,
+          "changepoint_within_tol_rate": 0.5694444444444444,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.005695854730781201,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.34027777777777773,
+          "det_rate_seed_sd": 0.06364688465216445
+        }
+      },
+      "by_set_seed": {
+        "p2a/s42": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 7,
+          "det_rate": 0.5833333333333334,
+          "det_ci_wilson": [
+            0.31951131254954973,
+            0.8067396863412435
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            0.75
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 7,
+            "construction+valid": 7,
+            "forced_alignment": 7,
+            "forced_alignment+valid": 7
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              4
+            ],
+            "p2a/p1": [
+              2,
+              4
+            ],
+            "p2a/p2": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.16635833333333333,
+          "abs_delta_max": 0.2766,
+          "commanded_step_mean": 0.16635833333333333,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.75,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.005555555555555556,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s43": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 5,
+          "det_rate": 0.4166666666666667,
+          "det_ci_wilson": [
+            0.19326031365875665,
+            0.6804886874504503
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.75
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              4
+            ],
+            "p2a/p1": [
+              0,
+              4
+            ],
+            "p2a/p2": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.14399166666666668,
+          "abs_delta_max": 0.2842,
+          "commanded_step_mean": 0.14399166666666668,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.75,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s44": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 5,
+          "det_rate": 0.4166666666666667,
+          "det_ci_wilson": [
+            0.19326031365875665,
+            0.6804886874504503
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.25,
+            0.5
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 1,
+          "per_phrase": {
+            "p2a/p0": [
+              2,
+              4
+            ],
+            "p2a/p1": [
+              1,
+              4
+            ],
+            "p2a/p2": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.15326666666666666,
+          "abs_delta_max": 0.2452,
+          "commanded_step_mean": 0.15326666666666666,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.4166666666666667,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.012820512820512822,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 1,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          }
+        },
+        "test/s42": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 19,
+          "det_rate": 0.3958333333333333,
+          "det_ci_wilson": [
+            0.2702082786059137,
+            0.5368959150745274
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.2708333333333333,
+            0.5416666666666666
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 19,
+            "construction+valid": 19,
+            "forced_alignment": 19,
+            "forced_alignment+valid": 19
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              4
+            ],
+            "test/p1": [
+              1,
+              4
+            ],
+            "test/p10": [
+              1,
+              4
+            ],
+            "test/p11": [
+              2,
+              4
+            ],
+            "test/p2": [
+              1,
+              4
+            ],
+            "test/p3": [
+              2,
+              4
+            ],
+            "test/p4": [
+              2,
+              4
+            ],
+            "test/p5": [
+              1,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              1,
+              4
+            ],
+            "test/p9": [
+              4,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.147125,
+          "abs_delta_max": 0.2868,
+          "commanded_step_mean": 0.147125,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0013020833333333333,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s43": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 13,
+          "det_rate": 0.2708333333333333,
+          "det_ci_wilson": [
+            0.1656595762745644,
+            0.40996964982240613
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.16666666666666666,
+            0.3958333333333333
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 13,
+            "construction+valid": 13,
+            "forced_alignment": 13,
+            "forced_alignment+valid": 13
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              4
+            ],
+            "test/p1": [
+              1,
+              4
+            ],
+            "test/p10": [
+              0,
+              4
+            ],
+            "test/p11": [
+              0,
+              4
+            ],
+            "test/p2": [
+              1,
+              4
+            ],
+            "test/p3": [
+              1,
+              4
+            ],
+            "test/p4": [
+              0,
+              4
+            ],
+            "test/p5": [
+              2,
+              4
+            ],
+            "test/p6": [
+              1,
+              4
+            ],
+            "test/p7": [
+              1,
+              4
+            ],
+            "test/p8": [
+              1,
+              4
+            ],
+            "test/p9": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.13316458333333334,
+          "abs_delta_max": 0.2376,
+          "commanded_step_mean": 0.13088125,
+          "sign_ok_rate": 0.9791666666666666,
+          "changepoint_within_tol_rate": 0.5,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.001488095238095238,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s44": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 17,
+          "det_rate": 0.3541666666666667,
+          "det_ci_wilson": [
+            0.23433644125604858,
+            0.4956094298965691
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.20833333333333334,
+            0.4791666666666667
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 17,
+            "construction+valid": 17,
+            "forced_alignment": 17,
+            "forced_alignment+valid": 17
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              4
+            ],
+            "test/p1": [
+              0,
+              4
+            ],
+            "test/p10": [
+              2,
+              4
+            ],
+            "test/p11": [
+              2,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              0,
+              4
+            ],
+            "test/p4": [
+              1,
+              4
+            ],
+            "test/p5": [
+              0,
+              4
+            ],
+            "test/p6": [
+              2,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              3,
+              4
+            ],
+            "test/p9": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.15024374999999998,
+          "abs_delta_max": 0.3261,
+          "commanded_step_mean": 0.15024374999999998,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5416666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.014297385620915032,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        }
+      },
+      "by_pair": {
+        "p2a/angry>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 2,
+          "det_rate": 0.2222222222222222,
+          "det_ci_wilson": [
+            0.06322510711784671,
+            0.5474110308930111
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.3333333333333333
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 2,
+            "construction+valid": 2,
+            "forced_alignment": 2,
+            "forced_alignment+valid": 2
+          },
+          "n_invalid": 1,
+          "per_phrase": {
+            "p2a/p0": [
+              1,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.14101111111111111,
+          "abs_delta_max": 0.2656,
+          "commanded_step_mean": 0.14101111111111111,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 1,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/happy>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 3,
+          "det_rate": 0.3333333333333333,
+          "det_ci_wilson": [
+            0.1205838183869109,
+            0.6457978644196036
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.6666666666666666
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 3,
+            "construction+valid": 3,
+            "forced_alignment": 3,
+            "forced_alignment+valid": 3
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              2,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.14588888888888887,
+          "abs_delta_max": 0.2766,
+          "commanded_step_mean": 0.14588888888888887,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>angry": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 8,
+          "det_rate": 0.8888888888888888,
+          "det_ci_wilson": [
+            0.5650002944233439,
+            0.9801091123614551
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6666666666666666,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 8,
+            "construction+valid": 8,
+            "forced_alignment": 8,
+            "forced_alignment+valid": 8
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              2,
+              3
+            ],
+            "p2a/p2": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.18893333333333334,
+          "abs_delta_max": 0.2842,
+          "commanded_step_mean": 0.18893333333333334,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 1.0,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.007407407407407408,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>happy": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 4,
+          "det_rate": 0.4444444444444444,
+          "det_ci_wilson": [
+            0.18877852109766452,
+            0.733348706504507
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            0.6666666666666666
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 4,
+            "construction+valid": 4,
+            "forced_alignment": 4,
+            "forced_alignment+valid": 4
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              2,
+              3
+            ],
+            "p2a/p1": [
+              1,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.1423222222222222,
+          "abs_delta_max": 0.2063,
+          "commanded_step_mean": 0.1423222222222222,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.8888888888888888,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.017094017094017096,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/angry>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 11,
+          "det_rate": 0.3055555555555556,
+          "det_ci_wilson": [
+            0.1800445159482992,
+            0.4685627285051034
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.1111111111111111,
+            0.5
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 11,
+            "construction+valid": 11,
+            "forced_alignment": 11,
+            "forced_alignment+valid": 11
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              2,
+              3
+            ],
+            "test/p11": [
+              2,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              1,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              3,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.15564722222222221,
+          "abs_delta_max": 0.3261,
+          "commanded_step_mean": 0.15564722222222221,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.001736111111111111,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/happy>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 4,
+          "det_rate": 0.1111111111111111,
+          "det_ci_wilson": [
+            0.04406640300315648,
+            0.25314808590364857
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.25
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 4,
+            "construction+valid": 4,
+            "forced_alignment": 4,
+            "forced_alignment+valid": 4
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              0,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.13294444444444445,
+          "abs_delta_max": 0.2976,
+          "commanded_step_mean": 0.13294444444444445,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.2222222222222222,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.021047307812013694,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>angry": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 17,
+          "det_rate": 0.4722222222222222,
+          "det_ci_wilson": [
+            0.31986041515179053,
+            0.629940619770124
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            0.6111111111111112
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 17,
+            "construction+valid": 17,
+            "forced_alignment": 17,
+            "forced_alignment+valid": 17
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              3
+            ],
+            "test/p1": [
+              2,
+              3
+            ],
+            "test/p10": [
+              1,
+              3
+            ],
+            "test/p11": [
+              1,
+              3
+            ],
+            "test/p2": [
+              2,
+              3
+            ],
+            "test/p3": [
+              1,
+              3
+            ],
+            "test/p4": [
+              0,
+              3
+            ],
+            "test/p5": [
+              1,
+              3
+            ],
+            "test/p6": [
+              1,
+              3
+            ],
+            "test/p7": [
+              2,
+              3
+            ],
+            "test/p8": [
+              1,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.14572777777777776,
+          "abs_delta_max": 0.2607,
+          "commanded_step_mean": 0.1426833333333333,
+          "sign_ok_rate": 0.9722222222222222,
+          "changepoint_within_tol_rate": 0.8888888888888888,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>happy": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 17,
+          "det_rate": 0.4722222222222222,
+          "det_ci_wilson": [
+            0.31986041515179053,
+            0.629940619770124
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3055555555555556,
+            0.6388888888888888
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 17,
+            "construction+valid": 17,
+            "forced_alignment": 17,
+            "forced_alignment+valid": 17
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              1,
+              3
+            ],
+            "test/p2": [
+              2,
+              3
+            ],
+            "test/p3": [
+              2,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              1,
+              3
+            ],
+            "test/p6": [
+              2,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              1,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.139725,
+          "abs_delta_max": 0.2695,
+          "commanded_step_mean": 0.139725,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.8333333333333334,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        }
+      }
+    },
+    "swap_steer": {
+      "role": "inpass",
+      "pooled": {
+        "n": 180,
+        "n_with_step": 180,
+        "detected": 89,
+        "det_rate": 0.49444444444444446,
+        "det_ci_wilson": [
+          0.4222885232824806,
+          0.5668325378055374
+        ],
+        "det_ci_phrase_bootstrap": [
+          0.4222222222222222,
+          0.5611111111111111
+        ],
+        "n_phrases": 15,
+        "detected_by_rule": {
+          "construction": 89,
+          "construction+valid": 89,
+          "forced_alignment": 89,
+          "forced_alignment+valid": 89
+        },
+        "n_invalid": 0,
+        "per_phrase": {
+          "p2a/p0": [
+            9,
+            12
+          ],
+          "p2a/p1": [
+            5,
+            12
+          ],
+          "p2a/p2": [
+            5,
+            12
+          ],
+          "test/p0": [
+            5,
+            12
+          ],
+          "test/p1": [
+            7,
+            12
+          ],
+          "test/p10": [
+            6,
+            12
+          ],
+          "test/p11": [
+            7,
+            12
+          ],
+          "test/p2": [
+            4,
+            12
+          ],
+          "test/p3": [
+            7,
+            12
+          ],
+          "test/p4": [
+            8,
+            12
+          ],
+          "test/p5": [
+            5,
+            12
+          ],
+          "test/p6": [
+            2,
+            12
+          ],
+          "test/p7": [
+            7,
+            12
+          ],
+          "test/p8": [
+            5,
+            12
+          ],
+          "test/p9": [
+            7,
+            12
+          ]
+        },
+        "abs_delta_mean": 0.31687777777777776,
+        "abs_delta_max": 0.5986,
+        "commanded_step_mean": 0.31687777777777776,
+        "sign_ok_rate": 1.0,
+        "changepoint_within_tol_rate": 0.5,
+        "ideal_step_mean": null,
+        "realised_share": null,
+        "wer_mean": 0.00037037037037037035,
+        "wer_median": 0.0,
+        "leak_rate": 0.0,
+        "looped": 0,
+        "gates": {
+          "wer_mean_le_max": true,
+          "no_loops": true,
+          "no_leak": true,
+          "passed": true
+        }
+      },
+      "by_set": {
+        "p2a": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 19,
+          "det_rate": 0.5277777777777778,
+          "det_ci_wilson": [
+            0.37005938022987594,
+            0.6801395848482095
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.4166666666666667,
+            0.75
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 19,
+            "construction+valid": 19,
+            "forced_alignment": 19,
+            "forced_alignment+valid": 19
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              9,
+              12
+            ],
+            "p2a/p1": [
+              5,
+              12
+            ],
+            "p2a/p2": [
+              5,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.3204972222222222,
+          "abs_delta_max": 0.4537,
+          "commanded_step_mean": 0.3204972222222222,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5277777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.001851851851851852,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.5277777777777778,
+          "det_rate_seed_sd": 0.048112522432468836
+        },
+        "test": {
+          "n": 144,
+          "n_with_step": 144,
+          "detected": 70,
+          "det_rate": 0.4861111111111111,
+          "det_ci_wilson": [
+            0.40590508334501507,
+            0.5670389065756248
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.4097222222222222,
+            0.5555555555555556
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 70,
+            "construction+valid": 70,
+            "forced_alignment": 70,
+            "forced_alignment+valid": 70
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              5,
+              12
+            ],
+            "test/p1": [
+              7,
+              12
+            ],
+            "test/p10": [
+              6,
+              12
+            ],
+            "test/p11": [
+              7,
+              12
+            ],
+            "test/p2": [
+              4,
+              12
+            ],
+            "test/p3": [
+              7,
+              12
+            ],
+            "test/p4": [
+              8,
+              12
+            ],
+            "test/p5": [
+              5,
+              12
+            ],
+            "test/p6": [
+              2,
+              12
+            ],
+            "test/p7": [
+              7,
+              12
+            ],
+            "test/p8": [
+              5,
+              12
+            ],
+            "test/p9": [
+              7,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.3159729166666667,
+          "abs_delta_max": 0.5986,
+          "commanded_step_mean": 0.3159729166666667,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.4930555555555556,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.48611111111111116,
+          "det_rate_seed_sd": 0.031823442326082245
+        }
+      },
+      "by_set_seed": {
+        "p2a/s42": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 6,
+          "det_rate": 0.5,
+          "det_ci_wilson": [
+            0.2537815976337061,
+            0.7462184023662939
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.25,
+            0.75
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 6,
+            "construction+valid": 6,
+            "forced_alignment": 6,
+            "forced_alignment+valid": 6
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              2,
+              4
+            ],
+            "p2a/p1": [
+              3,
+              4
+            ],
+            "p2a/p2": [
+              1,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.3376666666666667,
+          "abs_delta_max": 0.4356,
+          "commanded_step_mean": 0.3376666666666667,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s43": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 6,
+          "det_rate": 0.5,
+          "det_ci_wilson": [
+            0.2537815976337061,
+            0.7462184023662939
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 6,
+            "construction+valid": 6,
+            "forced_alignment": 6,
+            "forced_alignment+valid": 6
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              4,
+              4
+            ],
+            "p2a/p1": [
+              0,
+              4
+            ],
+            "p2a/p2": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.307475,
+          "abs_delta_max": 0.4017,
+          "commanded_step_mean": 0.307475,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.005555555555555556,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s44": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 7,
+          "det_rate": 0.5833333333333334,
+          "det_ci_wilson": [
+            0.31951131254954973,
+            0.8067396863412435
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            0.75
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 7,
+            "construction+valid": 7,
+            "forced_alignment": 7,
+            "forced_alignment+valid": 7
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              4
+            ],
+            "p2a/p1": [
+              2,
+              4
+            ],
+            "p2a/p2": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.31634999999999996,
+          "abs_delta_max": 0.4537,
+          "commanded_step_mean": 0.31634999999999996,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5833333333333334,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s42": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 25,
+          "det_rate": 0.5208333333333334,
+          "det_ci_wilson": [
+            0.3832923230334281,
+            0.6552868382304838
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3958333333333333,
+            0.6458333333333334
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 25,
+            "construction+valid": 25,
+            "forced_alignment": 25,
+            "forced_alignment+valid": 25
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              4
+            ],
+            "test/p1": [
+              2,
+              4
+            ],
+            "test/p10": [
+              3,
+              4
+            ],
+            "test/p11": [
+              4,
+              4
+            ],
+            "test/p2": [
+              1,
+              4
+            ],
+            "test/p3": [
+              2,
+              4
+            ],
+            "test/p4": [
+              3,
+              4
+            ],
+            "test/p5": [
+              2,
+              4
+            ],
+            "test/p6": [
+              1,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              2,
+              4
+            ],
+            "test/p9": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.3255666666666666,
+          "abs_delta_max": 0.5051,
+          "commanded_step_mean": 0.3255666666666666,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5208333333333334,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s43": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 22,
+          "det_rate": 0.4583333333333333,
+          "det_ci_wilson": [
+            0.32575242292867446,
+            0.5970892545435019
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3541666666666667,
+            0.5625
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 22,
+            "construction+valid": 22,
+            "forced_alignment": 22,
+            "forced_alignment+valid": 22
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              4
+            ],
+            "test/p1": [
+              1,
+              4
+            ],
+            "test/p10": [
+              1,
+              4
+            ],
+            "test/p11": [
+              2,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              2,
+              4
+            ],
+            "test/p4": [
+              3,
+              4
+            ],
+            "test/p5": [
+              2,
+              4
+            ],
+            "test/p6": [
+              1,
+              4
+            ],
+            "test/p7": [
+              3,
+              4
+            ],
+            "test/p8": [
+              1,
+              4
+            ],
+            "test/p9": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.29675416666666665,
+          "abs_delta_max": 0.5172,
+          "commanded_step_mean": 0.29675416666666665,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.4791666666666667,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s44": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 23,
+          "det_rate": 0.4791666666666667,
+          "det_ci_wilson": [
+            0.34471316176951616,
+            0.616707676966572
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            0.625
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 23,
+            "construction+valid": 23,
+            "forced_alignment": 23,
+            "forced_alignment+valid": 23
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              4
+            ],
+            "test/p1": [
+              4,
+              4
+            ],
+            "test/p10": [
+              2,
+              4
+            ],
+            "test/p11": [
+              1,
+              4
+            ],
+            "test/p2": [
+              1,
+              4
+            ],
+            "test/p3": [
+              3,
+              4
+            ],
+            "test/p4": [
+              2,
+              4
+            ],
+            "test/p5": [
+              1,
+              4
+            ],
+            "test/p6": [
+              0,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              2,
+              4
+            ],
+            "test/p9": [
+              3,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.32559791666666665,
+          "abs_delta_max": 0.5986,
+          "commanded_step_mean": 0.32559791666666665,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.4791666666666667,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        }
+      },
+      "by_pair": {
+        "p2a/angry>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 3,
+          "det_rate": 0.3333333333333333,
+          "det_ci_wilson": [
+            0.1205838183869109,
+            0.6457978644196036
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            0.6666666666666666
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 3,
+            "construction+valid": 3,
+            "forced_alignment": 3,
+            "forced_alignment+valid": 3
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              2,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.32180000000000003,
+          "abs_delta_max": 0.4011,
+          "commanded_step_mean": 0.32180000000000003,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/happy>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 3,
+          "det_rate": 0.3333333333333333,
+          "det_ci_wilson": [
+            0.1205838183869109,
+            0.6457978644196036
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            0.3333333333333333
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 3,
+            "construction+valid": 3,
+            "forced_alignment": 3,
+            "forced_alignment+valid": 3
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              1,
+              3
+            ],
+            "p2a/p1": [
+              1,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.26639999999999997,
+          "abs_delta_max": 0.4106,
+          "commanded_step_mean": 0.26639999999999997,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>angry": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 6,
+          "det_rate": 0.6666666666666666,
+          "det_ci_wilson": [
+            0.3542021355803963,
+            0.879416181613089
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 6,
+            "construction+valid": 6,
+            "forced_alignment": 6,
+            "forced_alignment+valid": 6
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              2,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.36314444444444444,
+          "abs_delta_max": 0.4537,
+          "commanded_step_mean": 0.36314444444444444,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>happy": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 7,
+          "det_rate": 0.7777777777777778,
+          "det_ci_wilson": [
+            0.45258896910698887,
+            0.9367748928821533
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6666666666666666,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 7,
+            "construction+valid": 7,
+            "forced_alignment": 7,
+            "forced_alignment+valid": 7
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              2,
+              3
+            ],
+            "p2a/p2": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3306444444444445,
+          "abs_delta_max": 0.3989,
+          "commanded_step_mean": 0.3306444444444445,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.7777777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.007407407407407408,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/angry>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 8,
+          "det_rate": 0.2222222222222222,
+          "det_ci_wilson": [
+            0.11716331975796462,
+            0.3808470294611818
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.05555555555555555,
+            0.4166666666666667
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 8,
+            "construction+valid": 8,
+            "forced_alignment": 8,
+            "forced_alignment+valid": 8
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              0,
+              3
+            ],
+            "test/p1": [
+              1,
+              3
+            ],
+            "test/p10": [
+              0,
+              3
+            ],
+            "test/p11": [
+              1,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              0,
+              3
+            ],
+            "test/p4": [
+              3,
+              3
+            ],
+            "test/p5": [
+              1,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              2,
+              3
+            ],
+            "test/p9": [
+              0,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.35846944444444445,
+          "abs_delta_max": 0.5051,
+          "commanded_step_mean": 0.35846944444444445,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.2222222222222222,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/happy>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 12,
+          "det_rate": 0.3333333333333333,
+          "det_ci_wilson": [
+            0.2021461882430531,
+            0.4966600212884348
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.19444444444444445,
+            0.4722222222222222
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 12,
+            "construction+valid": 12,
+            "forced_alignment": 12,
+            "forced_alignment+valid": 12
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              1,
+              3
+            ],
+            "test/p10": [
+              2,
+              3
+            ],
+            "test/p11": [
+              1,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              1,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              1,
+              3
+            ],
+            "test/p8": [
+              2,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.2752361111111111,
+          "abs_delta_max": 0.4788,
+          "commanded_step_mean": 0.2752361111111111,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.3333333333333333,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>angry": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 29,
+          "det_rate": 0.8055555555555556,
+          "det_ci_wilson": [
+            0.6497195700482261,
+            0.9024690458107127
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6666666666666666,
+            0.9444444444444444
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 29,
+            "construction+valid": 29,
+            "forced_alignment": 29,
+            "forced_alignment+valid": 29
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              3
+            ],
+            "test/p1": [
+              3,
+              3
+            ],
+            "test/p10": [
+              1,
+              3
+            ],
+            "test/p11": [
+              3,
+              3
+            ],
+            "test/p2": [
+              3,
+              3
+            ],
+            "test/p3": [
+              3,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              2,
+              3
+            ],
+            "test/p6": [
+              2,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              1,
+              3
+            ],
+            "test/p9": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3370222222222222,
+          "abs_delta_max": 0.5986,
+          "commanded_step_mean": 0.3370222222222222,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.8055555555555556,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>happy": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 21,
+          "det_rate": 0.5833333333333334,
+          "det_ci_wilson": [
+            0.4220025157487166,
+            0.7285943794855394
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3888888888888889,
+            0.7777777777777778
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 21,
+            "construction+valid": 21,
+            "forced_alignment": 21,
+            "forced_alignment+valid": 21
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              2,
+              3
+            ],
+            "test/p10": [
+              3,
+              3
+            ],
+            "test/p11": [
+              2,
+              3
+            ],
+            "test/p2": [
+              1,
+              3
+            ],
+            "test/p3": [
+              3,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              2,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              0,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.29316388888888895,
+          "abs_delta_max": 0.4311,
+          "commanded_step_mean": 0.29316388888888895,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6111111111111112,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        }
+      }
+    },
+    "swap_anchor_steer": {
+      "role": "inpass",
+      "pooled": {
+        "n": 180,
+        "n_with_step": 180,
+        "detected": 123,
+        "det_rate": 0.6833333333333333,
+        "det_ci_wilson": [
+          0.6121509596004495,
+          0.7468540244949591
+        ],
+        "det_ci_phrase_bootstrap": [
+          0.6,
+          0.7666666666666667
+        ],
+        "n_phrases": 15,
+        "detected_by_rule": {
+          "construction": 123,
+          "construction+valid": 123,
+          "forced_alignment": 123,
+          "forced_alignment+valid": 123
+        },
+        "n_invalid": 4,
+        "per_phrase": {
+          "p2a/p0": [
+            12,
+            12
+          ],
+          "p2a/p1": [
+            7,
+            12
+          ],
+          "p2a/p2": [
+            6,
+            12
+          ],
+          "test/p0": [
+            9,
+            12
+          ],
+          "test/p1": [
+            8,
+            12
+          ],
+          "test/p10": [
+            10,
+            12
+          ],
+          "test/p11": [
+            10,
+            12
+          ],
+          "test/p2": [
+            6,
+            12
+          ],
+          "test/p3": [
+            10,
+            12
+          ],
+          "test/p4": [
+            7,
+            12
+          ],
+          "test/p5": [
+            7,
+            12
+          ],
+          "test/p6": [
+            5,
+            12
+          ],
+          "test/p7": [
+            7,
+            12
+          ],
+          "test/p8": [
+            8,
+            12
+          ],
+          "test/p9": [
+            11,
+            12
+          ]
+        },
+        "abs_delta_mean": 0.3545261111111111,
+        "abs_delta_max": 0.5839,
+        "commanded_step_mean": 0.3528927777777778,
+        "sign_ok_rate": 0.9888888888888889,
+        "changepoint_within_tol_rate": 0.6833333333333333,
+        "ideal_step_mean": null,
+        "realised_share": null,
+        "wer_mean": 0.009738562091503268,
+        "wer_median": 0.0,
+        "leak_rate": 0.0,
+        "looped": 2,
+        "gates": {
+          "wer_mean_le_max": true,
+          "no_loops": false,
+          "no_leak": true,
+          "passed": false
+        }
+      },
+      "by_set": {
+        "p2a": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 25,
+          "det_rate": 0.6944444444444444,
+          "det_ci_wilson": [
+            0.5314372714948966,
+            0.8199554840517008
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 25,
+            "construction+valid": 25,
+            "forced_alignment": 25,
+            "forced_alignment+valid": 25
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "p2a/p0": [
+              12,
+              12
+            ],
+            "p2a/p1": [
+              7,
+              12
+            ],
+            "p2a/p2": [
+              6,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.3355805555555555,
+          "abs_delta_max": 0.4907,
+          "commanded_step_mean": 0.32741388888888884,
+          "sign_ok_rate": 0.9444444444444444,
+          "changepoint_within_tol_rate": 0.6944444444444444,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.027777777777777776,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 2,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.6944444444444443,
+          "det_rate_seed_sd": 0.048112522432468836
+        },
+        "test": {
+          "n": 144,
+          "n_with_step": 144,
+          "detected": 98,
+          "det_rate": 0.6805555555555556,
+          "det_ci_wilson": [
+            0.6005590539027492,
+            0.7511690771289321
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5972222222222222,
+            0.7638888888888888
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 98,
+            "construction+valid": 98,
+            "forced_alignment": 98,
+            "forced_alignment+valid": 98
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "test/p0": [
+              9,
+              12
+            ],
+            "test/p1": [
+              8,
+              12
+            ],
+            "test/p10": [
+              10,
+              12
+            ],
+            "test/p11": [
+              10,
+              12
+            ],
+            "test/p2": [
+              6,
+              12
+            ],
+            "test/p3": [
+              10,
+              12
+            ],
+            "test/p4": [
+              7,
+              12
+            ],
+            "test/p5": [
+              7,
+              12
+            ],
+            "test/p6": [
+              5,
+              12
+            ],
+            "test/p7": [
+              7,
+              12
+            ],
+            "test/p8": [
+              8,
+              12
+            ],
+            "test/p9": [
+              11,
+              12
+            ]
+          },
+          "abs_delta_mean": 0.35926250000000004,
+          "abs_delta_max": 0.5839,
+          "commanded_step_mean": 0.35926250000000004,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6805555555555556,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.00522875816993464,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "n_seeds": 3,
+          "det_rate_seed_mean": 0.6805555555555557,
+          "det_rate_seed_sd": 0.08673608331108885
+        }
+      },
+      "by_set_seed": {
+        "p2a/s42": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 8,
+          "det_rate": 0.6666666666666666,
+          "det_ci_wilson": [
+            0.39062208887279953,
+            0.8618799089087867
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.25,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 8,
+            "construction+valid": 8,
+            "forced_alignment": 8,
+            "forced_alignment+valid": 8
+          },
+          "n_invalid": 1,
+          "per_phrase": {
+            "p2a/p0": [
+              4,
+              4
+            ],
+            "p2a/p1": [
+              3,
+              4
+            ],
+            "p2a/p2": [
+              1,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.33039999999999997,
+          "abs_delta_max": 0.4829,
+          "commanded_step_mean": 0.31805,
+          "sign_ok_rate": 0.9166666666666666,
+          "changepoint_within_tol_rate": 0.6666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.038461538461538464,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 1,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          }
+        },
+        "p2a/s43": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 9,
+          "det_rate": 0.75,
+          "det_ci_wilson": [
+            0.46769466506643426,
+            0.9110583316059453
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 9,
+            "construction+valid": 9,
+            "forced_alignment": 9,
+            "forced_alignment+valid": 9
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              4,
+              4
+            ],
+            "p2a/p1": [
+              2,
+              4
+            ],
+            "p2a/p2": [
+              3,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.34355833333333335,
+          "abs_delta_max": 0.4907,
+          "commanded_step_mean": 0.34355833333333335,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.75,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "p2a/s44": {
+          "n": 12,
+          "n_with_step": 12,
+          "detected": 8,
+          "det_rate": 0.6666666666666666,
+          "det_ci_wilson": [
+            0.39062208887279953,
+            0.8618799089087867
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 8,
+            "construction+valid": 8,
+            "forced_alignment": 8,
+            "forced_alignment+valid": 8
+          },
+          "n_invalid": 1,
+          "per_phrase": {
+            "p2a/p0": [
+              4,
+              4
+            ],
+            "p2a/p1": [
+              2,
+              4
+            ],
+            "p2a/p2": [
+              2,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.3327833333333333,
+          "abs_delta_max": 0.4798,
+          "commanded_step_mean": 0.3206333333333333,
+          "sign_ok_rate": 0.9166666666666666,
+          "changepoint_within_tol_rate": 0.6666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.04487179487179488,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 1,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          }
+        },
+        "test/s42": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 36,
+          "det_rate": 0.75,
+          "det_ci_wilson": [
+            0.6121562719049204,
+            0.8507936632620209
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6041666666666666,
+            0.875
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 36,
+            "construction+valid": 36,
+            "forced_alignment": 36,
+            "forced_alignment+valid": 36
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              4,
+              4
+            ],
+            "test/p1": [
+              2,
+              4
+            ],
+            "test/p10": [
+              4,
+              4
+            ],
+            "test/p11": [
+              4,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              4,
+              4
+            ],
+            "test/p4": [
+              3,
+              4
+            ],
+            "test/p5": [
+              2,
+              4
+            ],
+            "test/p6": [
+              1,
+              4
+            ],
+            "test/p7": [
+              3,
+              4
+            ],
+            "test/p8": [
+              3,
+              4
+            ],
+            "test/p9": [
+              4,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.3760666666666667,
+          "abs_delta_max": 0.5286,
+          "commanded_step_mean": 0.3760666666666667,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.75,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s43": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 28,
+          "det_rate": 0.5833333333333334,
+          "det_ci_wilson": [
+            0.4428133228397628,
+            0.7115033222158844
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.5,
+            0.6666666666666666
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 28,
+            "construction+valid": 28,
+            "forced_alignment": 28,
+            "forced_alignment+valid": 28
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              4
+            ],
+            "test/p1": [
+              3,
+              4
+            ],
+            "test/p10": [
+              2,
+              4
+            ],
+            "test/p11": [
+              3,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              3,
+              4
+            ],
+            "test/p4": [
+              1,
+              4
+            ],
+            "test/p5": [
+              2,
+              4
+            ],
+            "test/p6": [
+              2,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              2,
+              4
+            ],
+            "test/p9": [
+              3,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.33805208333333336,
+          "abs_delta_max": 0.5839,
+          "commanded_step_mean": 0.33805208333333336,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5833333333333334,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.001388888888888889,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        },
+        "test/s44": {
+          "n": 48,
+          "n_with_step": 48,
+          "detected": 34,
+          "det_rate": 0.7083333333333334,
+          "det_ci_wilson": [
+            0.5682074019042831,
+            0.8175842107348348
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.625,
+            0.8125
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 34,
+            "construction+valid": 34,
+            "forced_alignment": 34,
+            "forced_alignment+valid": 34
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              4
+            ],
+            "test/p1": [
+              3,
+              4
+            ],
+            "test/p10": [
+              4,
+              4
+            ],
+            "test/p11": [
+              3,
+              4
+            ],
+            "test/p2": [
+              2,
+              4
+            ],
+            "test/p3": [
+              3,
+              4
+            ],
+            "test/p4": [
+              3,
+              4
+            ],
+            "test/p5": [
+              3,
+              4
+            ],
+            "test/p6": [
+              2,
+              4
+            ],
+            "test/p7": [
+              2,
+              4
+            ],
+            "test/p8": [
+              3,
+              4
+            ],
+            "test/p9": [
+              4,
+              4
+            ]
+          },
+          "abs_delta_mean": 0.36366875,
+          "abs_delta_max": 0.5662,
+          "commanded_step_mean": 0.36366875,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.7083333333333334,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.014297385620915032,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          }
+        }
+      },
+      "by_pair": {
+        "p2a/angry>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 6,
+          "det_rate": 0.6666666666666666,
+          "det_ci_wilson": [
+            0.3542021355803963,
+            0.879416181613089
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 6,
+            "construction+valid": 6,
+            "forced_alignment": 6,
+            "forced_alignment+valid": 6
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              2,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3705555555555555,
+          "abs_delta_max": 0.4907,
+          "commanded_step_mean": 0.3705555555555555,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.6666666666666666,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/happy>sad": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 5,
+          "det_rate": 0.5555555555555556,
+          "det_ci_wilson": [
+            0.26665129349549305,
+            0.8112214789023355
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.0,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 5,
+            "construction+valid": 5,
+            "forced_alignment": 5,
+            "forced_alignment+valid": 5
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              0,
+              3
+            ],
+            "p2a/p2": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.2962777777777778,
+          "abs_delta_max": 0.4829,
+          "commanded_step_mean": 0.2636111111111111,
+          "sign_ok_rate": 0.7777777777777778,
+          "changepoint_within_tol_rate": 0.5555555555555556,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.10256410256410257,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 2,
+          "gates": {
+            "wer_mean_le_max": false,
+            "no_loops": false,
+            "no_leak": true,
+            "passed": false
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>angry": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 7,
+          "det_rate": 0.7777777777777778,
+          "det_ci_wilson": [
+            0.45258896910698887,
+            0.9367748928821533
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6666666666666666,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 7,
+            "construction+valid": 7,
+            "forced_alignment": 7,
+            "forced_alignment+valid": 7
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              2,
+              3
+            ],
+            "p2a/p2": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3350666666666666,
+          "abs_delta_max": 0.4798,
+          "commanded_step_mean": 0.3350666666666666,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.7777777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "p2a/sad>happy": {
+          "n": 9,
+          "n_with_step": 9,
+          "detected": 7,
+          "det_rate": 0.7777777777777778,
+          "det_ci_wilson": [
+            0.45258896910698887,
+            0.9367748928821533
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3333333333333333,
+            1.0
+          ],
+          "n_phrases": 3,
+          "detected_by_rule": {
+            "construction": 7,
+            "construction+valid": 7,
+            "forced_alignment": 7,
+            "forced_alignment+valid": 7
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "p2a/p0": [
+              3,
+              3
+            ],
+            "p2a/p1": [
+              3,
+              3
+            ],
+            "p2a/p2": [
+              1,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3404222222222223,
+          "abs_delta_max": 0.4766,
+          "commanded_step_mean": 0.3404222222222223,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.7777777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.008547008547008548,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/angry>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 19,
+          "det_rate": 0.5277777777777778,
+          "det_ci_wilson": [
+            0.37005938022987594,
+            0.6801395848482095
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3055555555555556,
+            0.75
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 19,
+            "construction+valid": 19,
+            "forced_alignment": 19,
+            "forced_alignment+valid": 19
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              2,
+              3
+            ],
+            "test/p1": [
+              0,
+              3
+            ],
+            "test/p10": [
+              2,
+              3
+            ],
+            "test/p11": [
+              3,
+              3
+            ],
+            "test/p2": [
+              0,
+              3
+            ],
+            "test/p3": [
+              2,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              2,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              0,
+              3
+            ],
+            "test/p8": [
+              3,
+              3
+            ],
+            "test/p9": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.41734166666666667,
+          "abs_delta_max": 0.5759,
+          "commanded_step_mean": 0.41734166666666667,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.5277777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/happy>sad": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 17,
+          "det_rate": 0.4722222222222222,
+          "det_ci_wilson": [
+            0.31986041515179053,
+            0.629940619770124
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.3055555555555556,
+            0.6388888888888888
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 17,
+            "construction+valid": 17,
+            "forced_alignment": 17,
+            "forced_alignment+valid": 17
+          },
+          "n_invalid": 2,
+          "per_phrase": {
+            "test/p0": [
+              1,
+              3
+            ],
+            "test/p1": [
+              2,
+              3
+            ],
+            "test/p10": [
+              3,
+              3
+            ],
+            "test/p11": [
+              2,
+              3
+            ],
+            "test/p2": [
+              1,
+              3
+            ],
+            "test/p3": [
+              2,
+              3
+            ],
+            "test/p4": [
+              1,
+              3
+            ],
+            "test/p5": [
+              0,
+              3
+            ],
+            "test/p6": [
+              0,
+              3
+            ],
+            "test/p7": [
+              1,
+              3
+            ],
+            "test/p8": [
+              2,
+              3
+            ],
+            "test/p9": [
+              2,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3232833333333334,
+          "abs_delta_max": 0.4921,
+          "commanded_step_mean": 0.3232833333333334,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.4722222222222222,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.01906318082788671,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>angry": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 34,
+          "det_rate": 0.9444444444444444,
+          "det_ci_wilson": [
+            0.8185534279135275,
+            0.9846300133358382
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.8611111111111112,
+            1.0
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 34,
+            "construction+valid": 34,
+            "forced_alignment": 34,
+            "forced_alignment+valid": 34
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              3
+            ],
+            "test/p1": [
+              3,
+              3
+            ],
+            "test/p10": [
+              3,
+              3
+            ],
+            "test/p11": [
+              3,
+              3
+            ],
+            "test/p2": [
+              3,
+              3
+            ],
+            "test/p3": [
+              3,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              3,
+              3
+            ],
+            "test/p6": [
+              3,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              2,
+              3
+            ],
+            "test/p9": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.34829722222222226,
+          "abs_delta_max": 0.5122,
+          "commanded_step_mean": 0.34829722222222226,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.9444444444444444,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.001851851851851852,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        },
+        "test/sad>happy": {
+          "n": 36,
+          "n_with_step": 36,
+          "detected": 28,
+          "det_rate": 0.7777777777777778,
+          "det_ci_wilson": [
+            0.6191529705388181,
+            0.8828366802420353
+          ],
+          "det_ci_phrase_bootstrap": [
+            0.6666666666666666,
+            0.8888888888888888
+          ],
+          "n_phrases": 12,
+          "detected_by_rule": {
+            "construction": 28,
+            "construction+valid": 28,
+            "forced_alignment": 28,
+            "forced_alignment+valid": 28
+          },
+          "n_invalid": 0,
+          "per_phrase": {
+            "test/p0": [
+              3,
+              3
+            ],
+            "test/p1": [
+              3,
+              3
+            ],
+            "test/p10": [
+              2,
+              3
+            ],
+            "test/p11": [
+              2,
+              3
+            ],
+            "test/p2": [
+              2,
+              3
+            ],
+            "test/p3": [
+              3,
+              3
+            ],
+            "test/p4": [
+              2,
+              3
+            ],
+            "test/p5": [
+              2,
+              3
+            ],
+            "test/p6": [
+              2,
+              3
+            ],
+            "test/p7": [
+              3,
+              3
+            ],
+            "test/p8": [
+              1,
+              3
+            ],
+            "test/p9": [
+              3,
+              3
+            ]
+          },
+          "abs_delta_mean": 0.3481277777777778,
+          "abs_delta_max": 0.5839,
+          "commanded_step_mean": 0.3481277777777778,
+          "sign_ok_rate": 1.0,
+          "changepoint_within_tol_rate": 0.7777777777777778,
+          "ideal_step_mean": null,
+          "realised_share": null,
+          "wer_mean": 0.0,
+          "wer_median": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0,
+          "gates": {
+            "wer_mean_le_max": true,
+            "no_loops": true,
+            "no_leak": true,
+            "passed": true
+          },
+          "nearest_level_counts": {}
+        }
+      }
+    }
+  },
+  "null": {
+    "swap_null/inpass": {
+      "pooled": {
+        "n": 135,
+        "n_with_step": 135,
+        "abs_delta_mean": 0.03801703703703704,
+        "abs_delta_p95": 0.09963,
+        "abs_delta_max": 0.1578,
+        "exceed": 1,
+        "exceed_rate": 0.007407407407407408,
+        "exceed_ci_wilson": [
+          0.001308788246274506,
+          0.040764083000620406
+        ],
+        "exceed_by_boundary": {
+          "construction": 1,
+          "forced_alignment": 1
+        },
+        "n_invalid": 0,
+        "profile_sd_mean": 0.06735185185185186,
+        "wer_mean": 0.0,
+        "leak_rate": 0.0,
+        "looped": 0
+      },
+      "by_set": {
+        "p2a": {
+          "n": 27,
+          "n_with_step": 27,
+          "abs_delta_mean": 0.025933333333333336,
+          "abs_delta_p95": 0.06990999999999999,
+          "abs_delta_max": 0.0932,
+          "exceed": 0,
+          "exceed_rate": 0.0,
+          "exceed_ci_wilson": [
+            0.0,
+            0.12455502974186705
+          ],
+          "exceed_by_boundary": {
+            "construction": 0,
+            "forced_alignment": 0
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.05614814814814815,
+          "wer_mean": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0
+        },
+        "test": {
+          "n": 108,
+          "n_with_step": 108,
+          "abs_delta_mean": 0.04103796296296297,
+          "abs_delta_p95": 0.09996,
+          "abs_delta_max": 0.1578,
+          "exceed": 1,
+          "exceed_rate": 0.009259259259259259,
+          "exceed_ci_wilson": [
+            0.0016363608538834916,
+            0.05059345519366322
+          ],
+          "exceed_by_boundary": {
+            "construction": 1,
+            "forced_alignment": 1
+          },
+          "n_invalid": 0,
+          "profile_sd_mean": 0.07015277777777779,
+          "wer_mean": 0.0,
+          "leak_rate": 0.0,
+          "looped": 0
+        }
+      }
+    }
+  },
+  "seed_agreement": {
+    "swap_null/p2a": {
+      "n_cells": 9,
+      "n_cells_multi_seed": 9,
+      "unanimous": 9,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          9,
+          9
+        ],
+        "s42-s44": [
+          9,
+          9
+        ],
+        "s43-s44": [
+          9,
+          9
+        ]
+      }
+    },
+    "swap/p2a": {
+      "n_cells": 12,
+      "n_cells_multi_seed": 12,
+      "unanimous": 11,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          11,
+          12
+        ],
+        "s42-s44": [
+          11,
+          12
+        ],
+        "s43-s44": [
+          12,
+          12
+        ]
+      }
+    },
+    "swap_anchor/p2a": {
+      "n_cells": 12,
+      "n_cells_multi_seed": 12,
+      "unanimous": 4,
+      "unanimous_positive": 2,
+      "seed_pairs": {
+        "s42-s43": [
+          6,
+          12
+        ],
+        "s42-s44": [
+          8,
+          12
+        ],
+        "s43-s44": [
+          6,
+          12
+        ]
+      }
+    },
+    "swap_anchor_steer/p2a": {
+      "n_cells": 12,
+      "n_cells_multi_seed": 12,
+      "unanimous": 6,
+      "unanimous_positive": 5,
+      "seed_pairs": {
+        "s42-s43": [
+          9,
+          12
+        ],
+        "s42-s44": [
+          8,
+          12
+        ],
+        "s43-s44": [
+          7,
+          12
+        ]
+      }
+    },
+    "swap_steer/p2a": {
+      "n_cells": 12,
+      "n_cells_multi_seed": 12,
+      "unanimous": 3,
+      "unanimous_positive": 2,
+      "seed_pairs": {
+        "s42-s43": [
+          4,
+          12
+        ],
+        "s42-s44": [
+          7,
+          12
+        ],
+        "s43-s44": [
+          7,
+          12
+        ]
+      }
+    },
+    "swap_null/test": {
+      "n_cells": 36,
+      "n_cells_multi_seed": 36,
+      "unanimous": 35,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          36,
+          36
+        ],
+        "s42-s44": [
+          35,
+          36
+        ],
+        "s43-s44": [
+          35,
+          36
+        ]
+      }
+    },
+    "swap/test": {
+      "n_cells": 48,
+      "n_cells_multi_seed": 48,
+      "unanimous": 43,
+      "unanimous_positive": 0,
+      "seed_pairs": {
+        "s42-s43": [
+          48,
+          48
+        ],
+        "s42-s44": [
+          43,
+          48
+        ],
+        "s43-s44": [
+          43,
+          48
+        ]
+      }
+    },
+    "swap_anchor/test": {
+      "n_cells": 48,
+      "n_cells_multi_seed": 48,
+      "unanimous": 21,
+      "unanimous_positive": 3,
+      "seed_pairs": {
+        "s42-s43": [
+          32,
+          48
+        ],
+        "s42-s44": [
+          30,
+          48
+        ],
+        "s43-s44": [
+          28,
+          48
+        ]
+      }
+    },
+    "swap_anchor_steer/test": {
+      "n_cells": 48,
+      "n_cells_multi_seed": 48,
+      "unanimous": 25,
+      "unanimous_positive": 19,
+      "seed_pairs": {
+        "s42-s43": [
+          30,
+          48
+        ],
+        "s42-s44": [
+          34,
+          48
+        ],
+        "s43-s44": [
+          34,
+          48
+        ]
+      }
+    },
+    "swap_steer/test": {
+      "n_cells": 48,
+      "n_cells_multi_seed": 48,
+      "unanimous": 23,
+      "unanimous_positive": 11,
+      "seed_pairs": {
+        "s42-s43": [
+          31,
+          48
+        ],
+        "s42-s44": [
+          30,
+          48
+        ],
+        "s43-s44": [
+          33,
+          48
+        ]
+      }
+    }
+  },
+  "sensitivity": [
+    {
+      "min_abs_delta": 0.1,
+      "max_changepoint_err_s": 0.5,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          4,
+          36
+        ],
+        "swap_anchor/p2a": [
+          21,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          24,
+          36
+        ],
+        "swap_steer/p2a": [
+          18,
+          36
+        ],
+        "swap_null/test": [
+          4,
+          108
+        ],
+        "swap/test": [
+          18,
+          144
+        ],
+        "swap_anchor/test": [
+          66,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          86,
+          144
+        ],
+        "swap_steer/test": [
+          60,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.1,
+      "max_changepoint_err_s": 0.75,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          4,
+          36
+        ],
+        "swap_anchor/p2a": [
+          21,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          25,
+          36
+        ],
+        "swap_steer/p2a": [
+          19,
+          36
+        ],
+        "swap_null/test": [
+          5,
+          108
+        ],
+        "swap/test": [
+          18,
+          144
+        ],
+        "swap_anchor/test": [
+          71,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          98,
+          144
+        ],
+        "swap_steer/test": [
+          70,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.1,
+      "max_changepoint_err_s": 1.0,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          4,
+          36
+        ],
+        "swap_anchor/p2a": [
+          22,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          27,
+          36
+        ],
+        "swap_steer/p2a": [
+          22,
+          36
+        ],
+        "swap_null/test": [
+          5,
+          108
+        ],
+        "swap/test": [
+          21,
+          144
+        ],
+        "swap_anchor/test": [
+          80,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          106,
+          144
+        ],
+        "swap_steer/test": [
+          86,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.1,
+      "max_changepoint_err_s": null,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          6,
+          36
+        ],
+        "swap_anchor/p2a": [
+          30,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          34,
+          36
+        ],
+        "swap_steer/p2a": [
+          36,
+          36
+        ],
+        "swap_null/test": [
+          6,
+          108
+        ],
+        "swap/test": [
+          30,
+          144
+        ],
+        "swap_anchor/test": [
+          104,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          142,
+          144
+        ],
+        "swap_steer/test": [
+          143,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.15,
+      "max_changepoint_err_s": 0.5,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          17,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          24,
+          36
+        ],
+        "swap_steer/p2a": [
+          18,
+          36
+        ],
+        "swap_null/test": [
+          1,
+          108
+        ],
+        "swap/test": [
+          5,
+          144
+        ],
+        "swap_anchor/test": [
+          44,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          86,
+          144
+        ],
+        "swap_steer/test": [
+          60,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.15,
+      "max_changepoint_err_s": 0.75,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          17,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          25,
+          36
+        ],
+        "swap_steer/p2a": [
+          19,
+          36
+        ],
+        "swap_null/test": [
+          1,
+          108
+        ],
+        "swap/test": [
+          5,
+          144
+        ],
+        "swap_anchor/test": [
+          49,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          98,
+          144
+        ],
+        "swap_steer/test": [
+          70,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.15,
+      "max_changepoint_err_s": 1.0,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          17,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          27,
+          36
+        ],
+        "swap_steer/p2a": [
+          22,
+          36
+        ],
+        "swap_null/test": [
+          1,
+          108
+        ],
+        "swap/test": [
+          5,
+          144
+        ],
+        "swap_anchor/test": [
+          52,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          106,
+          144
+        ],
+        "swap_steer/test": [
+          86,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.15,
+      "max_changepoint_err_s": null,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          20,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          34,
+          36
+        ],
+        "swap_steer/p2a": [
+          35,
+          36
+        ],
+        "swap_null/test": [
+          1,
+          108
+        ],
+        "swap/test": [
+          7,
+          144
+        ],
+        "swap_anchor/test": [
+          59,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          142,
+          144
+        ],
+        "swap_steer/test": [
+          142,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.2,
+      "max_changepoint_err_s": 0.5,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          6,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          23,
+          36
+        ],
+        "swap_steer/p2a": [
+          18,
+          36
+        ],
+        "swap_null/test": [
+          0,
+          108
+        ],
+        "swap/test": [
+          3,
+          144
+        ],
+        "swap_anchor/test": [
+          25,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          84,
+          144
+        ],
+        "swap_steer/test": [
+          56,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.2,
+      "max_changepoint_err_s": 0.75,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          6,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          24,
+          36
+        ],
+        "swap_steer/p2a": [
+          19,
+          36
+        ],
+        "swap_null/test": [
+          0,
+          108
+        ],
+        "swap/test": [
+          3,
+          144
+        ],
+        "swap_anchor/test": [
+          27,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          95,
+          144
+        ],
+        "swap_steer/test": [
+          65,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.2,
+      "max_changepoint_err_s": 1.0,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          6,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          26,
+          36
+        ],
+        "swap_steer/p2a": [
+          22,
+          36
+        ],
+        "swap_null/test": [
+          0,
+          108
+        ],
+        "swap/test": [
+          3,
+          144
+        ],
+        "swap_anchor/test": [
+          27,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          103,
+          144
+        ],
+        "swap_steer/test": [
+          80,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.2,
+      "max_changepoint_err_s": null,
+      "weighted_split": false,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          6,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          33,
+          36
+        ],
+        "swap_steer/p2a": [
+          34,
+          36
+        ],
+        "swap_null/test": [
+          0,
+          108
+        ],
+        "swap/test": [
+          3,
+          144
+        ],
+        "swap_anchor/test": [
+          31,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          138,
+          144
+        ],
+        "swap_steer/test": [
+          129,
+          144
+        ]
+      }
+    },
+    {
+      "min_abs_delta": 0.15,
+      "max_changepoint_err_s": 0.75,
+      "weighted_split": true,
+      "counts": {
+        "swap_null/p2a": [
+          0,
+          27
+        ],
+        "swap/p2a": [
+          1,
+          36
+        ],
+        "swap_anchor/p2a": [
+          19,
+          36
+        ],
+        "swap_anchor_steer/p2a": [
+          30,
+          36
+        ],
+        "swap_steer/p2a": [
+          25,
+          36
+        ],
+        "swap_null/test": [
+          1,
+          108
+        ],
+        "swap/test": [
+          7,
+          144
+        ],
+        "swap_anchor/test": [
+          53,
+          144
+        ],
+        "swap_anchor_steer/test": [
+          126,
+          144
+        ],
+        "swap_steer/test": [
+          102,
+          144
+        ]
+      }
+    }
+  ]
+}

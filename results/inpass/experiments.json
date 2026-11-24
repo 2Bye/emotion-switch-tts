@@ -1,0 +1,2261 @@
+{
+  "experiments": [
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": -0.012824999999999998,
+      "outcomes": {
+        "flat": 12
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.004675000000000001,
+      "outcomes": {
+        "flat": 12
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": -0.009241666666666669,
+      "outcomes": {
+        "flat": 12
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 3,
+      "n": 36,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.09641862859446367
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": -0.005797222222222222,
+      "outcomes": {
+        "flat": 36
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "test",
+      "set_role": "test",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        6.938893903907228e-18,
+        0.07410012966611748
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.001388888888888889,
+      "commanded_step_mean": 0.004747916666666668,
+      "outcomes": {
+        "flat": 48
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "test",
+      "set_role": "test",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        6.938893903907228e-18,
+        0.07410012966611748
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": -0.008408333333333332,
+      "outcomes": {
+        "flat": 47,
+        "wrong_sign": 1
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "test",
+      "set_role": "test",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        6.938893903907228e-18,
+        0.07410012966611748
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.001388888888888889,
+      "commanded_step_mean": 0.0009979166666666658,
+      "outcomes": {
+        "flat": 47,
+        "wrong_sign": 1
+      }
+    },
+    {
+      "system": "nl_instruct",
+      "role": "baseline",
+      "change": "none (the baseline of homework 1)",
+      "hypothesis": "H1: one instruction naming both emotions gives no step",
+      "set": "test",
+      "set_role": "test",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 12,
+      "n": 144,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.025983637143036746
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.000925925925925926,
+      "commanded_step_mean": -0.0008874999999999989,
+      "outcomes": {
+        "flat": 142,
+        "wrong_sign": 2
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 10,
+      "det": 0.8333333333333334,
+      "ci_wilson": [
+        0.5519691377470266,
+        0.9530348578161463
+      ],
+      "ci_phrases": [
+        0.75,
+        1.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.023809523809523808,
+      "commanded_step_mean": 0.2622583333333333,
+      "outcomes": {
+        "detected": 10,
+        "misplaced": 1,
+        "flat": 1
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 6,
+      "det": 0.5,
+      "ci_wilson": [
+        0.2537815976337061,
+        0.7462184023662939
+      ],
+      "ci_phrases": [
+        0.5,
+        0.5
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.23088333333333336,
+      "outcomes": {
+        "misplaced": 6,
+        "detected": 6
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": null,
+      "n_seeds": 2,
+      "n_phrases": 3,
+      "n": 24,
+      "detected": 16,
+      "det": 0.6666666666666666,
+      "ci_wilson": [
+        0.4670631683813174,
+        0.8202780967270225
+      ],
+      "ci_phrases": [
+        0.625,
+        0.75
+      ],
+      "invalid": 0,
+      "wer_mean": 0.011904761904761904,
+      "commanded_step_mean": 0.24657083333333332,
+      "outcomes": {
+        "detected": 16,
+        "misplaced": 7,
+        "flat": 1
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "test",
+      "set_role": "test",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 30,
+      "det": 0.625,
+      "ci_wilson": [
+        0.4836276351921527,
+        0.747847332391318
+      ],
+      "ci_phrases": [
+        0.5416666666666666,
+        0.7291666666666666
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.21361875000000005,
+      "outcomes": {
+        "detected": 30,
+        "flat": 10,
+        "misplaced": 8
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "test",
+      "set_role": "test",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 25,
+      "det": 0.5208333333333334,
+      "ci_wilson": [
+        0.3832923230334281,
+        0.6552868382304838
+      ],
+      "ci_phrases": [
+        0.3958333333333333,
+        0.625
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.22595208333333336,
+      "outcomes": {
+        "misplaced": 12,
+        "flat": 11,
+        "detected": 25
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "test",
+      "set_role": "test",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 31,
+      "det": 0.6458333333333334,
+      "ci_wilson": [
+        0.504390570103431,
+        0.7656635587439515
+      ],
+      "ci_phrases": [
+        0.5208333333333334,
+        0.7708333333333334
+      ],
+      "invalid": 0,
+      "wer_mean": 0.002777777777777778,
+      "commanded_step_mean": 0.2380520833333333,
+      "outcomes": {
+        "detected": 31,
+        "misplaced": 9,
+        "flat": 8
+      }
+    },
+    {
+      "system": "stitch",
+      "role": "reference",
+      "change": "two separate renders joined as a waveform (the reference of homework 1; not a single pass)",
+      "hypothesis": "what the detector reads on audio that switches by construction",
+      "set": "test",
+      "set_role": "test",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 12,
+      "n": 144,
+      "detected": 86,
+      "det": 0.5972222222222222,
+      "ci_wilson": [
+        0.5155967976218372,
+        0.6737952729336834
+      ],
+      "ci_phrases": [
+        0.5277777777777778,
+        0.6736111111111112
+      ],
+      "invalid": 0,
+      "wer_mean": 0.000925925925925926,
+      "commanded_step_mean": 0.22587430555555554,
+      "outcomes": {
+        "detected": 86,
+        "flat": 29,
+        "misplaced": 29
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 1,
+      "det": 0.08333333333333333,
+      "ci_wilson": [
+        0.014865094404917095,
+        0.35387991114111694
+      ],
+      "ci_phrases": [
+        0.0,
+        0.25
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.06426666666666667,
+      "outcomes": {
+        "flat": 11,
+        "detected": 1
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.005555555555555556,
+      "commanded_step_mean": 0.03698333333333333,
+      "outcomes": {
+        "flat": 12
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.06775833333333335,
+      "outcomes": {
+        "flat": 12
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 3,
+      "n": 36,
+      "detected": 1,
+      "det": 0.027777777777777776,
+      "ci_wilson": [
+        0.004920407139810443,
+        0.14169718653273855
+      ],
+      "ci_phrases": [
+        0.0,
+        0.08333333333333333
+      ],
+      "invalid": 0,
+      "wer_mean": 0.001851851851851852,
+      "commanded_step_mean": 0.056336111111111115,
+      "outcomes": {
+        "flat": 35,
+        "detected": 1
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "test",
+      "set_role": "test",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        6.938893903907228e-18,
+        0.07410012966611748
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.051122916666666664,
+      "outcomes": {
+        "flat": 47,
+        "misplaced": 1
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "test",
+      "set_role": "test",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 0,
+      "det": 0.0,
+      "ci_wilson": [
+        6.938893903907228e-18,
+        0.07410012966611748
+      ],
+      "ci_phrases": [
+        0.0,
+        0.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.03491875,
+      "outcomes": {
+        "flat": 48
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "test",
+      "set_role": "test",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 5,
+      "det": 0.10416666666666667,
+      "ci_wilson": [
+        0.045321719041813105,
+        0.2216742169438633
+      ],
+      "ci_phrases": [
+        0.0,
+        0.2088541666666591
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.07449791666666666,
+      "outcomes": {
+        "flat": 42,
+        "detected": 5,
+        "misplaced": 1
+      }
+    },
+    {
+      "system": "swap",
+      "role": "inpass",
+      "change": "the instruction is replaced at the sentence boundary inside one pass",
+      "hypothesis": "H2a: the instruction alone does not move the level, the generated context holds it",
+      "set": "test",
+      "set_role": "test",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 12,
+      "n": 144,
+      "detected": 5,
+      "det": 0.034722222222222224,
+      "ci_wilson": [
+        0.014920742375757766,
+        0.07870291996567921
+      ],
+      "ci_phrases": [
+        0.0,
+        0.06961805555555303
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.05351319444444444,
+      "outcomes": {
+        "flat": 137,
+        "misplaced": 2,
+        "detected": 5
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 7,
+      "det": 0.5833333333333334,
+      "ci_wilson": [
+        0.31951131254954973,
+        0.8067396863412435
+      ],
+      "ci_phrases": [
+        0.5,
+        0.75
+      ],
+      "invalid": 0,
+      "wer_mean": 0.005555555555555556,
+      "commanded_step_mean": 0.16635833333333333,
+      "outcomes": {
+        "flat": 4,
+        "misplaced": 1,
+        "detected": 7
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 5,
+      "det": 0.4166666666666667,
+      "ci_wilson": [
+        0.19326031365875665,
+        0.6804886874504503
+      ],
+      "ci_phrases": [
+        0.0,
+        0.75
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.14399166666666668,
+      "outcomes": {
+        "detected": 5,
+        "flat": 7
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 5,
+      "det": 0.4166666666666667,
+      "ci_wilson": [
+        0.19326031365875665,
+        0.6804886874504503
+      ],
+      "ci_phrases": [
+        0.25,
+        0.5
+      ],
+      "invalid": 1,
+      "wer_mean": 0.012820512820512822,
+      "commanded_step_mean": 0.15326666666666666,
+      "outcomes": {
+        "flat": 5,
+        "misplaced": 2,
+        "detected": 5
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 3,
+      "n": 36,
+      "detected": 17,
+      "det": 0.4722222222222222,
+      "ci_wilson": [
+        0.31986041515179053,
+        0.629940619770124
+      ],
+      "ci_phrases": [
+        0.25,
+        0.6666666666666666
+      ],
+      "invalid": 1,
+      "wer_mean": 0.006125356125356125,
+      "commanded_step_mean": 0.1545388888888889,
+      "outcomes": {
+        "flat": 16,
+        "misplaced": 3,
+        "detected": 17
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "test",
+      "set_role": "test",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 19,
+      "det": 0.3958333333333333,
+      "ci_wilson": [
+        0.2702082786059137,
+        0.5368959150745274
+      ],
+      "ci_phrases": [
+        0.2708333333333333,
+        0.5416666666666666
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0013020833333333333,
+      "commanded_step_mean": 0.147125,
+      "outcomes": {
+        "flat": 26,
+        "detected": 19,
+        "misplaced": 3
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "test",
+      "set_role": "test",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 13,
+      "det": 0.2708333333333333,
+      "ci_wilson": [
+        0.1656595762745644,
+        0.40996964982240613
+      ],
+      "ci_phrases": [
+        0.16666666666666666,
+        0.3958333333333333
+      ],
+      "invalid": 0,
+      "wer_mean": 0.001488095238095238,
+      "commanded_step_mean": 0.13088125,
+      "outcomes": {
+        "flat": 30,
+        "misplaced": 5,
+        "detected": 13
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "test",
+      "set_role": "test",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 17,
+      "det": 0.3541666666666667,
+      "ci_wilson": [
+        0.23433644125604858,
+        0.4956094298965691
+      ],
+      "ci_phrases": [
+        0.20833333333333334,
+        0.4791666666666667
+      ],
+      "invalid": 2,
+      "wer_mean": 0.014297385620915032,
+      "commanded_step_mean": 0.15024374999999998,
+      "outcomes": {
+        "flat": 27,
+        "detected": 17,
+        "misplaced": 2,
+        "invalid": 2
+      }
+    },
+    {
+      "system": "swap_anchor",
+      "role": "inpass",
+      "change": "swap + the head of the context is taken from a render in the second emotion",
+      "hypothesis": "H2b: a context that already sounds like the second emotion lets the level move",
+      "set": "test",
+      "set_role": "test",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 12,
+      "n": 144,
+      "detected": 49,
+      "det": 0.3402777777777778,
+      "ci_wilson": [
+        0.2679409517116232,
+        0.4209149323757358
+      ],
+      "ci_phrases": [
+        0.2708333333333333,
+        0.4236111111111111
+      ],
+      "invalid": 2,
+      "wer_mean": 0.005695854730781201,
+      "commanded_step_mean": 0.14275,
+      "outcomes": {
+        "flat": 83,
+        "detected": 49,
+        "misplaced": 10,
+        "invalid": 2
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 6,
+      "det": 0.5,
+      "ci_wilson": [
+        0.2537815976337061,
+        0.7462184023662939
+      ],
+      "ci_phrases": [
+        0.25,
+        0.75
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.3376666666666667,
+      "outcomes": {
+        "misplaced": 5,
+        "flat": 1,
+        "detected": 6
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 6,
+      "det": 0.5,
+      "ci_wilson": [
+        0.2537815976337061,
+        0.7462184023662939
+      ],
+      "ci_phrases": [
+        0.0,
+        1.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.005555555555555556,
+      "commanded_step_mean": 0.307475,
+      "outcomes": {
+        "detected": 6,
+        "misplaced": 6
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 7,
+      "det": 0.5833333333333334,
+      "ci_wilson": [
+        0.31951131254954973,
+        0.8067396863412435
+      ],
+      "ci_phrases": [
+        0.5,
+        0.75
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.31634999999999996,
+      "outcomes": {
+        "detected": 7,
+        "misplaced": 5
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 3,
+      "n": 36,
+      "detected": 19,
+      "det": 0.5277777777777778,
+      "ci_wilson": [
+        0.37005938022987594,
+        0.6801395848482095
+      ],
+      "ci_phrases": [
+        0.4166666666666667,
+        0.75
+      ],
+      "invalid": 0,
+      "wer_mean": 0.001851851851851852,
+      "commanded_step_mean": 0.3204972222222222,
+      "outcomes": {
+        "misplaced": 16,
+        "flat": 1,
+        "detected": 19
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "test",
+      "set_role": "test",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 25,
+      "det": 0.5208333333333334,
+      "ci_wilson": [
+        0.3832923230334281,
+        0.6552868382304838
+      ],
+      "ci_phrases": [
+        0.3958333333333333,
+        0.6458333333333334
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.3255666666666666,
+      "outcomes": {
+        "misplaced": 23,
+        "detected": 25
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "test",
+      "set_role": "test",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 22,
+      "det": 0.4583333333333333,
+      "ci_wilson": [
+        0.32575242292867446,
+        0.5970892545435019
+      ],
+      "ci_phrases": [
+        0.3541666666666667,
+        0.5625
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.29675416666666665,
+      "outcomes": {
+        "misplaced": 24,
+        "detected": 22,
+        "flat": 2
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "test",
+      "set_role": "test",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 23,
+      "det": 0.4791666666666667,
+      "ci_wilson": [
+        0.34471316176951616,
+        0.616707676966572
+      ],
+      "ci_phrases": [
+        0.3333333333333333,
+        0.625
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.32559791666666665,
+      "outcomes": {
+        "misplaced": 25,
+        "detected": 23
+      }
+    },
+    {
+      "system": "swap_steer",
+      "role": "inpass",
+      "change": "swap + the emitting hidden state is shifted towards the second emotion",
+      "hypothesis": "H2c: a shift of the hidden state moves the level against an unchanged context",
+      "set": "test",
+      "set_role": "test",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 12,
+      "n": 144,
+      "detected": 70,
+      "det": 0.4861111111111111,
+      "ci_wilson": [
+        0.40590508334501507,
+        0.5670389065756248
+      ],
+      "ci_phrases": [
+        0.4097222222222222,
+        0.5555555555555556
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.3159729166666667,
+      "outcomes": {
+        "misplaced": 72,
+        "detected": 70,
+        "flat": 2
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 8,
+      "det": 0.6666666666666666,
+      "ci_wilson": [
+        0.39062208887279953,
+        0.8618799089087867
+      ],
+      "ci_phrases": [
+        0.25,
+        1.0
+      ],
+      "invalid": 1,
+      "wer_mean": 0.038461538461538464,
+      "commanded_step_mean": 0.31805,
+      "outcomes": {
+        "detected": 8,
+        "misplaced": 3,
+        "flat": 1
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 9,
+      "det": 0.75,
+      "ci_wilson": [
+        0.46769466506643426,
+        0.9110583316059453
+      ],
+      "ci_phrases": [
+        0.5,
+        1.0
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.34355833333333335,
+      "outcomes": {
+        "detected": 9,
+        "misplaced": 3
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 3,
+      "n": 12,
+      "detected": 8,
+      "det": 0.6666666666666666,
+      "ci_wilson": [
+        0.39062208887279953,
+        0.8618799089087867
+      ],
+      "ci_phrases": [
+        0.5,
+        1.0
+      ],
+      "invalid": 1,
+      "wer_mean": 0.04487179487179488,
+      "commanded_step_mean": 0.3206333333333333,
+      "outcomes": {
+        "detected": 8,
+        "misplaced": 3,
+        "flat": 1
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "p2a",
+      "set_role": "dev",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 3,
+      "n": 36,
+      "detected": 25,
+      "det": 0.6944444444444444,
+      "ci_wilson": [
+        0.5314372714948966,
+        0.8199554840517008
+      ],
+      "ci_phrases": [
+        0.5,
+        1.0
+      ],
+      "invalid": 2,
+      "wer_mean": 0.027777777777777776,
+      "commanded_step_mean": 0.32741388888888884,
+      "outcomes": {
+        "detected": 25,
+        "misplaced": 9,
+        "flat": 2
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "test",
+      "set_role": "test",
+      "seed": 42,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 36,
+      "det": 0.75,
+      "ci_wilson": [
+        0.6121562719049204,
+        0.8507936632620209
+      ],
+      "ci_phrases": [
+        0.6041666666666666,
+        0.875
+      ],
+      "invalid": 0,
+      "wer_mean": 0.0,
+      "commanded_step_mean": 0.3760666666666667,
+      "outcomes": {
+        "detected": 36,
+        "misplaced": 12
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "test",
+      "set_role": "test",
+      "seed": 43,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 28,
+      "det": 0.5833333333333334,
+      "ci_wilson": [
+        0.4428133228397628,
+        0.7115033222158844
+      ],
+      "ci_phrases": [
+        0.5,
+        0.6666666666666666
+      ],
+      "invalid": 0,
+      "wer_mean": 0.001388888888888889,
+      "commanded_step_mean": 0.33805208333333336,
+      "outcomes": {
+        "detected": 28,
+        "misplaced": 20
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "test",
+      "set_role": "test",
+      "seed": 44,
+      "n_seeds": 1,
+      "n_phrases": 12,
+      "n": 48,
+      "detected": 34,
+      "det": 0.7083333333333334,
+      "ci_wilson": [
+        0.5682074019042831,
+        0.8175842107348348
+      ],
+      "ci_phrases": [
+        0.625,
+        0.8125
+      ],
+      "invalid": 2,
+      "wer_mean": 0.014297385620915032,
+      "commanded_step_mean": 0.36366875,
+      "outcomes": {
+        "misplaced": 12,
+        "detected": 34,
+        "invalid": 2
+      }
+    },
+    {
+      "system": "swap_anchor_steer",
+      "role": "inpass",
+      "change": "swap + anchor + steering",
+      "hypothesis": "H2d: the two components add up; det reaches 0.50 without a waveform join",
+      "set": "test",
+      "set_role": "test",
+      "seed": null,
+      "n_seeds": 3,
+      "n_phrases": 12,
+      "n": 144,
+      "detected": 98,
+      "det": 0.6805555555555556,
+      "ci_wilson": [
+        0.6005590539027492,
+        0.7511690771289321
+      ],
+      "ci_phrases": [
+        0.5972222222222222,
+        0.7638888888888888
+      ],
+      "invalid": 2,
+      "wer_mean": 0.00522875816993464,
+      "commanded_step_mean": 0.35926250000000004,
+      "outcomes": {
+        "detected": 98,
+        "misplaced": 44,
+        "invalid": 2
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "a": "swap",
+      "b": "nl_instruct",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.027777777777777776,
+      "det_b": 0.0,
+      "difference": 0.027777777777777776,
+      "difference_ci_phrases": [
+        0.0,
+        0.08333333333333333
+      ],
+      "a_only": 1,
+      "b_only": 0,
+      "mcnemar_p": 1.0,
+      "n_phrases": 3,
+      "phrases_a_ahead": 1,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 1.0,
+      "question": "does replacing the instruction at the boundary help? (H2a)",
+      "confirmatory": false
+    },
+    {
+      "a": "swap_anchor",
+      "b": "swap",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.4722222222222222,
+      "det_b": 0.027777777777777776,
+      "difference": 0.4444444444444444,
+      "difference_ci_phrases": [
+        0.25,
+        0.6666666666666666
+      ],
+      "a_only": 16,
+      "b_only": 0,
+      "mcnemar_p": 3.0517578125e-05,
+      "n_phrases": 3,
+      "phrases_a_ahead": 3,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.25,
+      "question": "the anchor on its own (H2b)",
+      "confirmatory": true,
+      "sign_test_p_holm": 1.0
+    },
+    {
+      "a": "swap_steer",
+      "b": "swap",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.5277777777777778,
+      "det_b": 0.027777777777777776,
+      "difference": 0.5,
+      "difference_ci_phrases": [
+        0.3333333333333333,
+        0.75
+      ],
+      "a_only": 18,
+      "b_only": 0,
+      "mcnemar_p": 7.62939453125e-06,
+      "n_phrases": 3,
+      "phrases_a_ahead": 3,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.25,
+      "question": "steering on its own (H2c)",
+      "confirmatory": true,
+      "sign_test_p_holm": 1.0
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "swap_steer",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.6944444444444444,
+      "det_b": 0.5277777777777778,
+      "difference": 0.16666666666666666,
+      "difference_ci_phrases": [
+        0.08333333333333333,
+        0.25
+      ],
+      "a_only": 9,
+      "b_only": 3,
+      "mcnemar_p": 0.14599609375,
+      "n_phrases": 3,
+      "phrases_a_ahead": 3,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.25,
+      "question": "ablation: the full system without the anchor (H2d)",
+      "confirmatory": true,
+      "sign_test_p_holm": 1.0
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "swap_anchor",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.6944444444444444,
+      "det_b": 0.4722222222222222,
+      "difference": 0.2222222222222222,
+      "difference_ci_phrases": [
+        0.0,
+        0.3333333333333333
+      ],
+      "a_only": 10,
+      "b_only": 2,
+      "mcnemar_p": 0.03857421875,
+      "n_phrases": 3,
+      "phrases_a_ahead": 2,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.5,
+      "question": "ablation: the full system without steering (H2d)",
+      "confirmatory": true,
+      "sign_test_p_holm": 1.0
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "swap",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.6944444444444444,
+      "det_b": 0.027777777777777776,
+      "difference": 0.6666666666666666,
+      "difference_ci_phrases": [
+        0.4166666666666667,
+        1.0
+      ],
+      "a_only": 24,
+      "b_only": 0,
+      "mcnemar_p": 1.1920928955078125e-07,
+      "n_phrases": 3,
+      "phrases_a_ahead": 3,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.25,
+      "question": "ablation: the full system without both components",
+      "confirmatory": false
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "nl_instruct",
+      "set": "p2a",
+      "n_pairs": 36,
+      "n_seeds": 3,
+      "det_a": 0.6944444444444444,
+      "det_b": 0.0,
+      "difference": 0.6944444444444445,
+      "difference_ci_phrases": [
+        0.5,
+        1.0
+      ],
+      "a_only": 25,
+      "b_only": 0,
+      "mcnemar_p": 5.960464477539063e-08,
+      "n_phrases": 3,
+      "phrases_a_ahead": 3,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.25,
+      "question": "the full system against the baseline",
+      "confirmatory": false
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "stitch",
+      "set": "p2a",
+      "n_pairs": 24,
+      "n_seeds": 2,
+      "det_a": 0.7083333333333334,
+      "det_b": 0.6666666666666666,
+      "difference": 0.041666666666666664,
+      "difference_ci_phrases": [
+        -0.25,
+        0.375
+      ],
+      "a_only": 5,
+      "b_only": 4,
+      "mcnemar_p": 1.0,
+      "n_phrases": 3,
+      "phrases_a_ahead": 1,
+      "phrases_b_ahead": 1,
+      "sign_test_p": 1.0,
+      "question": "the full system against the stitched reference",
+      "confirmatory": false
+    },
+    {
+      "a": "swap",
+      "b": "nl_instruct",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.034722222222222224,
+      "det_b": 0.0,
+      "difference": 0.03472222222222222,
+      "difference_ci_phrases": [
+        0.0,
+        0.06961805555555303
+      ],
+      "a_only": 5,
+      "b_only": 0,
+      "mcnemar_p": 0.0625,
+      "n_phrases": 12,
+      "phrases_a_ahead": 3,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.25,
+      "question": "does replacing the instruction at the boundary help? (H2a)",
+      "confirmatory": false
+    },
+    {
+      "a": "swap_anchor",
+      "b": "swap",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.3402777777777778,
+      "det_b": 0.034722222222222224,
+      "difference": 0.3055555555555555,
+      "difference_ci_phrases": [
+        0.23611111111111108,
+        0.38888888888888884
+      ],
+      "a_only": 47,
+      "b_only": 3,
+      "mcnemar_p": 3.708322537931963e-11,
+      "n_phrases": 12,
+      "phrases_a_ahead": 12,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.00048828125,
+      "question": "the anchor on its own (H2b)",
+      "confirmatory": true,
+      "sign_test_p_holm": 0.001953125
+    },
+    {
+      "a": "swap_steer",
+      "b": "swap",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.4861111111111111,
+      "det_b": 0.034722222222222224,
+      "difference": 0.45138888888888884,
+      "difference_ci_phrases": [
+        0.3680555555555556,
+        0.5277777777777778
+      ],
+      "a_only": 66,
+      "b_only": 1,
+      "mcnemar_p": 9.215718466126788e-19,
+      "n_phrases": 12,
+      "phrases_a_ahead": 12,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.00048828125,
+      "question": "steering on its own (H2c)",
+      "confirmatory": true,
+      "sign_test_p_holm": 0.001953125
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "swap_steer",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.6805555555555556,
+      "det_b": 0.4861111111111111,
+      "difference": 0.19444444444444442,
+      "difference_ci_phrases": [
+        0.11805555555555557,
+        0.2638888888888889
+      ],
+      "a_only": 38,
+      "b_only": 10,
+      "mcnemar_p": 6.169640777642373e-05,
+      "n_phrases": 12,
+      "phrases_a_ahead": 10,
+      "phrases_b_ahead": 1,
+      "sign_test_p": 0.01171875,
+      "question": "ablation: the full system without the anchor (H2d)",
+      "confirmatory": true,
+      "sign_test_p_holm": 0.01171875
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "swap_anchor",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.6805555555555556,
+      "det_b": 0.3402777777777778,
+      "difference": 0.34027777777777773,
+      "difference_ci_phrases": [
+        0.2569444444444444,
+        0.4305555555555555
+      ],
+      "a_only": 51,
+      "b_only": 2,
+      "mcnemar_p": 3.1796787425264483e-13,
+      "n_phrases": 12,
+      "phrases_a_ahead": 12,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.00048828125,
+      "question": "ablation: the full system without steering (H2d)",
+      "confirmatory": true,
+      "sign_test_p_holm": 0.001953125
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "swap",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.6805555555555556,
+      "det_b": 0.034722222222222224,
+      "difference": 0.6458333333333334,
+      "difference_ci_phrases": [
+        0.5555555555555556,
+        0.7361111111111112
+      ],
+      "a_only": 94,
+      "b_only": 1,
+      "mcnemar_p": 4.8467614016778965e-27,
+      "n_phrases": 12,
+      "phrases_a_ahead": 12,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.00048828125,
+      "question": "ablation: the full system without both components",
+      "confirmatory": false
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "nl_instruct",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.6805555555555556,
+      "det_b": 0.0,
+      "difference": 0.6805555555555555,
+      "difference_ci_phrases": [
+        0.5972222222222222,
+        0.7638888888888888
+      ],
+      "a_only": 98,
+      "b_only": 0,
+      "mcnemar_p": 6.310887241768095e-30,
+      "n_phrases": 12,
+      "phrases_a_ahead": 12,
+      "phrases_b_ahead": 0,
+      "sign_test_p": 0.00048828125,
+      "question": "the full system against the baseline",
+      "confirmatory": false
+    },
+    {
+      "a": "swap_anchor_steer",
+      "b": "stitch",
+      "set": "test",
+      "n_pairs": 144,
+      "n_seeds": 3,
+      "det_a": 0.6805555555555556,
+      "det_b": 0.5972222222222222,
+      "difference": 0.08333333333333336,
+      "difference_ci_phrases": [
+        -0.02777777777777778,
+        0.20138888888888887
+      ],
+      "a_only": 25,
+      "b_only": 13,
+      "mcnemar_p": 0.07295138851623051,
+      "n_phrases": 12,
+      "phrases_a_ahead": 6,
+      "phrases_b_ahead": 3,
+      "sign_test_p": 0.5078125,
+      "question": "the full system against the stitched reference",
+      "confirmatory": false
+    }
+  ],
+  "interaction": [
+    {
+      "set": "p2a",
+      "n_phrases": 3,
+      "det": {
+        "anchor=False,steer=False": 0.027777777777777776,
+        "anchor=True,steer=False": 0.47222222222222215,
+        "anchor=False,steer=True": 0.5277777777777778,
+        "anchor=True,steer=True": 0.6944444444444445
+      },
+      "interaction": -0.27777777777777773,
+      "interaction_ci_phrases": [
+        -0.4166666666666667,
+        -0.08333333333333331
+      ]
+    },
+    {
+      "set": "test",
+      "n_phrases": 12,
+      "det": {
+        "anchor=False,steer=False": 0.03472222222222222,
+        "anchor=True,steer=False": 0.34027777777777773,
+        "anchor=False,steer=True": 0.48611111111111116,
+        "anchor=True,steer=True": 0.6805555555555555
+      },
+      "interaction": -0.11111111111111112,
+      "interaction_ci_phrases": [
+        -0.19444444444444445,
+        -0.041666666666666664
+      ]
+    }
+  ],
+  "null": [
+    {
+      "condition": "swap_null",
+      "set": "p2a",
+      "n": 27,
+      "exceed": 0,
+      "rate": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.12455502974186705
+      ],
+      "abs_step_mean": 0.025933333333333336,
+      "abs_step_max": 0.0932,
+      "invalid": 0
+    },
+    {
+      "condition": "swap_null",
+      "set": "test",
+      "n": 108,
+      "exceed": 1,
+      "rate": 0.009259259259259259,
+      "ci_wilson": [
+        0.0016363608538834916,
+        0.05059345519366322
+      ],
+      "abs_step_mean": 0.04103796296296297,
+      "abs_step_max": 0.1578,
+      "invalid": 0
+    },
+    {
+      "condition": "control",
+      "set": "p2a",
+      "n": 27,
+      "exceed": 0,
+      "rate": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.12455502974186705
+      ],
+      "abs_step_mean": 0.03218518518518519,
+      "abs_step_max": 0.0913,
+      "invalid": 0
+    },
+    {
+      "condition": "plain",
+      "set": "p2a",
+      "n": 9,
+      "exceed": 0,
+      "rate": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.2991450484195441
+      ],
+      "abs_step_mean": 0.0247,
+      "abs_step_max": 0.0556,
+      "invalid": 0
+    },
+    {
+      "condition": "stitch_null",
+      "set": "p2a",
+      "n": 27,
+      "exceed": 0,
+      "rate": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.12455502974186705
+      ],
+      "abs_step_mean": 0.04785555555555557,
+      "abs_step_max": 0.1362,
+      "invalid": 0
+    },
+    {
+      "condition": "control",
+      "set": "test",
+      "n": 108,
+      "exceed": 1,
+      "rate": 0.009259259259259259,
+      "ci_wilson": [
+        0.0016363608538834916,
+        0.05059345519366322
+      ],
+      "abs_step_mean": 0.048089814814814814,
+      "abs_step_max": 0.2338,
+      "invalid": 0
+    },
+    {
+      "condition": "plain",
+      "set": "test",
+      "n": 36,
+      "exceed": 0,
+      "rate": 0.0,
+      "ci_wilson": [
+        0.0,
+        0.09641862859446367
+      ],
+      "abs_step_mean": 0.03518055555555555,
+      "abs_step_max": 0.1066,
+      "invalid": 0
+    },
+    {
+      "condition": "stitch_null",
+      "set": "test",
+      "n": 108,
+      "exceed": 3,
+      "rate": 0.027777777777777776,
+      "ci_wilson": [
+        0.009491339899289714,
+        0.07850338875023635
+      ],
+      "abs_step_mean": 0.06092314814814815,
+      "abs_step_max": 0.2392,
+      "invalid": 1
+    }
+  ],
+  "by_pair": {
+    "nl_instruct": {
+      "p2a": {
+        "angry>sad": [
+          0,
+          9
+        ],
+        "happy>sad": [
+          0,
+          9
+        ],
+        "sad>angry": [
+          0,
+          9
+        ],
+        "sad>happy": [
+          0,
+          9
+        ]
+      },
+      "test": {
+        "angry>sad": [
+          0,
+          36
+        ],
+        "happy>sad": [
+          0,
+          36
+        ],
+        "sad>angry": [
+          0,
+          36
+        ],
+        "sad>happy": [
+          0,
+          36
+        ]
+      }
+    },
+    "stitch": {
+      "p2a": {
+        "angry>sad": [
+          3,
+          6
+        ],
+        "happy>sad": [
+          2,
+          6
+        ],
+        "sad>angry": [
+          5,
+          6
+        ],
+        "sad>happy": [
+          6,
+          6
+        ]
+      },
+      "test": {
+        "angry>sad": [
+          14,
+          36
+        ],
+        "happy>sad": [
+          10,
+          36
+        ],
+        "sad>angry": [
+          33,
+          36
+        ],
+        "sad>happy": [
+          29,
+          36
+        ]
+      }
+    },
+    "swap": {
+      "p2a": {
+        "angry>sad": [
+          0,
+          9
+        ],
+        "happy>sad": [
+          1,
+          9
+        ],
+        "sad>angry": [
+          0,
+          9
+        ],
+        "sad>happy": [
+          0,
+          9
+        ]
+      },
+      "test": {
+        "angry>sad": [
+          1,
+          36
+        ],
+        "happy>sad": [
+          1,
+          36
+        ],
+        "sad>angry": [
+          2,
+          36
+        ],
+        "sad>happy": [
+          1,
+          36
+        ]
+      }
+    },
+    "swap_anchor": {
+      "p2a": {
+        "angry>sad": [
+          2,
+          9
+        ],
+        "happy>sad": [
+          3,
+          9
+        ],
+        "sad>angry": [
+          8,
+          9
+        ],
+        "sad>happy": [
+          4,
+          9
+        ]
+      },
+      "test": {
+        "angry>sad": [
+          11,
+          36
+        ],
+        "happy>sad": [
+          4,
+          36
+        ],
+        "sad>angry": [
+          17,
+          36
+        ],
+        "sad>happy": [
+          17,
+          36
+        ]
+      }
+    },
+    "swap_steer": {
+      "p2a": {
+        "angry>sad": [
+          3,
+          9
+        ],
+        "happy>sad": [
+          3,
+          9
+        ],
+        "sad>angry": [
+          6,
+          9
+        ],
+        "sad>happy": [
+          7,
+          9
+        ]
+      },
+      "test": {
+        "angry>sad": [
+          8,
+          36
+        ],
+        "happy>sad": [
+          12,
+          36
+        ],
+        "sad>angry": [
+          29,
+          36
+        ],
+        "sad>happy": [
+          21,
+          36
+        ]
+      }
+    },
+    "swap_anchor_steer": {
+      "p2a": {
+        "angry>sad": [
+          6,
+          9
+        ],
+        "happy>sad": [
+          5,
+          9
+        ],
+        "sad>angry": [
+          7,
+          9
+        ],
+        "sad>happy": [
+          7,
+          9
+        ]
+      },
+      "test": {
+        "angry>sad": [
+          19,
+          36
+        ],
+        "happy>sad": [
+          17,
+          36
+        ],
+        "sad>angry": [
+          34,
+          36
+        ],
+        "sad>happy": [
+          28,
+          36
+        ]
+      }
+    }
+  },
+  "changepoint": [
+    {
+      "system": "nl_instruct",
+      "set": "p2a",
+      "n_valid": 36,
+      "n_step": 0,
+      "median_s": null,
+      "early": 0,
+      "within": 0,
+      "late": 0
+    },
+    {
+      "system": "nl_instruct",
+      "set": "test",
+      "n_valid": 144,
+      "n_step": 0,
+      "median_s": null,
+      "early": 0,
+      "within": 0,
+      "late": 0
+    },
+    {
+      "system": "stitch",
+      "set": "p2a",
+      "n_valid": 24,
+      "n_step": 23,
+      "median_s": 0.1200000000000001,
+      "early": 2,
+      "within": 16,
+      "late": 5
+    },
+    {
+      "system": "stitch",
+      "set": "test",
+      "n_valid": 144,
+      "n_step": 115,
+      "median_s": -0.3120000000000003,
+      "early": 29,
+      "within": 86,
+      "late": 0
+    },
+    {
+      "system": "swap",
+      "set": "p2a",
+      "n_valid": 36,
+      "n_step": 1,
+      "median_s": -0.2200000000000002,
+      "early": 0,
+      "within": 1,
+      "late": 0
+    },
+    {
+      "system": "swap",
+      "set": "test",
+      "n_valid": 144,
+      "n_step": 7,
+      "median_s": -0.21300000000000008,
+      "early": 2,
+      "within": 5,
+      "late": 0
+    },
+    {
+      "system": "swap_anchor",
+      "set": "p2a",
+      "n_valid": 35,
+      "n_step": 19,
+      "median_s": -0.17300000000000004,
+      "early": 1,
+      "within": 17,
+      "late": 1
+    },
+    {
+      "system": "swap_anchor",
+      "set": "test",
+      "n_valid": 142,
+      "n_step": 59,
+      "median_s": -0.2610000000000001,
+      "early": 8,
+      "within": 49,
+      "late": 2
+    },
+    {
+      "system": "swap_steer",
+      "set": "p2a",
+      "n_valid": 36,
+      "n_step": 35,
+      "median_s": 0.2280000000000002,
+      "early": 1,
+      "within": 19,
+      "late": 15
+    },
+    {
+      "system": "swap_steer",
+      "set": "test",
+      "n_valid": 144,
+      "n_step": 142,
+      "median_s": 0.3580000000000001,
+      "early": 12,
+      "within": 70,
+      "late": 60
+    },
+    {
+      "system": "swap_anchor_steer",
+      "set": "p2a",
+      "n_valid": 34,
+      "n_step": 34,
+      "median_s": -0.12149999999999994,
+      "early": 3,
+      "within": 25,
+      "late": 6
+    },
+    {
+      "system": "swap_anchor_steer",
+      "set": "test",
+      "n_valid": 142,
+      "n_step": 142,
+      "median_s": -0.20199999999999996,
+      "early": 24,
+      "within": 98,
+      "late": 20
+    }
+  ]
+}

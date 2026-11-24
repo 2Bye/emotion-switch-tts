@@ -1,0 +1,31 @@
+{
+  "set": "steer",
+  "role": "steer",
+  "note": "Single sentences on which the steering directions are estimated. None of them is in an evaluation set.",
+  "texts": [
+    "The bakery on the corner opens before dawn.",
+    "My cousin repaired the fence behind the barn.",
+    "The lecture hall was empty by late afternoon.",
+    "A narrow bridge crosses the river near the mill.",
+    "The mechanic checked the engine and the brakes.",
+    "Our neighbours planted roses along the garden wall.",
+    "The library keeps old maps in a locked cabinet.",
+    "She carried the groceries up three flights of stairs.",
+    "The fishermen mended their nets on the pier.",
+    "A small plane landed on the frozen lake.",
+    "The students waited outside for the morning bus.",
+    "He folded the letter and put it away.",
+    "The road to the village winds through the hills.",
+    "The cook tasted the soup and added more salt.",
+    "A grey cat slept on the warm windowsill.",
+    "The clerk stamped the forms and returned them.",
+    "The orchestra tuned their instruments before the concert.",
+    "We painted the kitchen walls a pale green.",
+    "The postman left a parcel by the back door.",
+    "The children built a tall tower from wooden blocks.",
+    "A steady wind blew across the open field.",
+    "The guide led the hikers along the ridge.",
+    "The shop assistant wrapped the vase in thick paper.",
+    "They watched the harbour lights from the balcony."
+  ]
+}

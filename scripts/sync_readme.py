@@ -1,15 +1,17 @@
-"""Copy generated tables into README.md so that its numbers cannot drift from the results.
+"""Copy generated tables into a report so that its numbers cannot drift from the results.
 
-    python scripts/sync_readme.py           # rewrite the marked blocks
+    python scripts/sync_readme.py           # rewrite the marked blocks of README.md
     python scripts/sync_readme.py --check   # exit 1 if a block differs from its source
+    python scripts/sync_readme.py --file HW2.md --config configs/inpass.yaml
 
-A block in the README looks like
+A block in the report looks like
 
     <!-- table: summary.md#Main result -->
     ...copied section body...
     <!-- /table -->
 
-and is replaced by the body of the section "## Main result" of results/baseline/summary.md.
+and is replaced by the body of the section "## Main result" of summary.md in the results directory of
+the config (results/baseline/ by default).
 """
 
 from __future__ import annotations
@@ -41,13 +43,15 @@ def render(readme: str, results_dir) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--file", default="README.md")
+    ap.add_argument("--config", default="configs/baseline.yaml")
     args = ap.parse_args()
-    results_dir = ROOT / "results" / load_config("configs/baseline.yaml")["name"]
-    path = ROOT / "README.md"
+    results_dir = ROOT / "results" / load_config(args.config)["name"]
+    path = ROOT / args.file
     readme = path.read_text(encoding="utf-8")
     synced = render(readme, results_dir)
     if args.check:
-        sys.exit(0 if synced == readme else "[sync] README.md is out of date: run python scripts/sync_readme.py")
+        sys.exit(0 if synced == readme else f"[sync] {args.file} is out of date: run python scripts/sync_readme.py")
     path.write_text(synced, encoding="utf-8")
     print(f"[sync] {len(BLOCK.findall(readme))} blocks written")
 

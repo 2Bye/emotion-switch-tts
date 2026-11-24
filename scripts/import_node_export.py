@@ -10,8 +10,9 @@ For every run listed under `runs` in the config it
   * checks that each kept row is exactly the row `emoswitch.stimuli` builds from the config
     (id, text, instruction, emotions, expected sign), so the released audio is what the config says;
   * stores the audio as FLAC and verifies that the decoded samples equal the source wav;
-  * writes data/manifest.jsonl (what to evaluate) and, for probe runs, data/reference/<run>.jsonl
-    (what the node measured on the same clips, kept for comparison only: evaluation never reads it).
+  * writes the manifest (what to evaluate; data/manifest.jsonl unless the config names another) and, for
+    probe runs, data/reference/<run>.jsonl (what the node measured on the same clips, kept for comparison
+    only: evaluation never reads it).
 """
 
 from __future__ import annotations
@@ -105,7 +106,8 @@ def import_rendered_run(src: Path, expected: dict, run: str, audio_dir: Path) ->
         flac = to_flac(src / f"{row_id}.wav", audio_dir / f"{row_id}.flac")
         if flac["sha256_wav_source"] != got["sha256_wav_source"]:
             raise SystemExit(f"[import] {run}/{row_id}: wav does not match the hash in its manifest")
-        manifest.append({"run": run, **exp, "switch_time_s": got["switch_time_s"], **flac})
+        render = {"render": got["render"]} if "render" in got else {}  # how an in-pass clip was made
+        manifest.append({"run": run, **exp, "switch_time_s": got["switch_time_s"], **render, **flac})
     return manifest, {"rendered_by": "emoswitch.generate of this repository", "n_rows_released": len(manifest)}
 
 
@@ -149,9 +151,10 @@ def main() -> None:
             raise SystemExit(f"[import] {run}: neither {probe_src} nor {rendered_src} exists")
         manifest += rows
         print(f"[import] {run}: {len(rows)} clips ({provenance[run]['rendered_by']})")
-    manifest_path = ROOT / "data" / "manifest.jsonl"
+    manifest_path = ROOT / cfg.get("manifest", "data/manifest.jsonl")
     manifest_path.write_text("".join(json.dumps(m, ensure_ascii=False) + "\n" for m in manifest), encoding="utf-8")
-    (ROOT / "data" / "reference" / "provenance.json").write_text(
+    name = "provenance.json" if cfg["name"] == "baseline" else f"provenance_{cfg['name']}.json"
+    (ROOT / "data" / "reference" / name).write_text(
         json.dumps(provenance, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     print(f"[import] {len(manifest)} clips in {manifest_path.relative_to(ROOT)}")
