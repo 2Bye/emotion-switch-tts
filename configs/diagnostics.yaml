@@ -28,3 +28,15 @@ noise:
 # Robustness check 2: the same renders, other seeds and other subsets of phrases.
 resample:
   half_splits: all             # every split of the phrases of the set into two halves
+
+# Robustness check 3 (docs/plan_hw3_render.md): the chosen system and its no-switch rows rendered again
+# with the same code and checkpoint on other hardware (CPU, float32; homework 2 was rendered on CUDA in
+# bfloat16), with the seed of a homework 2 run and with new seeds.
+rerender:
+  set: test
+  conditions: [swap_anchor_steer, swap_null]
+  seeds: [42, 45, 46]
+  device: cpu
+  manifest: data/manifest_rerender.jsonl
+  audio_root: data/audio            # released as FLAC under <audio_root>/rerender_<set>_s<seed>/
+  wav_root: data/audio_rendered     # the rendered wav files, not in git
