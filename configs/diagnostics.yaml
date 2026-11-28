@@ -1,6 +1,6 @@
 # Error analysis, slices and robustness checks of the system chosen in homework 2 (homework 3).
-# Nothing is rendered and no constant of the model or of the detector is changed: the measurement and
-# the scoring are those of configs/inpass.yaml.
+# No constant of the model or of the detector is changed: the measurement and the scoring are those of
+# configs/inpass.yaml. Only the check `rerender` renders, with the code and checkpoint of homework 2.
 extends: configs/inpass.yaml
 name: diagnostics
 

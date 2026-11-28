@@ -1,0 +1,12 @@
+{
+  "passes": [
+    {
+      "n_measured": 252,
+      "seconds": 2536,
+      "device": "cpu",
+      "platform": "Darwin arm64",
+      "python": "3.11.14"
+    }
+  ],
+  "measure_fingerprint": "0f287bd16523c026"
+}

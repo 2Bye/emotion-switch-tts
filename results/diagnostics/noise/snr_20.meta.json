@@ -1,0 +1,10 @@
+{
+  "measure_fingerprint": "0f287bd16523c026",
+  "snr_db": 20.0,
+  "noise_seed": 0,
+  "n_clips": 252,
+  "seconds": 4397,
+  "device": "cpu",
+  "platform": "Darwin arm64",
+  "python": "3.11.14"
+}

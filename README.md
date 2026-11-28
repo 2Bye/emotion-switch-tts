@@ -2,6 +2,7 @@
 
 ДЗ1 курса «Исследования и разработка в ML», тема №33 из таблицы курса.
 Продолжение, ДЗ2 (два улучшения baseline и абляции): [HW2.md](HW2.md).
+ДЗ3 (анализ ошибок, срезы, устойчивость и ограничения выбранной системы): [HW3.md](HW3.md).
 
 Вопрос работы: умеет ли дообученная авторегрессионная TTS-модель сменить эмоцию на границе
 предложений внутри одного высказывания, если попросить её об этом самым простым способом, одной
@@ -1182,11 +1183,12 @@ uv run python -m emoswitch.generate --set heldout --kind inline --seed 42 --dry-
 ## Структура репозитория
 
 ```text
-├── README.md, HW2.md, LICENSE      отчёты ДЗ1 и ДЗ2
+├── README.md, HW2.md, HW3.md, LICENSE   отчёты ДЗ1, ДЗ2 и ДЗ3
 ├── pyproject.toml, uv.lock, .python-version   зависимости; точные версии в uv.lock
 ├── configs/
 │   ├── baseline.yaml                константы эксперимента и список прогонов
 │   ├── inpass.yaml                  ДЗ2: однопроходные системы, наследует baseline.yaml
+│   ├── diagnostics.yaml             ДЗ3: выбранная система, срезы, уровни шума, повторный рендер; наследует inpass.yaml
 │   └── phrases/{p2a,heldout,test,steer}.json   оценочные фразы с ролью набора; предложения для направлений сдвига
 ├── src/emoswitch/
 │   ├── config.py                    чтение конфига
@@ -1202,28 +1204,35 @@ uv run python -m emoswitch.generate --set heldout --kind inline --seed 42 --dry-
 │   ├── evaluate.py                  измерение клипов и подсчёт метрик
 │   ├── report.py                    таблицы, графики, примеры ошибок
 │   ├── experiments.py               ДЗ2: таблица экспериментов, абляции, графики
+│   ├── diagnose.py                  ДЗ3: типы пропусков, срезы, устойчивость, таблицы и графики
+│   ├── perturb.py                   ДЗ3: шум в выложенных клипах и их повторное измерение
+│   ├── rerender.py                  ДЗ3: повторный рендер выбранной системы и его измерение
 │   └── eda.py                       таблицы по данным
 ├── scripts/
 │   ├── run_baseline.sh              оценка, отчёт и проверки одной командой
 │   ├── render_baseline.sh           рендер всех прогонов из конфига
 │   ├── run_inpass.sh, render_inpass.sh   то же для однопроходных систем ДЗ2
+│   ├── run_diagnostics.sh           ДЗ3: проверка шумом и разбор ошибок одной командой
 │   ├── estimate_steer.py            оценка направлений сдвига
 │   ├── log_mlflow.py                копия записей экспериментов в локальный MLflow
 │   ├── import_node_export.py        как выложенные данные получены из прогонов узла
 │   ├── compare_with_reference.py    сверка с измерениями узла
 │   ├── eval_dropped_conditions.py   разведочное измерение отброшенных условий
-│   └── sync_readme.py               копирование таблиц в README и HW2.md
+│   └── sync_readme.py               копирование таблиц в README, HW2.md и HW3.md
 ├── data/
 │   ├── manifest.jsonl               что оценивать
 │   ├── manifest_inpass.jsonl        то же для однопроходных систем ДЗ2
+│   ├── manifest_rerender.jsonl      то же для повторного рендера ДЗ3
 │   ├── steer/                       направления сдвига
 │   ├── audio/<run>/*.flac           выложенное аудио
 │   ├── manifest_dropped.jsonl, audio_dropped/   отброшенные условия (разведочные)
 │   └── reference/                   измерения узла, происхождение прогонов, проверка генератора, журнал рендера
 ├── results/baseline/                rows.jsonl, metrics.json, measure_meta.json, таблицы, графики
 ├── results/inpass/                  ДЗ2: то же и experiments.csv, predictions.csv
+├── results/diagnostics/             ДЗ3: clips.csv, slices.csv, noise.csv, resample.csv, таблицы, графики,
+│                                    построчные измерения клипов с шумом и повторного рендера
 ├── docs/                            статистика обучающего манифеста, рецепт модели R, предрегистрация,
-│                                    снимок интерфейса MLflow
+│                                    снимок интерфейса MLflow, планы проверок ДЗ3
 └── tests/
 ```
 
