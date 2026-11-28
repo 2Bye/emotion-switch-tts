@@ -21,3 +21,6 @@ checkpoints/
 mlflow.db
 mlartifacts/
 mlruns/
+
+# noisy copies of released clips (src/emoswitch/perturb.py)
+data/audio_perturbed/
